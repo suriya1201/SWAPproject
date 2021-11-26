@@ -16,7 +16,7 @@ li a {
   display: block;
   color: black;
   text-align: center;
-  padding: 14px 16px;
+  padding: 19px 16px; /*height and width of top nav */
   text-decoration: none;
 }
 
@@ -32,6 +32,11 @@ li {
 li:last-child {
   border-right: none;
 }
+footer {
+  background-color: #F1F1F1;
+  text-align: center;
+  padding: 10px;
+}
 </style>
 <head>
 
@@ -44,4 +49,9 @@ li:last-child {
 
 
 </head>
+<body><h1>THIS SHALL BE THE BODY</h1></body>
+
+<footer>
+    Copyright &copy; Temasek Polytechnic
+    </footer>
     </html>
