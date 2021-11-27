@@ -10,7 +10,7 @@
     </head>
     <body>
         <header>
-            <a class="logo" href="/"><img src="images/logo.svg" alt="logo"></a>
+            <a class="logo" href="/"><img src="images/tplogo.jpg" alt="logo" width="60px" height="60px"></a>
             <nav>
                 <ul class="nav__links">
                     <li><a href="#">Services</a></li>
