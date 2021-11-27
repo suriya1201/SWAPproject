@@ -19,7 +19,7 @@
                 </ul>
             </nav>
             <a class="cta" href="#">Contact</a>
-            <p class="menu cta">Menu</p>
+            
         </header>
         
     
