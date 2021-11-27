@@ -1,65 +1,33 @@
 <html style="background-color:whitesmoke">
-<style type="text/css">
-ul {
-  list-style-type: none;
-  margin: 0;
-  padding: 0;
-  overflow: hidden;
-  background-color:red;
-}
-
-li {
-  float: left;
-}
-
-li a {
-  display: block;
-  color: black;
-  text-align: center;
-  padding: 19px 16px; /*height and width of top nav */
-  text-decoration: none;
-}
-
-/* Change the link color to #111 (black) on hover */
-li a:hover {
-  background-color: whitesmoke;
-}
-/* Add a gray right border to all list items, except the last item (last-child) */
-li {
-  border-right: 2px solid #bbb;
-}
-
-li:last-child {
-  border-right: none;
-}
-footer {
-  background-color: whitesmoke;
-  text-align: center;
-  padding: 10px;
-}
-
-
-</style>
 <head>
-
-<ul>
-  <li><a href="https://www.tp.edu.sg/home.html" ><img src="images/" alt="tp logo" width="19px" height="16px"></a></li>
-  <li><a href="#home">Home</a></li>
-  <li><a href="#news">News</a></li>
-  <li><a href="#contact">Contact</a></li>
-  <li style="float:right"><a class="active">Login</a></li>
-</ul>
-
-
-</head>
-<body
-
-
-
-
-><h1>THIS SHALL BE THE ITEM LISTINGS AND MAYBE FILTERS?</h1>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <title>Navbar</title>
+        <meta name="description" content="">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <link rel="stylesheet" href="styles.css">
+        <link href="https://fonts.googleapis.com/css?family=Montserrat:500&display=swap" rel="stylesheet">
+    </head>
+<body>
 
 </body>
+
+ <header>
+      <img class="logo" src="images/tplogo.png" alt="logo">
+      <nav>
+          <ul class="nav_links">
+          <li><a href="#home">Home</a></li>
+          <li><a href="#news">News</a></li>
+          <li><a href="#contact">Contact</a></li>
+
+
+          </ul>
+
+      </nav>
+       <a class="cta" href="#"><button>Login</button></a>
+
+  </header>
+
 
 
 
