@@ -1,4 +1,4 @@
-<html>
+<html style="background-color:whitesmoke">
 <style type="text/css">
 ul {
   list-style-type: none;
@@ -22,7 +22,7 @@ li a {
 
 /* Change the link color to #111 (black) on hover */
 li a:hover {
-  background-color: white;
+  background-color: whitesmoke;
 }
 /* Add a gray right border to all list items, except the last item (last-child) */
 li {
@@ -33,10 +33,12 @@ li:last-child {
   border-right: none;
 }
 footer {
-  background-color: #F1F1F1;
+  background-color: whitesmoke;
   text-align: center;
   padding: 10px;
 }
+
+
 </style>
 <head>
 
@@ -49,7 +51,7 @@ footer {
 
 
 </head>
-<body><h1>THIS SHALL BE THE BODY</h1></body>
+<body><h1>THIS SHALL BE THE ITEM LISTINGS AND MAYBE FILTERS?</h1></body>
 
 <footer>
     Copyright &copy; Temasek Polytechnic
