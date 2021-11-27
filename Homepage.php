@@ -43,7 +43,7 @@ footer {
 <head>
 
 <ul>
-  <li><a href="https://www.tp.edu.sg/home.html" ><img src="images/tplogo.jpg" alt="tp website link"></a></li>
+  <li><a href="https://www.tp.edu.sg/home.html" ><img src="images/tplogo.png" alt="tp logo" width="100px" height="16px"></a></li>
   <li><a href="#home">Home</a></li>
   <li><a href="#news">News</a></li>
   <li><a href="#contact">Contact</a></li>
