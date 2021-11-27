@@ -39,7 +39,7 @@ header {
 }
 
 .nav__links li a:hover {
-  color: #0088a9;
+  color: white;
 }
 
 .cta {
@@ -53,6 +53,6 @@ header {
 }
 
 .cta:hover {
-  background-color: rgba(0, 136, 169, 0.8);
+  background-color: rgba(255, 255, 255, 0.8);
 }
 

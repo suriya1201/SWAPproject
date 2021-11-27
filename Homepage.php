@@ -13,8 +13,7 @@
             <a class="logo" href="/"><img src="images/tplogo.jpg" alt="logo" width="60px" height="60px"></a>
             <nav>
                 <ul class="nav__links">
-                    <li><a href="#">Services</a></li>
-                    <li><a href="#"></a></li>
+                    <li><a href="#">Home</a></li>
                     <li><a href="#">About</a></li>
                 </ul>
             </nav>
