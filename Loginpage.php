@@ -1,18 +1,18 @@
 <!DOCTYPE html>
 <head>
-
-<style>
-body {  
+  <style>
+.loginbdy {  
   display: block;
   text-align: center;
   font-family: Arial, Helvetica, sans-serif;}
-form {
+
+.loginform {
   display: inline-block;
   border: 3px solid #f1f1f1;
   width: 600px;
 }
 
-input[type=text], input[type=password] {
+.logininput[type=text], .logininput[type=password] {
   width: 100%;
   padding: 12px 20px;
   margin: 8px 0;
@@ -21,7 +21,7 @@ input[type=text], input[type=password] {
   box-sizing: border-box;
 }
 
-button {
+.loginbtn {
   background-color: #04AA6D;
   color: white;
   padding: 14px 20px;
@@ -35,32 +35,27 @@ button:hover {
   opacity: 0.8;
 }
 
-.container {
+.containerLogin {
   padding-top: 50px;
   padding-right: 30px;
   padding-bottom: 50px;
   padding-left: 30px;
   width: 500px;
 }
-
-span.psw {
-  float: right;
-  padding-top: 16px;
-}
 </style>
 </head>
-<body>
+<body class="loginbdy">
 
-<form action="/Loginpage.php" method="post">
+<form class="loginform" action="/Loginpage.php" method="post">
 
-  <div class="container">
+  <div class="containerLogin">
     <label for="username"><b>Username</b></label>
-    <input type="text" placeholder="Enter Username" name="username" required>
+    <input class="logininput" type="text" placeholder="Enter Username" name="username" required>
 
     <label for="password"><b>Password</b></label>
-    <input type="password" placeholder="Enter Password" name="password" required>
+    <input class="logininput" type="password" placeholder="Enter Password" name="password" required>
         
-    <button type="submit">Login</button>
+    <button class="loginbtn" type="submit">Login</button>
     <label>
       <input type="checkbox" checked="checked" name="remember"> Remember me
     </label>
