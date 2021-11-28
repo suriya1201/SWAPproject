@@ -16,7 +16,7 @@
                     <li><a href="#">About</a></li>
                 </ul>
             </nav>
-            <a class="cta" href="#">USER IMAGE?</a>
+            <a class="cta" href="http://localhost/SWAPproject/Loginpage.php">Login</a>
             
         </header>
         
