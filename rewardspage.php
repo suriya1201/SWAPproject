@@ -27,15 +27,15 @@
         <div class="row">
    
   
-        <div class="column"><div padding=10px>item 1</div>
+        <div class="column"><div padding=10px>reward 1</div>
             
-            <img src="images/tplogo.jpg" alt="Snow" style="width:60%">
+            <img src="images/discount10.png" alt="Snow" style="width:60%">
          </div>
-         <div class="column"> <div padding=10px>item 2</div>
-             <img src="images/tplogo.jpg" alt="Forest" style="width:60%">
+         <div class="column"> <div padding=10px>reward 2</div>
+             <img src="images/discount20.png" alt="Forest" style="width:60%">
         </div>
-            <div class="column"><div padding=10px>item 3</div>
-           <img src="images/tplogo.jpg" alt="Mountains" style="width:60%">
+            <div class="column"><div padding=10px>reward 3</div>
+           <img src="images/discount30.png" alt="Mountains" style="width:60%">
           </div>
           </div>
     
