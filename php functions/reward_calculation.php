@@ -43,14 +43,11 @@ function checkpost($input) {
 		printmessage("$input field is empty");
 	
 	}
-	return true;
-}
+	else {
+		function($quantity,$points){
 
-function calculatepoints($quantity){
-    
-
-
-
+		};
+	}
 }
 
 
