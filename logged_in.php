@@ -18,7 +18,7 @@
                     <li><a href="#">Catalog</a></li>
                 </ul>
             </nav>
-            <a class="cta" href="#">Login</a>
+            <a class="cta" href="#">PLACEMENT</a>
             
         </header>
         
