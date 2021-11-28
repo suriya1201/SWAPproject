@@ -46,7 +46,7 @@ button:hover {
 </head>
 <body class="loginbdy">
 
-<form class="loginform" action="/Loginpage.php" method="post">
+<form class="loginform" action="http://localhost/SWAPproject/logged_in.php" method="post">
 
   <div class="containerLogin">
     <label for="username"><b>Username</b></label>

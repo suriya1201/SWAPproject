@@ -45,7 +45,7 @@ header {
 .cta {
   margin-left: 20px;
   padding: 9px 25px;
-  background-color: black;
+  background-color:black;
   border: none;
   border-radius: 50px;
   cursor: pointer;
@@ -58,7 +58,7 @@ header {
 
 body {
   font-family: "Montserrat", sans-serif;
-  background-color:black;
+  background-color:white;
 }
 
 * {

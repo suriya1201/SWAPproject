@@ -25,7 +25,7 @@
     </body>
 
 
-    <footer>
+    <footerss>
     Copyright &copy; Temasek Polytechnic
     </footer>
 </html>
