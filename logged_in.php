@@ -22,6 +22,20 @@
         </header>
         
     
+        <div class="row">
+   
+  
+   <div class="column"><div padding=10px>item 1</div>
+       
+       <img src="images/tplogo.jpg" alt="Snow" style="width:60%">
+    </div>
+    <div class="column"> <div padding=10px>item 2</div>
+        <img src="images/tplogo.jpg" alt="Forest" style="width:60%">
+   </div>
+       <div class="column"><div padding=10px>item 3</div>
+      <img src="images/tplogo.jpg" alt="Mountains" style="width:60%">
+     </div>
+     </div>
     </body>
 
 
