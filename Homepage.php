@@ -15,7 +15,7 @@
                 <ul class="nav__links">
                     <li><a href="#">Home</a></li>
                     <li><a href="#">About</a></li>
-                    <li><a href="#">Catalog</a></li>
+                    <li><a href="#">Rewards</a></li>
                 </ul>
             </nav>
             <a class="cta" href="http://localhost/SWAPproject/Loginpage.php">Login</a>
