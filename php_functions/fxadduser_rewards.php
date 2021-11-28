@@ -1,7 +1,7 @@
 <?php	// Creates the user table and setup accounts
 
 
-function rewards($points, $username) {
+function rewards($points, $Username) {
 
 	require "config.php";
 	
@@ -39,8 +39,8 @@ function rewards($points, $username) {
 	else printok("Selecting $db_database");
 
 
-	$query="INSERT INTO ishop.users (name, username,password, address, email, contact, role) 
-		VALUES ('$name', '$username','$password', '$address', '$email', '$contact', '$role')";
+	$query="INSERT INTO swap.rewards (Points,Username) 
+		VALUES ('$points', '$Username')";
 	$result=mysqli_query($con,$query);
 	if (!$result) {
 		printerror("Selecting $db_database",$con);
