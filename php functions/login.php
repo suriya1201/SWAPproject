@@ -19,23 +19,23 @@ if(empty($username)) {
     header("Location: Loginpage.php?error=Username is required");
     exit();
 }
-else if(empty($pass)) {
+else if(empty($password)) {
     header("Location: Loginpage.php?error=Username is required")
     exit();
 }
 
-$sql = "SELECT * FROM users WHERE user_name='$username' AND password='$password'";
+$sql = "SELECT * FROM users WHERE Username = '$username' AND Password ='$password'";
 
 $result = mysqli_query($conn, $sql);
 
 if(mysqli_num_rows($result) === 1) {
     $row = mysqli_fetch_assoc($result);
-    if($row['user_name'] === $username $$ $row['password'] === $passward) {
+    if($row['Username'] === $username $$ $row['Password'] === $password) {
         echo "Logged In";
-        $_SESSION['user_name'] = $row['user_name'];
-        $_SESSION['id'] = $row['id'];
+        $_SESSION['Username'] = $row['Username'];
+        $_SESSION['ID'] = $row['ID'];
         header("Location: logged_in.php");
-        exit()
+        exit();
     }
     else{
         header("Location: Loginpage.php?error=Incorrect Username or Password");
