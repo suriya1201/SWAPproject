@@ -2,5 +2,10 @@
 session_start();
 include "db_connection.php";
 
-if()
+if(isset($_POST['username']) && isset($_POST['password']))  {
+
+    function validate($data) {
+        
+    }
+}
 ?>
