@@ -60,7 +60,11 @@ button:hover {
       <input type="checkbox" checked="checked" name="remember"> Remember me
     </label>
 
-    <a href="#">Forgot password?</a>
+   
+  </div> 
+  <div>
+  <a href="#">Forgot password?</a><a>or</a>
+   <a href="http://localhost/SWAPproject/Registerpage.php">Register</a>
   </div>
 </form>
 
