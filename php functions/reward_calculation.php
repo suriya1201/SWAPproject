@@ -44,12 +44,13 @@ function checkpost($input) {
 	
 	}
 	else {
-		function($quantity,$points){
+		function pointsCalculation($quantity,$calpoints){
 
 		};
 	}
 }
+ $calpoints=$_POST['Points']
 
-
+rewards($calpoints);
 
 ?>
