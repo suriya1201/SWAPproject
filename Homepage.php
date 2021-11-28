@@ -6,6 +6,7 @@
         <meta name="viewport" content="width=device-width, initial-scale=1">
         <link rel="stylesheet" href="styles.css">
         <link href="https://fonts.googleapis.com/css?family=Montserrat:500&display=swap" rel="stylesheet">
+        <link rel="stylesheet" href="/w3css/3/w3.css">
     </head>
     <body>
         <header>
@@ -18,10 +19,31 @@
                 </ul>
             </nav>
             <a class="cta" href="http://localhost/SWAPproject/Loginpage.php">Login</a>
-            
-        </header>
-        
+            </header>
+
+
+            <div class="row">
+   
+  
+   <div class="column"><div padding=10px>item 1</div>
+       
+       <img src="images/tplogo.jpg" alt="Snow" style="width:60%">
+    </div>
+    <div class="column"> <div padding=10px>item 2</div>
+        <img src="images/tplogo.jpg" alt="Forest" style="width:60%">
+   </div>
+       <div class="column"><div padding=10px>item 3</div>
+      <img src="images/tplogo.jpg" alt="Mountains" style="width:60%">
+     </div>
+     </div>
+
+</body>
     
+
+
+
+
+
     </body>
 
 
