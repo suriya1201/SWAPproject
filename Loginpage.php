@@ -69,6 +69,5 @@ button:hover {
    <a href="http://localhost/SWAPproject/Registerpage.php">Register</a>
   </div>
 </form>
-
 </body>
 </html>
