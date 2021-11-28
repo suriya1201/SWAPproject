@@ -40,7 +40,7 @@ function rewards($points, $Username) {
 
 
 	$query="INSERT INTO swap.rewards (Points,Username) 
-		VALUES ('$points', '$Username')";
+		VALUES ('$Points', '$Username')";
 	$result=mysqli_query($con,$query);
 	if (!$result) {
 		printerror("Selecting $db_database",$con);
