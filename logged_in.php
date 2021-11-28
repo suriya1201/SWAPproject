@@ -2,7 +2,6 @@
     <head>
         <meta charset="utf-8">
         <meta http-equiv="X-UA-Compatible" content="IE=edge">
-        <title>Navbar</title>
         <meta name="description" content="">
         <meta name="viewport" content="width=device-width, initial-scale=1">
         <link rel="stylesheet" href="styles.css">
@@ -15,10 +14,10 @@
                 <ul class="nav__links">
                     <li><a href="#">Home</a></li>
                     <li><a href="#">About</a></li>
-                    <li><a href="#">Catalog</a></li>
+                    <li><a href="http://localhost/SWAPproject/rewardspage.php">Rewards</a></li>
                 </ul>
             </nav>
-            <a class="cta" href="#">PLACEMENT</a>
+            <a class="cta" href="#">USER IMAGE?</a>
             
         </header>
         
@@ -26,7 +25,7 @@
     </body>
 
 
-    <footer>
+    <footerss>
     Copyright &copy; Temasek Polytechnic
     </footer>
 </html>
