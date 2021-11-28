@@ -1,6 +1,8 @@
 <?php
 session_start();
 include "db_connection.php";
+require_once "purchase.php";
+
 
 if (isset($_SESSION["username"]))
 {
@@ -45,7 +47,7 @@ function checkpost($input) {
 }
 
 function calculatepoints($quantity){
-    require_once "purchase.php";
+    
 
 
 
