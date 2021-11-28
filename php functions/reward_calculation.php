@@ -28,11 +28,26 @@ function debug() {
 	echo "</pre>";
 }
 
+function printmessage($message) {
+	// echo "<script>console.log(\"$message\");</script>";
+	echo "<pre>$message<br></pre>";
+}
 
+function checkpost($input) {
 
+	$inputvalue=$_POST[$input];
 
-function calculatepoints($points,$username){
+	if (empty($inputvalue)) {
+		printmessage("$input field is empty");
+	
+	}
+	return true;
+}
+
+function calculatepoints($quantity){
     require_once "purchase.php";
+
+
 
 }
 
