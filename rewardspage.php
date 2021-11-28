@@ -20,11 +20,29 @@
             
         </header>
         
+        
+
+
+        
+        <div class="row">
+   
+  
+        <div class="column"><div padding=10px>reward 1</div>
+            
+            <img src="images/discount10.png" alt="Snow" style="width:60%">
+         </div>
+         <div class="column"> <div padding=10px>reward 2</div>
+             <img src="images/discount20.png" alt="Forest" style="width:60%">
+        </div>
+            <div class="column"><div padding=10px>reward 3</div>
+           <img src="images/discount30.png" alt="Mountains" style="width:60%">
+          </div>
+          </div>
     
     </body>
 
 
-    <footerss>
+    <footer>
     Copyright &copy; Temasek Polytechnic
     </footer>
 </html>
