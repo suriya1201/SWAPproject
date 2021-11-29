@@ -1,9 +1,3 @@
-<?php
-if (!isset($_SESSION['username'])) {
-    header("Location: Loginpage.php");
-}
-?>
-
 <!DOCTYPE html>
     <head>
         <meta charset="utf-8">
