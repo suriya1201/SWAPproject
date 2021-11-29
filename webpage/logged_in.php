@@ -13,11 +13,11 @@
             <nav>
                 <ul class="nav__links">
                     <li><a href="#">Home</a></li>
-                    <li><a href="#">About</a></li>
+                    <li><a href="#">Profile</a></li>
                     <li><a href="http://localhost/SWAPproject/webpage/rewardspage.php">Rewards</a></li>
                 </ul>
             </nav>
-            <a class="cta" href="#">USER IMAGE?</a>
+            <a class="cta" href="#">Logout</a>
             
         </header>
         
