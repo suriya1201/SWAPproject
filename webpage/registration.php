@@ -57,7 +57,7 @@ if($stmt = $con->prepare('SELECT ID, Password FROM user WHERE Username = ?')) {
             echo 'Error1 Occurred';
         }
     }
-}
+}dasdasdsad
 else {
     echo 'Error2 Occurred';
 }
