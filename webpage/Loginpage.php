@@ -48,7 +48,7 @@ button:hover {
 </head>
 <body class="loginbdy">
 
-<form class="loginform" action="http://localhost/SWAPproject/logged_in.php" method="post">
+<form class="loginform" action="login.php" method="post">
 
   <div class="containerLogin">
     <label for="username"><b>Username</b></label>
@@ -57,7 +57,7 @@ button:hover {
     <label for="password"><b>Password</b></label>
     <input class="logininput" type="password" placeholder="Enter Password" name="password" required>
         
-    <button class="loginbtn" type="submit" href="http://localhost/SWAPproject/logged_in.php">Login</button>
+    <button class="loginbtn" type="submit" >Login</button>
     <label>
       <input type="checkbox" checked="checked" name="remember"> Remember me
     </label>
