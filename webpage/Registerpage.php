@@ -19,7 +19,7 @@
             </nav>
             <a class="cta" href="#">Login</a>
         </header>
-        <form action="/action_page.php">
+        <form action="/registration.php" method="post">
             <div class="container">
                 <h1>Register</h1>
                 <p>Please fill in this form to create an account.</p>
@@ -28,14 +28,14 @@
                 <label for="username"><b>Username</b></label>
                 <input type="text" placeholder="Enter Username" name="username" id="username" required>
 
-                <label for="email"><b>Email</b></label>
-                <input type="text" placeholder="Enter Email" name="email" id="email" required>
-
                 <label for="psw"><b>Password</b></label>
                 <input type="password" placeholder="Enter Password" name="psw" id="psw" required>
 
                 <label for="psw-confirm"><b>Confirm Password</b></label>
                 <input type="password" placeholder="Confirm Password" name="psw-confirm" id="psw-confirm" required>
+
+                <label for="email"><b>Email</b></label>
+                <input type="text" placeholder="Enter Email" name="email" id="email" required>
 
                 <label for="address"><b>Address</b></label>
                 <input type="text" placeholder="Enter Address" name="address" id="address" required>
