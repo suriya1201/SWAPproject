@@ -45,7 +45,7 @@ header {
 .cta {
   margin-left: 20px;
   padding: 9px 25px;
-  background-color: black;
+  background-color:black;
   border: none;
   border-radius: 50px;
   cursor: pointer;
@@ -56,3 +56,89 @@ header {
   background-color: rgba(255, 255, 255, 0.8);
 }
 
+body {
+  font-family: "Montserrat", sans-serif;
+  background-color:white;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+.container {
+  padding: 16px;
+  background-color: white;
+}
+
+input[type=text], input[type=password] {
+  width: 100%;
+  padding: 15px;
+  margin: 5px 0 22px 0;
+  display: inline-block;
+  border: none;
+  background: #f1f1f1;
+}
+
+input[type=text]:focus, input[type=password]:focus {
+  background-color: #ddd;
+  outline: none;
+}
+
+hr {
+  border: 1px solid #f1f1f1;
+  margin-bottom: 25px;
+}
+
+.registerbtn {
+  background-color: rgb(214, 43, 43);
+  color: white;
+  padding: 16px 20px;
+  margin: 8px 0;
+  border: none;
+  cursor: pointer;
+  width: 100%;
+  opacity: 0.9;
+}
+
+.registerbtn:hover {
+  opacity: 1;
+}
+
+a {
+  color: rgb(214, 43, 43);
+}
+
+.signin {
+  background-color: #f1f1f1;
+  text-align: center;
+}
+
+
+* {
+  box-sizing: border-box;
+}
+
+.column {
+  float: left;
+  width: 33.33%;
+  padding: 5px;
+}
+
+/* Clearfix (clear floats) */
+.row::after {
+  content: "";
+  clear: both;
+  display: table;
+}
+
+/* Responsive layout - makes the three columns stack on top of each other instead of next to each other */
+@media screen and (max-width: 500px) {
+  .column {
+    width: 100%;
+  }
+}
+
+footer{
+  background: #aaa;
+  color: white;
+}
