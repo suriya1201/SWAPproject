@@ -38,5 +38,8 @@ else if(empty($contact)) {
     exit();
 }   
 
+if($stmt = $con->prepare('SELECT ID, password FROM user WHERE username = ?')) {
+    
+}
 
 ?>
