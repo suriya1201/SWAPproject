@@ -48,10 +48,10 @@ if($stmt = $con->prepare('SELECT ID, Password FROM user WHERE Username = ?')) {
     }
     else {
         if($stmt = $con->prepare('INSERT INTO user (Username, Password, Email, Address, Phone_number) VALUES (?,?,?,?,?)')) {
-            $password = password_hash($password, PASSWORD_DEFAULT);
             $stmt->bind_param('sssss', $username, $password, $email, $address, $contact);
             $stmt->execute();
-            echo 'Successfully Registered';
+            header("Location: Loginpage.php");
+            echo "<script>alert('Successfully Registered')</script>";
         }
         else {
             echo 'Error1 Occurred';
