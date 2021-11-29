@@ -20,7 +20,7 @@ if(empty($username)) {
     exit();
 }
 else if(empty($password)) {
-    header("Location: Loginpage.php?error=Username is required");
+    header("Location: Loginpage.php?error=Password is required");
     exit();
 }
 
