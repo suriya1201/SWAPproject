@@ -12,7 +12,7 @@
             <a class="logo" href="https://www.tp.edu.sg/home.html"><img src="images/tplogo.png" alt="logo" width="60px" height="60px"></a>
             <nav>
                 <ul class="nav__links">
-                    <li><a href="http://localhost/SWAPproject/webpage/rewardspage.php">Home</a></li>
+                    <li><a href="http://localhost/SWAPproject/webpage/Homepage.php">Home</a></li>
                     <li><a href="#">About</a></li>
                 </ul>
             </nav>
@@ -28,8 +28,7 @@
    
   
         <div class="column"><div padding=10px>reward 1</div>
-            
-            <img src="images/discount10.png" alt="Snow" style="width:60%">
+            <a class="r1" href="http://localhost/SWAPproject/webpage/reward1.php"></a>
          </div>
          <div class="column"> <div padding=10px>reward 2</div>
              <img src="images/discount20.png" alt="Forest" style="width:60%">
