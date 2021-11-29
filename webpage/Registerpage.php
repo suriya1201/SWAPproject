@@ -43,7 +43,7 @@
                 <label for="phone-num"><b>Phone Number</b></label>
                 <input type="text" placeholder="Enter Phone Number" name="phone-num" id="phone-num" required>
                 <hr>
-                <p>By creating an account you agree to our <a href="#">Terms & Privacy</a>.</p>
+                <p>By creating an account you agree to our <a href="#">Terms & Policy</a>.</p>
 
                 <button type="submit" class="registerbtn">Register</button>
             </div>
