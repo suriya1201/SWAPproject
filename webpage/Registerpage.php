@@ -14,7 +14,7 @@
             <a class="logo" href="/"><img src="images/tplogo.png" alt="logo" width="60px" height="60px"></a>
             <nav>
                 <ul class="nav__links">
-                    <li><a href="http://localhost/SWAPproject/Homepage.php">Home</a></li>
+                    <li><a href="http://localhost/SWAPproject/webpage/Homepage.php">Home</a></li>
                 </ul>
             </nav>
             <a class="cta" href="#">Login</a>
