@@ -1,7 +1,7 @@
 <?php	// Creates the user table and setup accounts
 
 
-function rewards($points, $Username) {
+function rewards($Points, $Username) {
 
 	require "config.php";
 	
