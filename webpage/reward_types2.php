@@ -1,5 +1,11 @@
 <!DOCTYPE html>
     <head>
+        <style>
+            .center{
+                position:absolute;
+                left:45%;
+            }
+        </style>
         <meta charset="utf-8">
         <meta http-equiv="X-UA-Compatible" content="IE=edge">
         <meta name="description" content="">
@@ -14,30 +20,30 @@
                 <ul class="nav__links">
                     <li><a href="http://localhost/SWAPproject/webpage/Homepage.php">Home</a></li>
                     <li><a href="#">About</a></li>
+                    <li><a href="http://localhost/SWAPproject/webpage/rewardspage.php">Rewards</a></li>
                 </ul>
             </nav>
             <a class="cta" href="http://localhost/SWAPproject/webpage/Loginpage.php">Login</a>
             
         </header>
-        
-        
-
-
-        
-        <div class="row">
-   
-  
-        <div class="column"><div padding=10px>reward 1</div>
-            <a class="r1" href="http://localhost/SWAPproject/webpage/reward1.php"></a>
-         </div>
-         <div class="column"> <div padding=10px>reward 2</div>
-             <img src="images/discount20.png" alt="Forest" style="width:60%">
-        </div>
-            <div class="column"><div padding=10px>reward 3</div>
-           <img src="images/discount30.png" alt="Mountains" style="width:60%">
-          </div>
-          </div>
-    
+        <h1 style="text-align:center;">Reward 2</h1>
+        <h2 style="text-align:center;">20 points</h2>
+        <img src="images/tplogo.jpg" class="center">
+        <br>
+        <br>
+        <br>
+        <br>
+        <br>
+        <br>
+        <br>
+        <br>
+        <br>
+        <br>
+        <br>
+        <br>
+        <h2 style="text-align:center;">Description2</h2>
+        <br>
+        <br>
     </body>
 
 
