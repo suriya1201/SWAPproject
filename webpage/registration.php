@@ -39,7 +39,25 @@ else if(empty($contact)) {
 }   
 
 if($stmt = $con->prepare('SELECT ID, Password FROM user WHERE Username = ?')) {
+    $stmt->bind_param('s', $_POST['username']);
+    $stmt->execute();
+    $stmt->store_result();
 
+    if($stmt->num_rows>0) {
+        echo 'Username Already Exists. Try Again';
+    }
+    else {
+        if($stmt = $con->prepare('INSERT INTO user (Username, Password, Email, Address, Phone_nuumber) VALUES (?,?,?,?,?)')) {
+            $password = password_hash($_POST['password'], PASSWORD_DEFAULT);
+            $stmt->bind_param('sssss', $_POST['username'], $password, $_POST['email'], $_POST['address'], $_POST['phone_num']);
+            $stmt->execute();
+            echo 'Successfully Registered';
+        }
+        else {
+            echo 'Error Occurred';
+        }
+    }
 }
+$stmt->close();
 
 ?>
