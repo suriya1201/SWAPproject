@@ -1,7 +1,7 @@
-<?php	// Creates the user table and setup accounts
+<?php
 
 
-function rewards($Points, $Username) {
+function addreward($reward_item, $reward_points) {
 
 	require "config.php";
 	
@@ -39,8 +39,8 @@ function rewards($Points, $Username) {
 	else printok("Selecting $db_database");
 
 
-	$query="INSERT INTO swap.rewards (Points,Username) 
-		VALUES ('$Points', '$Username')";
+	$query="INSERT INTO swap_amc.reward_types (reward_item, reward_points) 
+		VALUES ('$reward_item', '$reward_points')";
 	$result=mysqli_query($con,$query);
 	if (!$result) {
 		printerror("Selecting $db_database",$con);
@@ -54,3 +54,5 @@ function rewards($Points, $Username) {
 
 
 }
+
+?>
