@@ -27,7 +27,7 @@
   </div> 
   <div>
   <a href="#">Forgot password?</a><a>or</a>
-   <a href="http://localhost/SWAPproject/Registerpage.php">Register</a>
+   <a href="http://localhost/SWAPproject/webpage/Registerpage.php">Register</a>
   </div>
 </form>
 </body>
