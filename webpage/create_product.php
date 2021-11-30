@@ -1,7 +1,7 @@
 <html>
 <body>
 <?php
-$con = mysqli_connect("localhost","","","swap"); //connect to database
+$con = mysqli_connect("localhost","root","","swap"); //connect to database
 if (!$con){
 die('Could not connect: ' . mysqli_connect_errno()); //return error is connect fail
 }
