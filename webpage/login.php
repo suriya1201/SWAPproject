@@ -1,5 +1,6 @@
 <?php
 session_start();
+
 include "db_connection.php";
 
 if (!isset($_SESSION['username'])) {
@@ -20,17 +21,18 @@ $username = validate($_POST['username']);
 $password = validate($_POST['password']);
 
 if(empty($username)) {
-    header("Location: Loginpage.php?error=Username is required");
+    echo "<script>alert('Username is required')</script>";
     exit();
 }
 else if(empty($password)) {
-    header("Location: Loginpage.php?error=Password is required");
+    echo "<script>alert('Password is required')</script>";
     exit();
 }
 
 $sql = "SELECT * FROM user WHERE Username = '$username' AND Password ='$password'";
-
-$result = mysqli_query($con, $sql);
+$stmt = $con->prepare($sql);
+$result = $stmt->execute();
+$result = $stmt->get_result();
 
 if(mysqli_num_rows($result) === 1) {
     $row = mysqli_fetch_assoc($result);
@@ -42,7 +44,7 @@ if(mysqli_num_rows($result) === 1) {
         exit();
     }
     else{
-        header("Location: Loginpage.php?error=Incorrect Username or Password");
+        echo "<script>alert('Incorrect Username or Password')</script>";
         exit();
     }
 }
