@@ -39,7 +39,7 @@ else if(empty($contact)) {
 }   
 
 if($stmt = $con->prepare('SELECT ID, Password FROM user WHERE Username = ?')) {
-    $stmt->bind_param('s', $usernames);
+    $stmt->bind_param('s', $username);
     $stmt->execute();
     $stmt->store_result();
 
