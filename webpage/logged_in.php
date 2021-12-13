@@ -1,3 +1,10 @@
+<?php
+session_start();
+if (!isset($_SESSION["Username"])){
+    header("Location: Homepage.php");
+}
+?>
+
 <!DOCTYPE html>
     <head>
         <meta charset="utf-8">
@@ -15,9 +22,10 @@
                     <li><a href="#">Home</a></li>
                     <li><a href="#">Profile</a></li>
                     <li><a href="http://localhost/SWAPproject/webpage/rewardspage.php">Rewards</a></li>
+                    <li><a href="#">Profile</a></li>
                 </ul>
             </nav>
-            <a class="cta" href="#">Logout</a>
+            <a class="cta" href="logout.php" >Logout</a>
             
         </header>
         
