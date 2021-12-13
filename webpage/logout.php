@@ -1,8 +1,6 @@
 <?php
 session_start();
-
-session_unset();
-session_destory();
-
+unset($_SESSION["ID"]);
+unset($_SESSION["Username"]);
 header("Location: Homepage.php");
 ?>
