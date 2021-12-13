@@ -3,31 +3,8 @@ session_start();
 
 include "db_connection.php";
 
-if (!isset($_SESSION['username'])) {
-    header("Location: Loginpage.php");
-}
-
-if(isset($_POST['username']) && isset($_POST['password']))  {
-
-    function validate($data) {
-        $data = trim($data);
-        $data = stripslashes($data);
-        $data = htmlspecialchars($data);
-        return $data;
-    }
-}
-
-$username = validate($_POST['username']);
-$password = validate($_POST['password']);
-
-if(empty($username)) {
-    echo "<script>alert('Username is required')</script>";
-    exit();
-}
-else if(empty($password)) {
-    echo "<script>alert('Password is required')</script>";
-    exit();
-}
+$username = $_POST['username'];
+$password = base64_encode(hash("sha256", $_POST['password']));
 
 $sql = "SELECT * FROM user WHERE Username = '$username' AND Password ='$password'";
 $stmt = $con->prepare($sql);
