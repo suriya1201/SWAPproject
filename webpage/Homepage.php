@@ -19,10 +19,10 @@
                 </ul>
             </nav>
             <a class="cta" href="http://localhost/SWAPproject/webpage/Loginpage.php">Login</a>
-            </header>
+        </header>
 
 
-            <div class="row">
+    <div class="row">
    
   
    <div class="column"><div padding=10px>item 1</div>
@@ -36,15 +36,7 @@
       <img src="images/tplogo.jpg" alt="Mountains" style="width:60%">
      </div>
      </div>
-
 </body>
-    
-
-
-
-
-
-    </body>
 
 
     <footer>
