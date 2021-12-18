@@ -1,3 +1,11 @@
+<?php
+session_start();
+
+if (!isset($_SESSION["Username"])){
+    header("Location: Homepage.php");
+}
+
+?>
 <!DOCTYPE html>
     <head>
         <meta charset="utf-8">
@@ -21,9 +29,6 @@
             <a class="cta" href="http://localhost/SWAPproject/webpage/Loginpage.php">Login</a>
             </header>
             <div class="row">
-                
-
-
 </body>
 
     <footer>
