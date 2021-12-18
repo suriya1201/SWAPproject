@@ -17,11 +17,12 @@
                     <li><a href="#">About</a></li>
                     <?php if (isset($_SESSION["Username"])){
                         echo("<li><a href=rewardspage.php>Rewards</a></li>");
+                    } else {
+                        echo("<li><a class=cta href=Loginpage.php>Login</a></li>");
                     }
                     ?>
                 </ul>
             </nav>
-            <a class="cta" href="http://localhost/SWAPproject/webpage/Loginpage.php">Login</a>
         </header>
     <div class="row">
    
