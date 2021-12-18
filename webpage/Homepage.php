@@ -9,8 +9,7 @@
         <link rel="stylesheet" href="/w3css/3/w3.css">
     </head>
     <?php include 'navbar.php' ?>
-   
-  
+
    <div class="column"><div padding=10px>item 1</div>
        
        <img src="images/tplogo.jpg" alt="Snow" style="width:60%">
