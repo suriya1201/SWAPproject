@@ -22,7 +22,6 @@ if (!isset($_SESSION["Username"])){
                     <li><a href="#">Home</a></li>
                     <li><a href="#">Profile</a></li>
                     <li><a href="http://localhost/SWAPproject/webpage/rewardspage.php">Rewards</a></li>
-                    <li><a href="#">Profile</a></li>
                 </ul>
             </nav>
             <a class="cta" href="logout.php" >Logout</a>
