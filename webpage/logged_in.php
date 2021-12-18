@@ -20,7 +20,7 @@ if (!isset($_SESSION["Username"])){
             <nav>
                 <ul class="nav__links">
                     <li><a href="#">Home</a></li>
-                    <li><a href="#">Profile</a></li>
+                    <li><a href="Profile_page.php">Profile</a></li>
                     <li><a href="http://localhost/SWAPproject/webpage/rewardspage.php">Rewards</a></li>
                 </ul>
             </nav>
