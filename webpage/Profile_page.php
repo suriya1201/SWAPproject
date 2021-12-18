@@ -29,7 +29,8 @@ if (!isset($_SESSION["Username"])){
             <a class="cta" href="http://localhost/SWAPproject/webpage/Loginpage.php">Login</a>
             </header>
             <div class="row">
-</body>
+            
+        </body>
 
     <footer>
     Copyright &copy; Temasek Polytechnic
