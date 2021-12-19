@@ -17,6 +17,8 @@
                     <li><a href="#">About</a></li>
                     <?php if (isset($_SESSION["Username"])){
                         echo("<li><a href=rewardspage.php>Rewards</a></li>");
+                        echo("<li><a href=Profile_page.php>Profile</a></li>");
+                        echo("<li><a class=cta href=logout.php>Logout</a><li>");
                     } else {
                         echo("<li><a class=cta href=Loginpage.php>Login</a></li>");
                     }
