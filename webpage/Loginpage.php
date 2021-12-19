@@ -9,7 +9,7 @@
         <link rel="stylesheet" href="/w3css/3/w3.css">
 </head>
 <body class="loginbdy">
-
+<?php include "navbar.php" ?>
 <form class="loginform" action="login.php" method="post">
 
   <div class="containerLogin">
