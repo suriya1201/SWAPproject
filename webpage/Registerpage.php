@@ -10,15 +10,7 @@
         
     </head>
     <body>
-        <header>
-            <a class="logo" href="/"><img src="images/tplogo.png" alt="logo" width="60px" height="60px"></a>
-            <nav>
-                <ul class="nav__links">
-                    <li><a href="http://localhost/SWAPproject/webpage/Homepage.php">Home</a></li>
-                </ul>
-            </nav>
-            <a class="cta" href="#">Login</a>
-        </header>
+        <?php include "navbar.php" ?> 
         <form action="registration.php" method="post">
             <div class="container">
                 <h1>Register</h1>

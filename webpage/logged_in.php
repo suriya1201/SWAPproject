@@ -15,23 +15,7 @@ if (!isset($_SESSION["Username"])){
         <link href="https://fonts.googleapis.com/css?family=Montserrat:500&display=swap" rel="stylesheet">
     </head>
     <body>
-        <header>
-            <a class="logo" href="https://www.tp.edu.sg/home.html"><img src="images/tplogo.png" alt="logo" width="60px" height="60px"></a>
-            <nav>
-                <ul class="nav__links">
-                    <li><a href="#">Home</a></li>
-                    <li><a href="Profile_page.php">Profile</a></li>
-                    <li><a href="http://localhost/SWAPproject/webpage/rewardspage.php">Rewards</a></li>
-                </ul>
-            </nav>
-            <a class="cta" href="logout.php" >Logout</a>
-            
-        </header>
-        
-    
-        <div class="row">
-   
-  
+        <?php include "navbar.php" ?>
    <div class="column"><div padding=10px>item 1</div>
        
        <img src="images/tplogo.jpg" alt="Snow" style="width:60%">

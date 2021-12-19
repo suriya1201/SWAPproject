@@ -8,6 +8,7 @@
         <link href="https://fonts.googleapis.com/css?family=Montserrat:500&display=swap" rel="stylesheet">
         <link rel="stylesheet" href="/w3css/3/w3.css">
     </head>
+<body>
     <?php include 'navbar.php' ?>
 
    <div class="column"><div padding=10px>item 1</div>
