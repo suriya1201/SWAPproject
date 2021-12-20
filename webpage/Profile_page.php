@@ -27,9 +27,6 @@ if (!isset($_SESSION["Username"])){
                 <label for="username"><b>Username</b></label>
                 <?php echo $username; ?>
 
-                <label for="psw"><b>Password</b></label>
-                <?php echo $password; ?>
-
                 <label for="email"><b>Email</b></label>
                 <?php echo $email; ?>
 
