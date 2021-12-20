@@ -8,11 +8,11 @@ die('Could not connect: ' . mysqli_connect_errno()); //return error is connect f
 $query= $con->prepare("INSERT INTO `products` (`Product_Name`, `Product_Description`, `Price`, 
 `Quantity`, `Item_points`, 'image') VALUES
 (?,?,?,?,?.?)");
-$productname='product1';
-$productdescription = 'this is a test';
-$productprice = '$10';
-$productquantity = '50';
-$productpoints = '20';
+$productname='product2';
+$productdescription = 'this is a test2';
+$productprice = '$100';
+$productquantity = '500';
+$productpoints = '200';
 $productimage = 'torchlight.jpg'
 $query->bind_param('ssssss', $productname, $productdescription, $productprice, 
 $productquantity, $productpoints, $productimage); //bind the parameters
