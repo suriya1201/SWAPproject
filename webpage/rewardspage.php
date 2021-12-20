@@ -13,23 +13,12 @@ session_start();
     <body>
         <?php include "navbar.php" ?>
         <div class="row">
-   
-  
-        <div class="column"><div padding=10px><a class="r1" href="http://localhost/SWAPproject/webpage/reward_types1.php">reward 1</a></div>
-            
-            <img src="images/discount10.png" alt="Snow" style="width:60%">
-         </div>
-         <div class="column"> <div padding=10px><a class="r1" href="http://localhost/SWAPproject/webpage/reward_types2.php">reward 2</a></div>
-             <img src="images/discount20.png" alt="Forest" style="width:60%">
-        </div>
-            <div class="column"><div padding=10px><a class="r1" href="http://localhost/SWAPproject/webpage/reward_types3.php">reward 3</a></div>
-           <img src="images/discount30.png" alt="Mountains" style="width:60%">
-          </div>
-          </div>
-    
+
+
+        <div class="column"><div padding=10px><a class="r1" href="http://localhost/SWAPproject/webpage/createrewards.php">Create Rewards</a></div>
+
+        
     </body>
-
-
     <footer>
     Copyright &copy; Temasek Polytechnic
     </footer>
