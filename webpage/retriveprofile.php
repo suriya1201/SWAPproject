@@ -14,7 +14,6 @@ if (isset($_SESSION["Username"])){
     if($result->num_rows>0){
         $row = mysqli_fetch_assoc($result);
         $username = $row['Username'];
-        $password = base64_decode(hash("sha256", $row['Password']));
         $email = $row['Email'];
         $address = $row['Address'];
         $contact = $row['Phone_Number'];
