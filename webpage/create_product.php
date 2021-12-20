@@ -13,7 +13,7 @@ $productdescription = 'this is a test2';
 $productprice = '$100';
 $productquantity = '500';
 $productpoints = '200';
-$productimage = 'torchlight.jpg'
+$productimage = 'torchlight.jpg';
 $query->bind_param('ssssss', $productname, $productdescription, $productprice, 
 $productquantity, $productpoints, $productimage); //bind the parameters
 if ($query->execute()){ //execute query
