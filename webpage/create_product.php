@@ -6,15 +6,16 @@ if (!$con){
 die('Could not connect: ' . mysqli_connect_errno()); //return error is connect fail
 }
 $query= $con->prepare("INSERT INTO `products` (`Product_Name`, `Product_Description`, `Price`, 
-`Quantity`, `Item_points`) VALUES
-(?,?,?,?,?)");
+`Quantity`, `Item_points`, 'image') VALUES
+(?,?,?,?,?.?)");
 $productname='product1';
 $productdescription = 'this is a test';
 $productprice = '$10';
 $productquantity = '50';
 $productpoints = '20';
-$query->bind_param('sssss', $productname, $productdescription, $productprice, 
-$productquantity, $productpoints); //bind the parameters
+$productimage = 'torchlight.jpg'
+$query->bind_param('ssssss', $productname, $productdescription, $productprice, 
+$productquantity, $productpoints, $productimage); //bind the parameters
 if ($query->execute()){ //execute query
  echo "Query executed.";
 }else{
