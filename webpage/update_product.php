@@ -1,12 +1,12 @@
 <html>
 <body>
 <?php
-$con = mysqli_connect("localhost","root","","tpshop"); //connect to database
+$con = mysqli_connect("localhost","root","","tp_amc"); //connect to database
 if (!$con){
 die('Could not connect: ' . mysqli_connect_errno()); //return error is connect fail
 }
 $query= $con->prepare("UPDATE products SET Quantity=? WHERE Product_Name=?");
-$productquantity = '40';
+$productquantity = '60';
 $productname = 'product1';
 $query->bind_param('ss', $productquantity, $productname); //bind the parameters
 if ($query->execute()){
