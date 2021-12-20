@@ -7,7 +7,7 @@
 	</style>
 </head>
 <body>
-<h4 align='center'>CRUD</h4>
+<h4 align='center'>Create Rewards</h4>
 <form class="right" action="createrewards.php" method="post">
 <table align='center'>
 <tr>
@@ -16,11 +16,11 @@
 </tr>
 <tr>
 	<td>Points: </td>
-	<td><input type="text" name="rewards_points"><br></td>
+	<td><input type="text" name="reward_points"><br></td>
 </tr>
 <tr class="center">
 	<td></td>
-	<td><input type="Submit" value="Create Reward"><br></td>
+	<td><input type="Submit" value="Create"><br></td>
 </tr>
 </table>
 </form>
