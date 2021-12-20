@@ -24,6 +24,7 @@ if (!isset($_SESSION["Username"])){
                 <h1>Profile</h1>
 
                 <label for="username"><b>Username</b></label>
+                <?php ?>
 
                 <label for="psw"><b>Password</b></label>
 
