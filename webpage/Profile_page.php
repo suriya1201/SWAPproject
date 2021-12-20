@@ -17,7 +17,27 @@ if (!isset($_SESSION["Username"])){
         <link rel="stylesheet" href="/w3css/3/w3.css">
     </head>
     <body>
-            <?php include "navbar.php" ?>
+        <?php include "navbar.php" ?>
+
+        <form action="retriveprofile.php">
+            <div class="container">
+                <h1>Profile</h1>
+
+                <label for="username"><b>Username</b></label>
+
+                <label for="psw"><b>Password</b></label>
+
+                <label for="email"><b>Email</b></label>
+
+                <label for="address"><b>Address</b></label>
+
+                <label for="phone-num"><b>Phone Number</b></label>
+
+                <hr>
+
+            </div>
+        </form>
+
     </body>
     <footer>
     Copyright &copy; Temasek Polytechnic
