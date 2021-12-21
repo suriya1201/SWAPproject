@@ -17,6 +17,9 @@
     <input type="text" name="points" placeholder="productpoints">
     <br>
     <br>
+    <input type="file" name="image" placeholder="productimage">
+    <br>
+    <br>
     <button type="submit" name="submit">Add Product</button>
 </form>
 

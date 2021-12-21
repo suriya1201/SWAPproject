@@ -9,11 +9,13 @@ $productdescription = $_POST['description'];
 $productprice = $_POST['price'];
 $productquantity = $_POST['quantity'];
 $productpoints = $_POST['points'];
+$productimage = $_POST['image'];
 
 
 $query= $con->prepare("INSERT INTO `products` (`Product_Name`, `Product_Description`, `Price`, 
-`Quantity`, `Item_points`) VALUES
-('$productname', '$productdescription', '$productprice', '$productquantity', '$productpoints')");
+`Quantity`, `Item_points`, `Image`) VALUES
+('$productname', '$productdescription', '$productprice', '$productquantity', '$productpoints', '$productimage')");
+
 
 if ($query->execute()){ //execute query
  echo "Query executed.";
