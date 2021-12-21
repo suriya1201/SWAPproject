@@ -1,3 +1,5 @@
+<html>
+<body>
 <?php
 $con = mysqli_connect("localhost","root","","tp_amc"); //connect to database
 if (!$con){
@@ -23,3 +25,8 @@ if ($query->execute()){ //execute query
  echo "Error executing query.";
 }
 ?>
+<br>
+<br>
+<button onclick="window.location.href='display_product.php'">Update/Delete products here</button>
+</body>
+</html>
