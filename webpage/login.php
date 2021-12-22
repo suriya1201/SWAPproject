@@ -17,8 +17,12 @@ if(mysqli_num_rows($result) === 1) {
         echo "Logged In";
         $_SESSION['Username'] = $row['Username'];
         $_SESSION['ID'] = $row['ID'];
-        header("Location: logged_in.php");
-        exit();
+        if($row['User_type'] == 'p_admin'){
+            header("Location: create_product_form.php");
+        }else{
+            header("Location: logged_in.php");
+            exit();
+        }
     }
     else{
         echo "<script>alert('Incorrect Username or Password')</script>";
