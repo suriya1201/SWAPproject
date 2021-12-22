@@ -19,7 +19,6 @@ session_start();
 
         
     </body>
-    <footer>
-    Copyright &copy; Temasek Polytechnic
-    </footer>
+    <?php include 'footer.php' ?>
+
 </html>
