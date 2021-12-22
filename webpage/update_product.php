@@ -1,19 +1,15 @@
-<html>
-<body>
 <?php
-$con = mysqli_connect("localhost","root","","tp_amc"); //connect to database
-if (!$con){
-die('Could not connect: ' . mysqli_connect_errno()); //return error is connect fail
-}
-$query= $con->prepare("UPDATE products SET Quantity=? WHERE Product_Name=?");
-$productquantity = '60';
-$productname = 'product1';
-$query->bind_param('ss', $productquantity, $productname); //bind the parameters
+$connect = mysqli_connect("localhost","root","","tp_amc");
+$query = $connect->prepare("UPDATE products SET Product_Description=?, Price=?, Quantity=?, Item_points=?, Image=? WHERE PRODUCT_Name=?");
+$productname = $_POST["Product_Name"];
+$productdescription = $_POST["Product_Description"];
+$productprice = $_POST["Price"];
+$productquantity = $_POST["Quantity"];
+$productpoints = $_POST["Item_points"];
+$productimage = $_POST["Image"];
+$query->bind_param('ssssss', $productdescription, $productprice, $productquantity, $productpoints, $productimage, $productname);
 if ($query->execute()){
- echo "Query executed.";
-}else{
- echo "Error executing query.";
+    echo "Query executed.";
 }
 ?>
-</body>
-</html>
+<meta http-equiv="refresh" content="0;URL=display_product.php" />

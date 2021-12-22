@@ -14,6 +14,8 @@ while($query->fetch())
     echo "<td>".$productquantity."</td>";
     echo "<td>".$productpoints."</td>";
     echo "<td>".$productimage."</td>";
+    echo "<td><a href='delete_product.php?id=".$id."'>delete</a></td>";
+    echo "<td><a href='edit_product.php?id=".$id."'>edit</a></td></tr>";
 }
 echo "</table>";
 ?>
