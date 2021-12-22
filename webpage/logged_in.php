@@ -28,9 +28,6 @@ if (!isset($_SESSION["Username"])){
      </div>
      </div>
     </body>
+    <?php include 'footer.php' ?>
 
-
-    <footerss>
-    Copyright &copy; Temasek Polytechnic
-    </footer>
 </html>
