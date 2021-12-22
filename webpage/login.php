@@ -16,6 +16,7 @@ if(mysqli_num_rows($result) === 1) {
     if($row['Username'] === $username && $row['Password'] === $password) {
         echo "Logged In";
         $_SESSION['Username'] = $row['Username'];
+        $_SESSION['Role'] = $row['User_type'];
         $_SESSION['ID'] = $row['ID'];
         if($row['User_type'] == 'p_admin'){
             header("Location: create_product_form.php");
