@@ -1,3 +1,13 @@
+<?php 
+session_start();
+
+if ($_SESSION['Role'] != 'p_admin') {
+    echo "<script>alert('UNAUTHORIZED ACCESS IS NOT ALLOWED')</script>";
+    die();
+}
+
+?>
+
 <html>
 <body>
 
