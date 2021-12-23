@@ -18,7 +18,7 @@ while($row=mysqli_fetch_array($result)){
 <form action="update_product.php" class="center" method="post">
 <table align='center'>
 <tr>
-	<td>Name: </td>
+	<td>Name: (unable to edit)</td>
 	<td><input type="text" name="Product_Name" value=<?php echo $row['Product_Name'] ?>><br></td>
 </tr>
 <tr>
