@@ -9,4 +9,4 @@
     }
 ?>
 
-<meta http-equiv="refresh" content="0;URL=displayrewards.php" />
+<meta http-equiv="refresh" content="0;URL=rewardspage.php" />

@@ -24,22 +24,5 @@
 </tr>
 </table>
 </form>
-<?php
-$connect = mysqli_connect("localhost","root","","tp_amc");
-$query=$connect->prepare("SELECT ID, reward_item, reward_points FROM `reward_types`");
-$query->execute();
-$query->bind_result($id, $reward_item, $reward_points);
-echo "<table align='center' border='1'><tr>";
-echo "<th>Id</th><th>Rewards</th><th>Points</th>";
-while($query->fetch())
-{
-    echo "<tr><td>".$id."</td>";
-    echo "<td>".$reward_item."</td>";
-    echo "<td>".$reward_points."</td>";
-    echo "<td><a href='editrewards.php?id=".$id."'>edit</a></td>";
-    echo "<td><a href='deleterewards.php?id=".$id."'>delete</a></td></tr>";
-}
-echo "</table>";
-?>
 </body>
 </html>
