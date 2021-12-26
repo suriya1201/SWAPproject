@@ -1,11 +1,18 @@
 <?php
 include "db_connection.php";
 
-$username = $_POST['username'];
-$password = base64_encode(hash("sha256", $_POST['psw']));
-$email = $_POST['email'];
-$address = $_POST['address'];
-$contact = $_POST['phone-num'];
+function validate($data){
+    $data = trim($data);
+    $data = stripslashes($data);
+    $data = htmlspecialchars($data);
+    return $data;
+}
+
+$username = validate($_POST['username']);
+$password = validate(base64_encode(hash("sha256", $_POST['psw'])));
+$email = validate($_POST['email']);
+$address = validate($_POST['address']);
+$contact = validate($_POST['phone-num']);
 $role = 'user';
 
 if($stmt = $con->prepare('SELECT ID, Password FROM user WHERE Username = ?')) {
