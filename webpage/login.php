@@ -3,8 +3,15 @@ session_start();
 
 include "db_connection.php";
 
-$username = $_POST['username'];
-$password = base64_encode(hash("sha256", $_POST['password']));
+function validate($data){
+    $data = trim($data);
+    $data = stripslashes($data);
+    $data = htmlspecialchars($data);
+    return $data;
+}
+
+$username = validate($_POST['username']);
+$password = base64_encode(hash("sha256", validate($_POST['password'])));
 
 $sql = "SELECT * FROM user WHERE Username = '$username' AND Password ='$password'";
 $stmt = $con->prepare($sql);
