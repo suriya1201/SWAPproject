@@ -40,7 +40,7 @@ function recal($Points,$User_id) {
 
 
 
-    $query="INSERT INTO tp_amc.rewards (Points,User_id) #insert values
+    $query="INSERT INTO tp_amc.rewards (Points,User_id) #insert valuesws
     VALUES ('$Points','$User_id')";
 
 
