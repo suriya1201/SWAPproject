@@ -1,6 +1,5 @@
 <?php
 
-include "db_connection.php";
 
 session_start();
 if (isset($_SESSION['username'])  && $_SESSION['User_type']=="member") {
