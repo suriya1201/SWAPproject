@@ -35,12 +35,18 @@ function recal($Points,$User_id) {
 	}
 	else printok("Selecting $db_database");
 
-   $Points= $quantity*
+
+
+   require "create_purchase.php";
+
+
+   $item_points = (int)"SELECT Item_points FROM tp_amc.products WHERE $Product_Name = ID ";
+   $Points = $quantity * $item_points + 200 ;
 
 
     if (){
     $query="INSERT INTO tp_amc.rewards (Points,User_id) #insert valuesws
-    VALUES ('$Points','$User_id') WHERE ";
+    VALUES ('$Points','$User_id') ";
     }
 
 
