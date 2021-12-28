@@ -16,7 +16,7 @@ $result=mysqli_query($connect, $query);
 while($row=mysqli_fetch_array($result)){
 ?>
 <form action="updaterewards.php" class="center" method="post">
-<table align='center'>
+<table align ='center'>
 <tr>
 	<td>Reward: </td>
 	<td><input type="text" name="reward_item" value=<?php echo $row['reward_item'] ?>><br></td>
