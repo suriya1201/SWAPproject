@@ -1,18 +1,19 @@
 <?php
 
 include "db_connection.php";
+
 session_start();
 if (isset($_SESSION['username'])  && $_SESSION['User_type']=="member") {
-   function recal(){
+   require_once "member_recalculation.php";
 
    }
-}
-elseif(isset($_SESSION['username'])  && $_SESSION['User_type']=="regular"){
-	
+
+elseif(isset($_SESSION['username'])  && $_SESSION['User_type']=="VIP"){
+   require_once "VIP_recalculation.php";
 
 }
 else{
-    echo "<pre><h3><a href=loginform.php>You have not signed up as a member. This page is only for authorised users</a></h3></pre>";
+    echo "<pre><h3>You have not signed up as a member or VIP member.</h3></pre>";
 	debug();
 	die("");
 }
