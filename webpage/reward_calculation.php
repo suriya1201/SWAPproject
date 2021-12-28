@@ -1,29 +1,38 @@
 <?php
-session_start();
+
 include "db_connection.php";
-require_once "purchase.php";
+session_start();
+if (isset($_SESSION['username'])  && $_SESSION['User_type']=="member") {
+   function recal(){
 
-function printmessage($message) {
-	// echo "<script>console.log(\"$message\");</script>";
-	echo "<pre>$message<br></pre>";
+   }
 }
-
-function checkpost($input) {
-
-	$inputvalue=$_POST[$input];
-
-	if (empty($inputvalue)) {
-		printmessage("$input field is empty");
+elseif(isset($_SESSION['username'])  && $_SESSION['User_type']=="regular"){
 	
-	}
-	else {
-		function pointsCalculation($quantity,$calpoints){
 
-		};
-	}
 }
- $calpoints=$_POST['Points']
+else{
+    echo "<pre><h3><a href=loginform.php>You have not signed up as a member. This page is only for authorised users</a></h3></pre>";
+	debug();
+	die("");
+}
 
-rewards($calpoints);
+
+
+
+function debug() {
+	echo "<pre>";
+	echo "--------------------------------------------<br>";
+	echo "_SESSION<br>";
+	print_r($_SESSION);
+	echo "_COOKIE<br>";
+	print_r($_COOKIE);
+	echo "session_name()= " . session_name();
+	echo "<br>";
+	echo "session_id()= " . session_id();
+	echo "<br>";
+	echo "</pre>";
+}
+
 
 ?>
