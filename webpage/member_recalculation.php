@@ -35,14 +35,13 @@ function recal($Points,$User_id) {
 	}
 	else printok("Selecting $db_database");
 
+   $Points= $quantity*
 
 
-
-
-
+    if (){
     $query="INSERT INTO tp_amc.rewards (Points,User_id) #insert valuesws
-    VALUES ('$Points','$User_id')";
-
+    VALUES ('$Points','$User_id') WHERE ";
+    }
 
 
 
