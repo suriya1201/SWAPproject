@@ -44,17 +44,36 @@ function recal($Points,$User_id) {
    $Points = $quantity * $item_points + 200 ;
 
        $ID =$_SESSION['Id'];
-    if ("SELECT EXISTS(SELECT * FROM tp_amc.rewards WHERE User_id = $ID) " =TRUE){
+
+	   $Query="SELECT EXISTS(SELECT * FROM tp_amc.rewards WHERE User_id = $ID)" ;
+	   $Result=mysqli_query($con,$Query);
+	if (!$Result) {
+		printerror("Selecting $db_database",$con);
+		die();
+	}
+	else printok($Query);
+
+    mysqli_close($con);
+	printok("Closing connection");
+
+
+    if(!$Result=true){
+
     $query="INSERT INTO tp_amc.rewards (Points) WHERE User_id = $ID #insert values
     VALUES ('$Points','$User_id') ";
     }
-    elseif("SELECT EXISTS(SELECT * FROM tp_amc.rewards WHERE User_id = $ID) " ==FALSE){
+
+    elseif($Result=false){
 
         $query="INSERT INTO tp_amc.rewards (Points,User_id) #insert values
     VALUES ('$Points','$User_id') ";
 
 
     }
+	else{
+		printerror("Selecting $db_database",$con);
+		die();
+	}
 
 
 
