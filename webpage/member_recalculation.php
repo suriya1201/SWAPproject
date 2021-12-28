@@ -43,20 +43,18 @@ function recal($Points,$User_id) {
    $item_points = (int)"SELECT Item_points FROM tp_amc.products WHERE $Product_Name = ID ";
    $Points = $quantity * $item_points + 200 ;
 
-
-    if (){
-    $query="INSERT INTO tp_amc.rewards (Points,User_id) #insert valuesws
+       $ID =$_SESSION['Id'];
+    if ("SELECT EXISTS(SELECT * FROM tp_amc.rewards WHERE User_id = $ID) " =TRUE){
+    $query="INSERT INTO tp_amc.rewards (Points) WHERE User_id = $ID #insert values
     VALUES ('$Points','$User_id') ";
     }
+    elseif("SELECT EXISTS(SELECT * FROM tp_amc.rewards WHERE User_id = $ID) " ==FALSE){
+
+        $query="INSERT INTO tp_amc.rewards (Points,User_id) #insert values
+    VALUES ('$Points','$User_id') ";
 
 
-
-
-
-
-
-
-
+    }
 
 
 
