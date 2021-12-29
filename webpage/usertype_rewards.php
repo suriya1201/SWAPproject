@@ -3,7 +3,7 @@
 
 session_start();
 if (isset($_SESSION['username'])  && $_SESSION['User_type']=="member") {
-   require_once "member_recalculation.php";
+   require_once "fxmember_calculation.php";
 
    }
 
