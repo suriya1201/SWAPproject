@@ -47,6 +47,8 @@ function recal($Points,$User_id) {
 
 	   $Query="SELECT EXISTS(SELECT * FROM tp_amc.rewards WHERE User_id = $ID)" ;
 	   $Result=mysqli_query($con,$Query);
+
+	   
 	if (!$Result) {
 		printerror("Selecting $db_database",$con);
 		die();
@@ -57,7 +59,7 @@ function recal($Points,$User_id) {
 	printok("Closing connection");
 
 
-    if(!$Result=true){
+    if($Result=true){
 
     $query="INSERT INTO tp_amc.rewards (Points) WHERE User_id = $ID #insert values
     VALUES ('$Points','$User_id') ";
