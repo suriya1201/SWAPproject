@@ -5,7 +5,7 @@
     $Credit_card = $_POST["Credit_card"];
     $Product_Name = $_POST["Product_Name"];
     $Username = $_POST["Username"];
-    $Custom_word = $_POST["Custom_word"]
+    $Custom_word = $_POST["Custom_word"];
     $query->bind_param('ss', $Shipping_information, $Credit_card, $Product_Name, $Username, $Custom_word);
     if ($query->execute()){
         echo "Query executed.";

@@ -39,56 +39,38 @@ function recal($Points,$User_id) {
 
    require "create_purchase.php";
 
+   $name_product = (string)($Product_Name);
+   $item_points = (int)"SELECT Item_points FROM tp_amc.products WHERE Product_Name = $name_product ";
+   $Points = (int)($quantity * $item_points + 200) ;
 
-   $item_points = (int)"SELECT Item_points FROM tp_amc.products WHERE $Product_Name = ID ";
-   $Points = $quantity * $item_points + 200 ;
-
-       $ID =$_SESSION['Id'];
+       $ID =(int)$_SESSION['Id'];
 
 	   $Query="SELECT EXISTS(SELECT * FROM tp_amc.rewards WHERE User_id = $ID)" ;
 	   $Result=mysqli_query($con,$Query);
 
-	   
+
 	if (!$Result) {
 		printerror("Selecting $db_database",$con);
 		die();
-	}
-	else printok($Query);
 
+
+	}
+	else {
+		printok($Query);
+
+
+
+	}
     mysqli_close($con);
 	printok("Closing connection");
 
 
-    if($Result=true){
-
-    $query="INSERT INTO tp_amc.rewards (Points) WHERE User_id = $ID #insert values
-    VALUES ('$Points','$User_id') ";
-    }
-
-    elseif($Result=false){
-
-        $query="INSERT INTO tp_amc.rewards (Points,User_id) #insert values
-    VALUES ('$Points','$User_id') ";
-
-
-    }
-	else{
-		printerror("Selecting $db_database",$con);
-		die();
-	}
+   
 
 
 
 
-    $result=mysqli_query($con,$query);
-	if (!$result) {
-		printerror("Selecting $db_database",$con);
-		die();
-	}
-	else printok($query);
-
-    mysqli_close($con);
-	printok("Closing connection");
+    
 
 
 
