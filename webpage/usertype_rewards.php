@@ -8,14 +8,14 @@ if (isset($_SESSION['username'])  && $_SESSION['User_type']=="member") {
    }
 
 elseif(isset($_SESSION['username'])  && $_SESSION['User_type']=="VIP"){
-   require_once "VIP_recalculation.php";
+   require_once "fxVIP_calculation.php";
 
 }
 else{
     echo "<pre><h3>You have not signed up as a member or VIP member. 
 	                    You do not get extra points.                 </h3></pre>";
 
-	require_once "normal_recalculation.php";				
+	require_once "fxuser_calculation.php";				
 	debug();
 	die("");
 }
