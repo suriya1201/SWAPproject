@@ -37,35 +37,51 @@ function recal($Points,$User_id) {
 
 
 
-   require "create_purchase.php";
-
+   
+   require_once "create_purchase.php";
    $name_product = (string)($Product_Name);
    $item_points = (int)"SELECT Item_points FROM tp_amc.products WHERE Product_Name = $name_product ";
    $Points = (int)($quantity * $item_points + 200) ;
 
-       $ID =(int)$_SESSION['Id'];
+       $User_id =(int)$_SESSION['Id'];
 
-	   $Query="SELECT EXISTS(SELECT * FROM tp_amc.rewards WHERE User_id = $ID)" ;
+	   $Query="SELECT EXISTS(SELECT * FROM tp_amc.rewards WHERE User_id = $User_id)" ;
 	   $Result=mysqli_query($con,$Query);
 
 
 	if (!$Result) {
-		printerror("Selecting $db_database",$con);
-		die();
+		$query="INSERT INTO tp_amc.rewards (Points,User_id) 
+		VALUES ('$Points','$User_id' )";
+        $result=mysqli_query($con,$query);
+		if (!$result) {
+			printerror("Selecting $db_database",$con);
+			die();
+		}
+		else printok($query);
+	
+		mysqli_close($con);
+		printok("Closing connection");
 
-
-	}
+    }
 	else {
-		printok($Query);
+
+	};
 
 
 
-	}
+
+
     mysqli_close($con);
 	printok("Closing connection");
 
 
-   
+
+
+
+
+
+
+	
 
 
 
