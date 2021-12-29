@@ -41,7 +41,7 @@ function recal($Points,$User_id) {
    require_once "create_purchase.php";
    $name_product = (string)($Product_Name);
    $item_points = (int)"SELECT Item_points FROM tp_amc.products WHERE Product_Name = $name_product ";
-   $Points = (int)($quantity * $item_points + 200) ;
+   $Points = (int)($quantity * $item_points + 500) ;
 
        $User_id =(int)$_SESSION['Id'];
 
