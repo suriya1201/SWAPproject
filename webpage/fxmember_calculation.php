@@ -66,8 +66,8 @@ function recal($Points,$User_id) {
 	else {
 
 
-		$query="INSERT INTO tp_amc.rewards (Points) 
-		VALUES ('$Points') WHERE ";
+		$query="UPDATE tp_amc.rewards SET Points = $Points
+		WHERE User_id=$User_id ";
         $result=mysqli_query($con,$query);
 		if (!$result) {
 			printerror("Selecting $db_database",$con);
