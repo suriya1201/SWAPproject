@@ -65,6 +65,19 @@ function recal($Points,$User_id) {
     }
 	else {
 
+
+		$query="INSERT INTO tp_amc.rewards (Points) 
+		VALUES ('$Points') WHERE ";
+        $result=mysqli_query($con,$query);
+		if (!$result) {
+			printerror("Selecting $db_database",$con);
+			die();
+		}
+		else printok($query);
+	
+		mysqli_close($con);
+		printok("Closing connection");
+
 	};
 
 
