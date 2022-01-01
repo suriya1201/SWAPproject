@@ -18,26 +18,24 @@ if (!isset($_SESSION["Username"])){
     </head>
     <body>
         <?php include "navbar.php" ?>
-        <?php include "retriveprofile.php" ?>
+        <?php include "retrieveprofile.php" ?>
 
-        <form>
+        <form action="" method="post">
             <div class="container">
                 <h1>Profile</h1>
 
                 <label for="username"><b>Username</b></label>
-                <?php echo $username; ?>
+                <input type="text" placeholder="Username" value="<?php echo $username; ?>" name="username" id="username" required>
 
                 <label for="email"><b>Email</b></label>
-                <?php echo $email; ?>
+                <input type="email" placeholder="Enter Email" value="<?php echo $email; ?>" name="email" id="email" required>
 
                 <label for="address"><b>Address</b></label>
-                <?php echo $address; ?>
+                <input type="text" placeholder="Enter Address" value="<?php echo $address; ?>" name="address" id="address" required>
 
                 <label for="phone-num"><b>Phone Number</b></label>
-                <?php echo $contact; ?>
-
+                <input type="text" placeholder="Enter Phone Number" value="<?php echo $contact; ?>" name="phone-num" id="phone-num" required>
                 <hr>
-
             </div>
         </form>
 
