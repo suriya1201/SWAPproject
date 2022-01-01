@@ -20,7 +20,7 @@ if (!isset($_SESSION["Username"])){
         <?php include "navbar.php" ?>
         <?php include "retrieveprofile.php" ?>
 
-        <form action="" method="post">
+        <form action="updateprofile.php" method="post">
             <div class="container">
                 <h1>Profile</h1>
 
@@ -36,6 +36,8 @@ if (!isset($_SESSION["Username"])){
                 <label for="phone-num"><b>Phone Number</b></label>
                 <input type="text" placeholder="Enter Phone Number" value="<?php echo $contact; ?>" name="phone-num" id="phone-num" required>
                 <hr>
+
+                <button type="submit" class="registerbtn">Update</button>
             </div>
         </form>
 
