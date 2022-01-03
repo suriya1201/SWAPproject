@@ -7,36 +7,49 @@ function validate($data){
     $data = htmlspecialchars($data);
     return $data;
 }
+$password = $_POST['psw']
+$password_conf = $_POST['psw-confirm'] 
 
-$username = validate($_POST['username']);
-$password = validate(base64_encode(hash("sha256", $_POST['psw'])));
-$email = validate($_POST['email']);
-$address = validate($_POST['address']);
-$contact = validate($_POST['phone-num']);
-$role = 'user';
-
-if($stmt = $con->prepare('SELECT ID, Password FROM user WHERE Username = ?')) {
-    $stmt->bind_param('s', $username);
-    $stmt->execute();
-    $stmt->store_result();
-
-    if($stmt->num_rows>0) {
-        echo 'Username Already Exists. Try Again';
-    }
-    else {
-        if($stmt = $con->prepare('INSERT INTO user (Username, Password, Email, Address, Phone_number, User_type) VALUES (?,?,?,?,?,?)')) {
-            $stmt->bind_param('ssssss', $username, $password, $email, $address, $contact, $role);
+$email_sql = "SELECT * FROM user WHERE Email=?";
+$stmt->bind_param('s', $email);
+$stmt->execute();
+$stmt->store_resullt();
+if($stmt->numb_rows<0){
+    if ($password == $password_conf) {
+        $username = validate($_POST['username']);
+        $password = validate(base64_encode(hash("sha256", $_POST['psw'])));
+        $email = validate($_POST['email']);
+        $address = validate($_POST['address']);
+        $contact = validate($_POST['phone-num']);
+        $role = 'user';
+        
+        if($stmt = $con->prepare('SELECT ID, Password FROM user WHERE Username = ?')) {
+            $stmt->bind_param('s', $username);
             $stmt->execute();
-            header("Location: Loginpage.php");
-            echo "<script>alert('Successfully Registered')</script>";
+            $stmt->store_result();
+            if($stmt->num_rows>0) {
+                echo 'Username Already Exists. Try Again';
+            }
+            else {
+                if($stmt = $con->prepare('INSERT INTO user (Username, Password, Email, Address, Phone_number, User_type) VALUES (?,?,?,?,?,?)')) {
+                    $stmt->bind_param('ssssss', $username, $password, $email, $address, $contact, $role);
+                    $stmt->execute();
+                    header("Location: Loginpage.php");
+                    echo "<script>alert('Successfully Registered')</script>";
+                }
+                else {
+                    echo 'Error1 Occurred';
+                }
+            }
         }
         else {
-            echo 'Error1 Occurred';
+            echo 'Error2 Occurred';
         }
+    else {
+        echo "<script>alert('The two passwords do not match')</script>";
     }
-}
-else {
-    echo 'Error2 Occurred';
+} else {
+    echo "<script>alert('Email already exisits')</script>";
 }
 
 ?>
