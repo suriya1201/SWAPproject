@@ -14,7 +14,7 @@ if (isset($_SESSION["Username"])) {
     $email  = validate($_POST['email']);
     $address = validate($_POST['address']);
     $contact = validate($_POST['phone-num']);
-    $sql = "UPDATE user SET Username=? , Email=? , Address=? , Phone_number=? WHERE Username = '$user'";
+    $sql = "UPDATE user SET Username=?,Email=?,Address=?,Phone_number=? WHERE Username='$user'";
 
     if($stmt = $con->prepare($sql)) {
         $stmt->bind_param('ssss', $username, $email, $address, $contact);
