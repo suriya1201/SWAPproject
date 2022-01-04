@@ -1,39 +1,10 @@
 <?php 
 
 function recal($Points,$User_id) {
-    require "config.php";
-    function printerror($message, $con) {
-		echo "<pre>";
-		echo "$message<br>";
-		if ($con) echo "FAILED: ". mysqli_error($con). "<br>";
-		echo "</pre>";
-	}
-
-	function printok($message) {
-		echo "<pre>";
-		echo "$message<br>";
-		echo "OK<br>";
-		echo "</pre>";
-	}
-
-	try {
-	$con=mysqli_connect($db_hostname,$db_username,$db_password);
-	}
-	catch (Exception $e) {
-		printerror($e->getMessage(),$con);
-	}
-	if (!$con) {
-		printerror("Connecting to $db_hostname", $con);
-		die();
-	}
-	else printok("Connecting to $db_hostname");
-
-	$result=mysqli_select_db($con, $db_database);
-	if (!$result) {
-		printerror("Selecting $db_database",$con);
-		die();
-	}
-	else printok("Selecting $db_database");
+$con = mysqli_connect("localhost","root","","");
+if(!$con){
+	die('could not connect:'.mysqli_connect_errno());
+}
 
 
 
