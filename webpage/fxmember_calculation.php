@@ -42,6 +42,6 @@ if ($query->execute()){
 
 
 mysqli_close($con);
-printok("Closing connection");
+
 
 ?>
