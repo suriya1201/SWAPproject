@@ -12,9 +12,6 @@ elseif(isset($_SESSION['username'])  && $_SESSION['User_type']=="VIP"){
 
 }
 else{
-    echo "<pre><h3>You have not signed up as a member or VIP member. 
-	                    You do not get extra points.                 </h3></pre>";
-
 	require_once "fxuser_calculation.php";				
 	debug();
 	die("");
