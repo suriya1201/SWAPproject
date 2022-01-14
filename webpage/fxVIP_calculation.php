@@ -7,7 +7,7 @@ if(!$con){
 require "create_purchase.php";
 $name_product = $Product_Name;
 $item_points = "SELECT Item_points FROM tp_amc.products WHERE Product_Name = $name_product ";
-$Points = ($quantity * $item_points + 200) ;
+$Points = ($quantity * $item_points + 400) ;
 
 $User_id =$_SESSION['Id'];
 
