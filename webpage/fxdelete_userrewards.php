@@ -1,8 +1,8 @@
 <?php 
-$connect = mysqli_connect("localhost","root","","tp_amc");
+$con = mysqli_connect("localhost","root","","tp_amc");
 
 
-$query= $connect->prepare("DELETE FROM rewards WHERE Points= 0 ");
+$query= $con->prepare("DELETE FROM rewards WHERE Points= 0 ");
 if ($query->execute()) {
     echo "Query executed.";
 }
@@ -18,5 +18,5 @@ if ($query->execute()) {
 
 
 
-
+mysqli_close($con);
 ?>
