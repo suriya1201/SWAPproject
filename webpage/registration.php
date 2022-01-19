@@ -4,7 +4,7 @@ include "db_connection.php";
 function validate($data){
     $data = trim($data);
     $data = stripslashes($data);
-    $data = htmlspecialchars($data);
+    $data = htmlspecialchars($data); 
     return $data;
 }
 $password = $_POST['psw']
