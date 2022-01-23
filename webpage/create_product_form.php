@@ -8,6 +8,8 @@ if ($_SESSION['Role'] != 'p_admin') {
 
 ?>
 
+<?php include 'adminnavbar.php' ?>
+
 <html>
 <body>
 

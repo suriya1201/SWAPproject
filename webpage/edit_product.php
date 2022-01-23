@@ -1,3 +1,5 @@
+<?php include 'adminnavbar.php' ?>
+
 <html>
 <head>
 	<style>
@@ -19,7 +21,7 @@ while($row=mysqli_fetch_array($result)){
 <table align='center'>
 <tr>
 	<td>Name: (unable to edit)</td>
-	<td><input type="text" name="Product_Name" value=<?php echo $row['Product_Name'] ?>><br></td>
+	<td><input type="text" name="Product_Name" value=<?php echo $row['Product_Name'] ?> readonly><br></td>
 </tr>
 <tr>
 	<td>Description: </td>

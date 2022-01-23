@@ -1,3 +1,5 @@
+<?php include 'adminnavbar.php' ?>
+
 <html>
 <body>
 <?php
@@ -30,3 +32,4 @@ if ($query->execute()){ //execute query
 <button onclick="window.location.href='display_product.php'">Update/Delete products here</button>
 </body>
 </html>
+
