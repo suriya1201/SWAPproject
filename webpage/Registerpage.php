@@ -10,7 +10,9 @@
 </head>
 
     <body>
-        <?php include "navbar.php" ?> 
+        <?php include "navbar.php"
+        ?> 
+
         <form action="registration.php" method="post">
             <div class="container">
                 <h1>Register</h1>
