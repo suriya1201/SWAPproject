@@ -24,7 +24,7 @@ if($password == $password_conf){
     $address = validate($_POST['address']);
     $contact = validate($_POST['phone-num']);
     $role = 'user';
-    
+
     $email_sql = "SELECT * FROM user WHERE Email=?";
     $stmt->bind_param('s', $email);
     $stmt->execute();
