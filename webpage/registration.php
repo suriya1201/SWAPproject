@@ -9,10 +9,10 @@ function validate($data){
 }
 $regex_check = 1;
 
-$username_regex = "[A-Za-z0-9 ]*"; #For password also
-$email_regex = "^[a-zA-Z0-9_.+-]+@[a-zA-Z0-9-]+\.[a-zA-Z0-9-.]+";
-$contact_regex = "\b\d{8}\b";
-$address_regex = "[A-Za-z0-9 .,#-]*";
+$username_regex = "/^[A-Za-z0-9 ]+$/"; #For password also
+$email_regex = "/^[a-zA-Z0-9_.+-]+@[a-zA-Z0-9-]+\.[a-zA-Z0-9-.]+/";
+$contact_regex = "/\b\d{8}\b/";
+$address_regex = "/^[A-Za-z0-9 .,#-]+$/";
 
 $password_conf = $_POST['psw-confirm'];
 $password = $_POST['psw'];
@@ -25,11 +25,11 @@ if($password == $password_conf){
     $contact = validate($_POST['phone-num']);
     $role = 'user';
 
-    $email_sql = "SELECT * FROM user WHERE Email=?";
+    $stmt = $con->prepare("SELECT * FROM user WHERE Email=?");
     $stmt->bind_param('s', $email);
     $stmt->execute();
-    $stmt->store_resullt();
-    if ($stmt->numb_rows<0) {
+    $stmt->store_result();
+    if ($stmt->num_rows==0) {
         $username = validate($_POST['username']);
         $password = validate(base64_encode(hash("sha256", $_POST['psw'])));
         $email = validate($_POST['email']);
@@ -82,13 +82,13 @@ if($password == $password_conf){
                 echo 'Error2 Occurred';
             } 
         }
-        else {
-            echo "<script>alert('The two passwords do not match')</script>";
-        }
+        
     }
     else {
         echo "<script>alert('Email already exisits')</script>";
     }
+} 
+else {
+    echo "<script>alert('The two passwords do not match')</script>";
 }
-
 ?>

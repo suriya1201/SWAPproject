@@ -1,9 +1,6 @@
 <?php
-$connect = mysqli_connect("localhost","root","","tp_amc");
-
-if(!$con){
-	die('could not connect:'.mysqli_connect_errno());
-}
+session_start();
+include "db_connection.php";
 
 require "rewardspage.php";
 $reward = $reward_item;
@@ -24,7 +21,7 @@ if ($query->execute()){
         echo $query->error;
         echo "You do not have enough points";
     }
-
+require_once "fxdelete_userrewards.php";
 
 
 mysqli_close($con);
