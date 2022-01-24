@@ -11,10 +11,11 @@ $link = \Sonata\GoogleAuthenticator\GoogleQrUrl::generate( $email, $secret,'TP A
 
  
 if (isset($_POST['submit2'])){
-    $code= $_POST["password"];
-    if ($g->checkCode($secret,$code)) {
-      header("Location:http://localhost/SWAPproject/webpage/logged_in.php");
-    } else {
+    $code= $_POST['password2'];
+    if ($g->checkCode($secret, $code)) {
+        header("Location:http://localhost/SWAPproject/webpage/logged_in.php");
+    } 
+    else {
       echo '<script>alert("You have typed in the wrong OTP")</script>';
     }
     
@@ -48,7 +49,7 @@ if (isset($_POST['submit2'])){
   <div class="containerLogin">
 
     <label for="passcode"><b>Enter OTP from Google authenticator app </b></label>
-    <input  type="text" placeholder="Enter OTP" name="password" required></input>
+    <input  type="text" placeholder="Enter OTP" name="password2"></input>
     <button class="loginbtn" type="submit" name="submit2">SUBMIT</button>
     
     
