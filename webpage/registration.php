@@ -1,7 +1,6 @@
 <?php
-
 include "db_connection.php";
-include "email_verification.php";
+
 function validate($data){
     $data = trim($data);
     $data = stripslashes($data);
