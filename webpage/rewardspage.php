@@ -1,5 +1,9 @@
 <?php 
-session_start();
+include "session_regen.php";
+if ($_SESSION['Role'] != 'r_admin') {
+    echo "<script>alert('UNAUTHORIZED ACCESS IS NOT ALLOWED')</script>";
+    die();
+}
 ?>
 <!DOCTYPE html>
     <head>
