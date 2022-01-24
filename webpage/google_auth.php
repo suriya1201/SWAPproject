@@ -1,37 +1,32 @@
 <?php
 declare(strict_types=1);
 require 'vendor/autoload.php';
-
-
-
-
  
-
-
-
-
-
 $g =new \Sonata\GoogleAuthenticator\GoogleAuthenticator();
-$email="admin@gmail.com";
 $secret = $g->generateSecret();
-
+$email="admin@gmail.com";
 $link = \Sonata\GoogleAuthenticator\GoogleQrUrl::generate( $email, $secret,'TP AMC SHOP');
+
+
+
  
-if (isset($_POST['submit'])){
-    $pass =$_POST['passcode'];
-   
-    if ($g->checkCode($secret, $code)) {
-        echo "YES \n";
+if (isset($_POST['submit2'])){
+    $code= $_POST["password"];
+    if ($g->checkCode($secret,$code)) {
+      header("Location:http://localhost/SWAPproject/webpage/logged_in.php");
     } else {
-        echo "NO \n";
+      echo '<script>alert("You have typed in the wrong OTP")</script>';
     }
     
 }
 
 ?>
+
+
 <!DOCTYPE html>
 
 <html>
+  
 
 <head>
         <meta charset="utf-8">
@@ -46,22 +41,25 @@ if (isset($_POST['submit'])){
 
     <body class="loginbdy">
        
-<form class="loginform" action="submit" method="post">
+<form class="loginform" method="post">
+  <br><br>
+  <label for="OTP"><b>Scan QR code using google authenticator </b></label><br><br>
 <img src="<?=$link?>">
   <div class="containerLogin">
 
-    <label for="OTP"><b>Enter OTP from Google authenticator app </b></label>
-    <input  type="password" placeholder="Enter OTP" name="password" required>
-        
-    <button class="loginbtn" type="submit" >Login</button>
+    <label for="passcode"><b>Enter OTP from Google authenticator app </b></label>
+    <input  type="text" placeholder="Enter OTP" name="password" required></input>
+    <button class="loginbtn" type="submit" name="submit2">SUBMIT</button>
     
     
   </div> 
   
  
-</form> <br>
-</body>
+</form> 
+</body><br>
 
-<footer><?php include 'footer.php' ?></footer>
+<div>
+<?php include "footer.php" ?>
+</div>
 
 </html>
