@@ -4,7 +4,7 @@
 <html>
 <body>
 <?php
-$con = mysqli_connect("localhost","root","","tp_amc.sql"); //connect to database
+$con = mysqli_connect("localhost","root","","tp_amc"); //connect to database
 if (!$con){
 die('Could not connect: ' . mysqli_connect_errno()); //return error is connect fail
 }
@@ -18,16 +18,38 @@ $productimage = htmlspecialchars($_POST['image']);
 
 $regex_check = 1;
 
-$namepattern = "/^[A-Za-z0-9 ]+$/";
-if(!preg_match($namepattern, $productname)){
-    echo "Please ensure that your username contains only numbers and alphabets";
+$patterncheck = "/^[A-Za-z0-9 ]+$/";
+$numbercheck = "/^[0-9]+$/";
+
+if(!preg_match($patterncheck, $productname)){
+    echo "<script>alert('Please ensure that the name contains only numbers and alphabets')</script>";
     $regex_check = 0;
 }
 
+if(!preg_match($patterncheck, $productdescription)){
+    echo "<script>alert('Please ensure that the description contains only numbers and alphabets')</script>";
+    $regex_check = 0;
+}
+
+if(!preg_match($numbercheck, $productprice)){
+    echo "<script>alert('Please ensure that the price contains only numbers')</script>";
+    $regex_check = 0;
+}
+
+if(!preg_match($numbercheck, $productquantity)){
+    echo "<script>alert('Please ensure that the quantity contains only numbers')</script>";
+    $regex_check = 0;
+}
+
+if(!preg_match($numbercheck, $productpoints)){
+    echo "<script>alert('Please ensure that the points contains only numbers')</script>";
+    $regex_check = 0;
+}
+
+
 if ($regex_check == 1){
 
-$query= $con->prepare("INSERT INTO products (Product_Name, Product_Description, Price, 
-Quantity, Item_points, Image) VALUES (?,?,?,?,?,?)");
+$query= $con->prepare("INSERT INTO products (Product_Name, Product_Description, Price, Quantity, Item_points, Image) VALUES (?,?,?,?,?,?)");
 $query->bind_param('ssisss', $productname, $productdescription, $productprice, $productquantity, $productpoints, $productimage);
 
 if ($query->execute()){ //execute query

@@ -1,7 +1,7 @@
 <?php include 'navbar.php' ?>
 
 <?php
-$connect = mysqli_connect("localhost","root","","tp_amc.sql");
+$connect = mysqli_connect("localhost","root","","tp_amc");
 $query=$connect->prepare("SELECT ID, Product_Name, Product_Description, Price, Quantity, Item_points, Image FROM `products`");
 $query->execute();
 $query->bind_result($id, $productname, $productdescription, $productprice, $productquantity, $productpoints, $productimage );

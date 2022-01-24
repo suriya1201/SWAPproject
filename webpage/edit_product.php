@@ -1,4 +1,4 @@
-<?php include 'adminnavbar.php' ?>
+<?php include 'navbar.php' ?>
 
 <html>
 <head>
@@ -10,7 +10,7 @@
 </head>
 <body>
 <?php
-$connect = mysqli_connect("localhost","root","","tp_amc.sql");
+$connect = mysqli_connect("localhost","root","","tp_amc");
 $id = $_GET['id'];
 $id = mysqli_real_escape_string($connect, $id);
 $query="SELECT Product_Name, Product_Description, Price, Quantity, Item_points, Image FROM `products` WHERE ID='$id'";
@@ -20,7 +20,7 @@ while($row=mysqli_fetch_array($result)){
 <form action="update_product.php" class="center" method="post">
 <table align='center'>
 <tr>
-	<td>Name: (unable to edit)</td>
+	<td>Name: (viewing only)</td>
 	<td><input type="text" name="Product_Name" value=<?php echo $row['Product_Name'] ?> readonly><br></td>
 </tr>
 <tr>
