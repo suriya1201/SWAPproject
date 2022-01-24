@@ -1,5 +1,7 @@
 <?php
-session_start();
+
+include "session_regen.php";
+
 if (!isset($_SESSION["Username"])){
     header("Location: Homepage.php");
 }

@@ -1,7 +1,7 @@
 <html>
 <body>
 <?php 
-$connect = mysqli_connect("localhost","root","","tp_amc");
+$connect = mysqli_connect("localhost","root","","tp_amc.sql");
 $id = $_GET['id'];
 $id = mysqli_real_escape_string($connect, $id);
 $query= $connect->prepare("DELETE FROM products WHERE ID='$id'");
