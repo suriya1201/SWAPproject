@@ -1,4 +1,4 @@
-<?php include 'adminnavbar.php' ?>
+<?php include 'navbar.php' ?>
 
 <?php
 $connect = mysqli_connect("localhost","root","","tp_amc.sql");

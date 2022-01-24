@@ -1,4 +1,5 @@
-<?php include 'adminnavbar.php' ?>
+<?php include 'navbar.php' ?>
+<?php include 'session_regen.php' ?>
 
 <html>
 <body>
@@ -17,7 +18,7 @@ $productimage = htmlspecialchars($_POST['image']);
 
 $regex_check = 1;
 
-$namepattern = "/A-Za-z0-9/";
+$namepattern = "/^[A-Za-z0-9 ]+$/";
 if(!preg_match($namepattern, $productname)){
     echo "Please ensure that your username contains only numbers and alphabets";
     $regex_check = 0;
@@ -25,14 +26,14 @@ if(!preg_match($namepattern, $productname)){
 
 if ($regex_check == 1){
 
-$query= $con->prepare("INSERT INTO `products` (`Product_Name`, `Product_Description`, `Price`, 
-`Quantity`, `Item_points`, `Image`) VALUES (?,?,?,?,?,?)");
+$query= $con->prepare("INSERT INTO products (Product_Name, Product_Description, Price, 
+Quantity, Item_points, Image) VALUES (?,?,?,?,?,?)");
 $query->bind_param('ssisss', $productname, $productdescription, $productprice, $productquantity, $productpoints, $productimage);
 
 if ($query->execute()){ //execute query
     echo "Query executed.";
    }else{
-    echo "Error executing query.";
+    echo "Duplicate field/fields";
    }
 }
 
@@ -40,7 +41,6 @@ if ($query->execute()){ //execute query
 <br>
 <br>
 <button onclick="window.location.href='display_product.php'">Update/Delete products here</button>
+<button onclick="window.location.href='create_product_form.php'">Go back to adding</button>
 </body>
 </html>
-
-
