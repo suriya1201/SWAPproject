@@ -8,7 +8,7 @@ if ($_SESSION['Role'] != 'p_admin') {
 
 ?>
 
-<?php include 'adminnavbar.php' ?>
+<?php include 'navbar.php' ?>
 
 <html>
 <body>

@@ -10,7 +10,7 @@
 </head>
 <body>
 <?php
-$connect = mysqli_connect("localhost","root","","tp_amc");
+$connect = mysqli_connect("localhost","root","","tp_amc.sql");
 $id = $_GET['id'];
 $id = mysqli_real_escape_string($connect, $id);
 $query="SELECT Product_Name, Product_Description, Price, Quantity, Item_points, Image FROM `products` WHERE ID='$id'";
