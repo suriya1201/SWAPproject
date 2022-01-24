@@ -28,7 +28,9 @@ if(mysqli_num_rows($result) === 1) {
         $_SESSION['timeout'] = time();
         if($row['User_type'] == 'p_admin'){
             header("Location: create_product_form.php");
-        }else{
+        }else if ($row['User_type'] == 'r_admin'){
+            header("Location: rewardspage.php")
+        }else {
             header("Location: logged_in.php");
             exit();
         }
