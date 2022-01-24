@@ -1,11 +1,29 @@
 <?php
-$connect = mysqli_connect("localhost","root","","tp_amc");
-$query = $connect->prepare("UPDATE reward_types SET REWARD_POINTS=? WHERE REWARD_ITEM=?");
-$reward_item = $_POST["reward_item"];
-$reward_points = $_POST["reward_points"];
-$query->bind_param('ss', $reward_points, $reward_item);
-if ($query->execute()){
-    echo "Query executed.";
+
+$reward_item = htmlspecialchars($_POST["reward_item"]);
+$reward_points = htmlspecialchars($_POST["reward_points"]);
+
+$regex_check = 1;
+
+$item_regex = "/^[A-Za-z]+$/";
+$point_regex = "/^[0-9]+$/";
+if (!preg_match($item_regex, $reward_item)){
+	echo "<script>alert('Please ensure that the item contains only alphabets')</script>";
+	$regex_check = 0;
+}
+if (!preg_match($point_regex, $reward_points)){
+    echo "<script>alert('Please ensure that the point contains only numbers')</script>";
+    $regex_check = 0;
+}
+
+if ($regex_check == 1) {
+    $connect = mysqli_connect("localhost","root","","tp_amc");
+    $query = $connect->prepare("UPDATE reward_types SET REWARD_POINTS=? WHERE REWARD_ITEM=?");
+    $query->bind_param('ss', $reward_points, $reward_item);
+    if ($query->execute()){
+        echo "Query executed.";
+    }
 }
 ?>
+
 <meta http-equiv="refresh" content="0;URL=rewardspage.php" />
