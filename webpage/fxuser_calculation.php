@@ -1,10 +1,8 @@
 
 
 <?php 
-$con = mysqli_connect("localhost","root","","tp_amc");
-if(!$con){
-	die('could not connect:'.mysqli_connect_errno());
-}
+session_start();
+include "db_connection.php";
 
 require "create_purchase.php";
 $name_product = $Product_Name;
@@ -40,7 +38,7 @@ if ($query->execute()){
         echo "Error executiny query";
     }
 
-
+    require_once "fxdelete_userrewards.php";
 
 
 mysqli_close($con);
