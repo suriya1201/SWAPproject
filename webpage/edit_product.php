@@ -20,7 +20,7 @@ while($row=mysqli_fetch_array($result)){
 <form action="update_product.php" class="center" method="post">
 <table align='center'>
 <tr>
-	<td>Name: (viewing purposes only)</td>
+	<td>Name: (viewing only)</td>
 	<td><input type="text" name="Product_Name" value=<?php echo $row['Product_Name'] ?> readonly><br></td>
 </tr>
 <tr>
