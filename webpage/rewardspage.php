@@ -42,6 +42,7 @@ if ($_SESSION['Role'] != 'r_admin') {
         ?>
         <div class="column"><div padding=10px><a class="r1" href="http://localhost/SWAPproject/webpage/displayrewards.php">Create Rewards</a></div>
     </body>
+
     <?php include 'footer.php' ?>
 
 </html>
