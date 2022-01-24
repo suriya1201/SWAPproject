@@ -1,3 +1,4 @@
+<?php include "navbar.php" ?>
 <html>
 <head>
 	<style>
@@ -26,3 +27,4 @@
 </form>
 </body>
 </html>
+<?php include 'footer.php' ?>

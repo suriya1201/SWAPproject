@@ -1,3 +1,4 @@
+<?php include "navbar.php" ?>
 <html>
 <head>
 	<style>
@@ -36,3 +37,4 @@ while($row=mysqli_fetch_array($result)){
 ?>
 </body>
 </html>
+<?php include 'footer.php' ?>
