@@ -15,8 +15,7 @@
                 <ul class="nav__links">
                     <li><a href="#">Home</a></li>
                     <li><a href="#">About</a></li>
-                    <?php 
-                    
+                    <?php
                     if (isset($_SESSION["Username"]) && isset($_SESSION["Role"]) && $_SESSION["Role"] == "p_admin") {
                         echo("<li><a href=create_product_form.php>Go back to adding page</a></li>");
                     }

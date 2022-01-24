@@ -25,6 +25,7 @@ if(mysqli_num_rows($result) === 1) {
         $_SESSION['Username'] = $row['Username'];
         $_SESSION['Role'] = $row['User_type'];
         $_SESSION['ID'] = $row['ID'];
+        $_SESSION['timeout'] = time();
         if($row['User_type'] == 'p_admin'){
             header("Location: create_product_form.php");
         }else{
