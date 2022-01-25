@@ -1,5 +1,13 @@
 <?php include 'navbar.php' ?>
 <?php include 'session_regen.php' ?>
+<?php 
+
+if ($_SESSION['Role'] != 'p_admin') {
+    echo "<script>alert('UNAUTHORIZED ACCESS IS NOT ALLOWED')</script>";
+    die();
+}
+
+?>
 
 <html>
 <body>
@@ -8,6 +16,7 @@ $con = mysqli_connect("localhost","root","","tp_amc"); //connect to database
 if (!$con){
 die('Could not connect: ' . mysqli_connect_errno()); //return error is connect fail
 }
+
 
 $productname = htmlspecialchars($_POST['name']);
 $productdescription = htmlspecialchars($_POST['description']);
@@ -53,9 +62,9 @@ $query= $con->prepare("INSERT INTO products (Product_Name, Product_Description, 
 $query->bind_param('ssisss', $productname, $productdescription, $productprice, $productquantity, $productpoints, $productimage);
 
 if ($query->execute()){ //execute query
-    echo "Query executed.";
+    echo "<script>alert('Query executed')</script>";
    }else{
-    echo "Duplicate field/fields";
+    echo "<script>alert('Duplicate field/fields')</script>";
    }
 }
 

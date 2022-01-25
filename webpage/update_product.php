@@ -1,5 +1,13 @@
 <?php include 'navbar.php' ?>
 <?php include 'session_regen.php' ?>
+<?php 
+
+if ($_SESSION['Role'] != 'p_admin') {
+    echo "<script>alert('UNAUTHORIZED ACCESS IS NOT ALLOWED')</script>";
+    die();
+}
+
+?>
 <?php
 $connect = mysqli_connect("localhost","root","","tp_amc");
 
@@ -46,9 +54,9 @@ if ($regex_check == 1){
     $query->bind_param('ssssss', $productdescription, $productprice, $productquantity, $productpoints, $productimage, $productname);
     
     if ($query->execute()){ //execute query
-        echo "Query executed.";
+        echo "<script>alert('Query executed')</script>";
        }else{
-        echo "Duplicate field/fields";
+        echo "<script>alert('Duplicate field/fields')</script>";
        }
     }
 ?>

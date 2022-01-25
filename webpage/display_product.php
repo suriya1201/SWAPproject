@@ -1,4 +1,13 @@
 <?php include 'navbar.php' ?>
+<?php 
+session_start();
+
+if ($_SESSION['Role'] != 'p_admin') {
+    echo "<script>alert('UNAUTHORIZED ACCESS IS NOT ALLOWED')</script>";
+    die();
+}
+
+?>
 
 <?php
 $connect = mysqli_connect("localhost","root","","tp_amc");
