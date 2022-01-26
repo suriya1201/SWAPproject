@@ -1,7 +1,16 @@
 <?php include 'navbar.php' ?>
+<?php 
+session_start();
+
+if ($_SESSION['Role'] != 'p_admin') {
+    echo "<script>alert('UNAUTHORIZED ACCESS IS NOT ALLOWED')</script>";
+    die();
+}
+
+?>
 
 <?php
-$connect = mysqli_connect("localhost","root","","tp_amc.sql");
+$connect = mysqli_connect("localhost","root","","tp_amc");
 $query=$connect->prepare("SELECT ID, Product_Name, Product_Description, Price, Quantity, Item_points, Image FROM `products`");
 $query->execute();
 $query->bind_result($id, $productname, $productdescription, $productprice, $productquantity, $productpoints, $productimage );

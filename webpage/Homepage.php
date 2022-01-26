@@ -10,7 +10,7 @@
     </head>
 <body>
     <?php include 'navbar.php' ?>
-
+    <?php include 'db_connection.php' ?>
     <?php
         $con = mysqli_connect("localhost","root","","tp_amc");
 
