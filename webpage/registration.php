@@ -67,16 +67,9 @@ if($password == $password_conf){
                     echo 'Username Already Exists. Try Again';
                 }
                 else {
-                    $token = bin2hex(random_bytes(50));
-                    $verified = false;
-
                     if($stmt = $con->prepare('INSERT INTO user (Username, Password, Email, Address, Phone_number, User_type) VALUES (?,?,?,?,?,?)')) {
                         $stmt->bind_param('ssssss', $username, $password, $email, $address, $contact, $role);
                         $stmt->execute();
-
-                        sendVerificationEmail($email, $token);
-
-
                         header("Location: Loginpage.php");
                         echo "<script>alert('Successfully Registered')</script>";
                     }
@@ -88,8 +81,7 @@ if($password == $password_conf){
             else {
                 echo 'Error2 Occurred';
             } 
-        }
-        
+        } 
     }
     else {
         echo "<script>alert('Email already exisits')</script>";

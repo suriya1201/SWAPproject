@@ -12,7 +12,7 @@
     <?php include 'navbar.php' ?>
 
     <?php
-        $con = mysqli_connect("localhost","root","","tp_amc.sql");
+        $con = mysqli_connect("localhost","root","","tp_amc");
 
         $sql = "SELECT * from products";
         $result = mysqli_query($con, $sql);
