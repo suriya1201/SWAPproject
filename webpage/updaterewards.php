@@ -5,7 +5,7 @@ $reward_points = htmlspecialchars($_POST["reward_points"]);
 
 $regex_check = 1;
 
-$item_regex = "/^[A-Za-z]+$/";
+$item_regex = "/^[A-Za-z ]+$/";
 $point_regex = "/^[0-9]+$/";
 if (!preg_match($item_regex, $reward_item)){
 	echo "<script>alert('Please ensure that the item contains only alphabets')</script>";
