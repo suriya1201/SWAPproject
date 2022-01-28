@@ -1,6 +1,16 @@
 <?php
 include "db_connection.php";
 
+use PHPMailer\PHPMailer\PHPMailer;
+use PHPMailer\PHPMailer\SMTP;
+use PHPMailer\PHPMailer\Exception;
+
+
+require 'vendor/autoload.php';
+
+
+$mail = new PHPMailer(true);
+
 function validate($data){
     $data = trim($data);
     $data = stripslashes($data);
@@ -67,8 +77,40 @@ if($password == $password_conf){
                     echo 'Username Already Exists. Try Again';
                 }
                 else {
-                    if($stmt = $con->prepare('INSERT INTO user (Username, Password, Email, Address, Phone_number, User_type) VALUES (?,?,?,?,?,?)')) {
-                        $stmt->bind_param('ssssss', $username, $password, $email, $address, $contact, $role);
+                    $otp = rand(100000,999999);
+
+                    require "vendor/autoload.php";
+                    $mail->SMTPDebug = 0;
+    
+                    $mail->isSMTP();
+                    $mail->Host='smtp.gmail.com';
+                    $mail->Port=587;
+                    $mail->SMTPAuth=true;
+                    $mail->SMTPSecure='tls';
+    
+                    $mail->Username='johnsontan241@gmail.com';
+                    $mail->Password='b9@WL3$k^h$X#6qG^@LS';
+    
+                    $mail->setFrom('johnsontan241@gmail.com', 'Verification');
+                    $mail->addAddress($_POST["email"]);
+    
+                    $mail->isHTML(true);
+                    $mail->Subject="Your verify code";
+                    $mail->Body="<p>Dear user, </p> <h3>Your verify OTP code is $otp <br></h3>";
+                    if(!$mail->send()){
+                        ?>
+                        <script> alert("<?php echo "Register Failed, Invalid Email "?>"); </script>
+                        <?php
+                    }else{
+                        ?>
+                        <script>
+                        alert("<?php echo "Register Successfully, OTP sent to " . $email ?>");
+                        window.location.replace('verification.php');
+                        </script>
+                        <?php
+                    }
+                    if($stmt = $con->prepare('INSERT INTO user (Username, Password, Email, Address, Phone_number, User_type, Otp) VALUES (?,?,?,?,?,?,?)')) {
+                        $stmt->bind_param('ssssss', $username, $password, $email, $address, $contact, $role, $otp);
                         $stmt->execute();
                         header("Location: Loginpage.php");
                         echo "<script>alert('Successfully Registered')</script>";
