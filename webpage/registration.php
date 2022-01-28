@@ -102,21 +102,19 @@ if($password == $password_conf){
                         <script> alert("<?php echo "Register Failed, Invalid Email "?>"); </script>
                         <?php
                     }else{
-                        ?>
-                        <script>
-                        alert("<?php echo "Register Successfully, OTP sent to " . $email ?>");
-                        window.location.replace('verification.php');
-                        </script>
-                        <?php
-                    }
-                    if($stmt = $con->prepare('INSERT INTO user (Username, Password, Email, Address, Phone_number, User_type, Otp) VALUES (?,?,?,?,?,?,?)')) {
-                        $stmt->bind_param('ssssss', $username, $password, $email, $address, $contact, $role, $otp);
-                        $stmt->execute();
-                        header("Location: Loginpage.php");
-                        echo "<script>alert('Successfully Registered')</script>";
-                    }
-                    else {
-                        echo 'Error1 Occurred';
+                        if($stmt = $con->prepare('INSERT INTO user (Username, Password, Email, Address, Phone_number, User_type, Otp) VALUES (?,?,?,?,?,?,?)')) {
+                            $stmt->bind_param('sssssss', $username, $password, $email, $address, $contact, $role, $otp);
+                            $stmt->execute();
+                            ?>
+                            <script>
+                            alert("<?php echo "Register Successfully, OTP sent to " . $email ?>");
+                            window.location.replace('verification.php');
+                            </script>
+                            <?php
+                        }
+                        else {
+                            echo 'Error1 Occurred';
+                        }
                     }
                 }
             }
