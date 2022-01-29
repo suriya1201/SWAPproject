@@ -26,7 +26,15 @@
     
   </div> 
   <div>
-  <a href="#">Forgot password?</a><a>or</a>
+  <?php
+  if (isset($_GET["newpwd"])){
+
+    if ($_GET["newpwd"] == "passwordupdated"){
+      echo '<p class="signupsuccess">Your password has been reset</p>';
+    }
+  }
+  ?>
+  <a href="reset_password.php">Forgot password?</a><a>or</a>
    <a href="http://localhost/SWAPproject/webpage/Registerpage.php">Register</a>
   </div>
 </form>
