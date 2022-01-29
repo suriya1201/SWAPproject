@@ -108,7 +108,7 @@ if($password == $password_conf){
                             ?>
                             <script>
                             alert("<?php echo "Register Successfully, OTP sent to " . $email ?>");
-                            window.location.replace('verification.php');
+                            window.location.replace('email_verify.php?email=" . $email');
                             </script>
                             <?php
                         }
