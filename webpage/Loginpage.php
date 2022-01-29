@@ -18,7 +18,7 @@
 
     <label for="password"><b>Password</b></label>
     <input class="logininput" type="password" placeholder="Enter Password" name="password" required>
-        
+
     <button class="loginbtn" type="submit" >Login</button>
     <label>
       <input type="checkbox" checked="checked" name="remember"> Remember me
