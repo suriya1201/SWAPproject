@@ -1,6 +1,6 @@
 <?php
 
-if(isset($_POST["reset-request-submit"])){
+if(isset($_POST["reset-request-submit"])){ //when the button is pressed
 
     $selector = bin2hex(random_bytes(8)); //generate a selector token with random bytes and convert to hexadecimal so we can use later
     $token = random_bytes(32);
@@ -58,3 +58,4 @@ if(isset($_POST["reset-request-submit"])){
 } else{
     header("Location: reset_password.php");
 }
+?>
