@@ -48,7 +48,7 @@ if (isset($_POST["reset-password-submit"])){
                 $sql = "SELECT * FROM user WHERE Email=?;";
                 $stmt = mysqli_stmt_init($con);
                 if(!mysqli_stmt_prepare($stmt, $sql)){
-                echo "There was an error";
+                echo "There was an error1";
                 exit();
                 } else{
 
@@ -56,14 +56,14 @@ if (isset($_POST["reset-password-submit"])){
                     mysqli_stmt_execute($stmt);
                     $result = mysqli_stmt_get_result($stmt);
                     if (!$row = mysqli_fetch_assoc($result)){
-                     echo "there was an error";
+                     echo "There was an error2";
                     exit();
                     } else{
 
-                      $sql = "UPDATE users SET Password=? WHERE Email=?";
+                      $sql = "UPDATE user SET Password=? WHERE Email=?";
                       $stmt = mysqli_stmt_init($con);
                       if(!mysqli_stmt_prepare($stmt, $sql)){
-                      echo "There was an error";
+                      echo "There was an error3";
                       exit();
                       } else {
 
@@ -74,7 +74,7 @@ if (isset($_POST["reset-password-submit"])){
                         $sql ="DELETE FROM pwdReset WHERE pwdResetEmail=?";
                         $stmt = mysqli_stmt_init($con);
                         if (!mysqli_stmt_prepare($stmt, $sql)){
-                            echo "There was an error"
+                            echo "There was an error4";
                             exit();
                         } else{
                             mysqli_stmt_bind_param($stmt, "s", $tokenEmail);

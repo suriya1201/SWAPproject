@@ -4,10 +4,10 @@
   $selector = $_GET["selector"];
   $validator = $_GET["validator"];
 
-  if(empty($selector) || empty($validator)){
-      echo"We could not validate your request"
-  } else{
-      if(ctype_xdigit($selector) !== false && ctype_xdigit($validator) !== false){
+  if(empty($selector) || empty($validator)) {
+      echo"We could not validate your request";
+  } else {
+      if(ctype_xdigit($selector) !== false && ctype_xdigit($validator) !== false) {
         ?>
 
         <form action="reset-password.inc.php" method="POST">
@@ -22,8 +22,6 @@
 
 
         <?php
-
-
       }
   }
 ?>

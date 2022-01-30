@@ -7,13 +7,14 @@ if(isset($_POST["reset-request-submit"])){ //when the button is pressed
 
     $url = "http://localhost/swapproject/webpage/create-new-password.php?selector=" . $selector ."&validator=" . bin2hex($token);
 
-    $expires = date("U") + 1800;
+    $expires = date("U") + 1800; //+ 1800 is one hour from now. so token will expire 1hr from the time created
 
-    require 'db_connection.php'; 
+    require 'db_connection.php';
+    require 'sendemail.php';  
 
     $userEmail = $_POST["email"];
 
-    $sql = "DELETE FROM pwdReset WHERE pwdResetEmail=?;";
+    $sql = "DELETE FROM pwdReset WHERE pwdResetEmail=?;"; //delete all existing token/tokens
     $stmt = mysqli_stmt_init($con);
     if(!mysqli_stmt_prepare($stmt, $sql)){
         echo "There was an error";
@@ -45,11 +46,11 @@ if(isset($_POST["reset-request-submit"])){ //when the button is pressed
     $message .= '<p>Here is your password reset link: </br>';
     $message .= '<a href="' . $url . '">' . $url . '</a></p>';
 
-    $headers = "From Darius <dariustan0433@gmail.com>\r\n";
+    $headers = "From Darius <dariustan1502@gmail.com>\r\n";
     $headers .= "Reply-To: dariustan0433@gmail.com\r\n";
     $headers .= "Content-type: text/html\r\n";
 
-    mail($to, $subject, $message, $headers);
+    sendEmail($to, $subject, $message);
 
     header("Location: reset_password.php?reset=success");
 
