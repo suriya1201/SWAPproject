@@ -53,15 +53,15 @@ if(!isset($googleAuth) || $googleAuth == ""){
        </form>
        ';
      //check if code is true 
-     if (isset($_POST['submit2'])){
-      $code= $_POST['code1'];
-      if ($g->checkCode($secret, $code)) {
-          header("Location:http://localhost/SWAPproject/webpage/logged_in.php");
+       if (isset($_POST['submit2'])){
+       $code= $_POST['code1'];
+       if ($g->checkCode($secret1, $code1)) {
+            header("Location:http://localhost/SWAPproject/webpage/logged_in.php");
           exit;
-      } 
-      else {
-        echo '<script>alert("You have typed in the wrong OTP")</script>';
-      }
+         } 
+       else {
+            echo '<script>alert("You have typed in the wrong OTP")</script>';
+        }
       
       
   }
