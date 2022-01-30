@@ -31,7 +31,7 @@ if (isset($_POST["reset-password-submit"])){
 
         $result = mysqli_stmt_get_result($stmt);
         if (!$row = mysqli_fetch_assoc($result)){
-            echo "You need to resubmit your request";
+            echo "You need to resubmit your request1";
             exit();
         } else{
             
@@ -39,7 +39,7 @@ if (isset($_POST["reset-password-submit"])){
             $tokenCheck = password_verify($tokenBin, $row["pwdResetToken"]);
 
             if ($tokenCheck === false){
-                echo "You need to resubmit your request";
+                echo "You need to resubmit your request2";
                 exit();
             } elseif ($tokenCheck === true) {
 
@@ -67,7 +67,7 @@ if (isset($_POST["reset-password-submit"])){
                       exit();
                       } else {
 
-                        $newPwdHash = password_hash($password, PASSWORD_DEFAULT);
+                        $newPwdHash = base64_encode(hash("sha256", $password));
                         mysqli_stmt_bind_param($stmt, "ss", $newPwdHash, $tokenEmail);
                         mysqli_stmt_execute($stmt);
 

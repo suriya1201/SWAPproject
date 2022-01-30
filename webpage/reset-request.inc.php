@@ -30,6 +30,7 @@ if(isset($_POST["reset-request-submit"])){ //when the button is pressed
         echo "There was an error";
         exit();
     } else{
+        
         $hashedToken = password_hash($token, PASSWORD_DEFAULT);
         mysqli_stmt_bind_param($stmt, "ssss", $userEmail, $selector, $hashedToken, $expires);
         mysqli_stmt_execute($stmt);
