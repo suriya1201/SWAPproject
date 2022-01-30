@@ -105,12 +105,7 @@ if($password == $password_conf){
                         if($stmt = $con->prepare('INSERT INTO user (Username, Password, Email, Address, Phone_number, User_type, Otp) VALUES (?,?,?,?,?,?,?)')) {
                             $stmt->bind_param('sssssss', $username, $password, $email, $address, $contact, $role, $otp);
                             $stmt->execute();
-                            ?>
-                            <script>
-                            alert("<?php echo "Register Successfully, OTP sent to " . $email ?>");
-                            window.location.replace('email_verify.php?email=" . $email');
-                            </script>
-                            <?php
+                            header("Location: email_verify.php?email=" . $email);
                         }
                         else {
                             echo 'Error1 Occurred';
