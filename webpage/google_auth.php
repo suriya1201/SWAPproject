@@ -1,15 +1,43 @@
 <?php
-declare(strict_types=1);
+include "session_regen.php";
 require 'vendor/autoload.php';
+include "db_connection.php";
  
 $g =new \Sonata\GoogleAuthenticator\GoogleAuthenticator();
 $secret = $g->generateSecret();
-$email="admin@gmail.com";
-$link = \Sonata\GoogleAuthenticator\GoogleQrUrl::generate( $email, $secret,'TP AMC SHOP');
+$userid= $_SESSION['ID']
+$link = \Sonata\GoogleAuthenticator\GoogleQrUrl::generate( $userid , $secret,'TP AMC SHOP');
+
+
+?>
 
 
 
- 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<?php  
+
 if (isset($_POST['submit2'])){
     $code= $_POST['password2'];
     if ($g->checkCode($secret, $code)) {
@@ -20,47 +48,25 @@ if (isset($_POST['submit2'])){
     }
     
 }
-
 ?>
 
 
-<!DOCTYPE html>
 
-<html>
-  
 
-<head>
-        <meta charset="utf-8">
-        <meta http-equiv="X-UA-Compatible" content="IE=edge">
-        <meta name="description" content="">
-        <meta name="viewport" content="width=device-width, initial-scale=1">
-        <link rel="stylesheet" href="styles.css">
-        <link href="https://fonts.googleapis.com/css?family=Montserrat:500&display=swap" rel="stylesheet">
-    </head> 
-    
-    <?php include "navbar.php" ?> 
 
-    <body class="loginbdy">
-       
-<form class="loginform" method="post">
-  <br><br>
-  <label for="OTP"><b>Scan QR code using google authenticator </b></label><br><br>
-<img src="<?=$link?>">
-  <div class="containerLogin">
 
-    <label for="passcode"><b>Enter OTP from Google authenticator app </b></label>
-    <input  type="text" placeholder="Enter OTP" name="password2"></input>
-    <button class="loginbtn" type="submit" name="submit2">SUBMIT</button>
-    
-    
-  </div> 
-  
- 
-</form> 
-</body><br>
 
-<div>
-<?php include "footer.php" ?>
-</div>
 
-</html>
+
+
+
+
+
+<script> //prevent form resubmission
+if ( window.history.replaceState ) {
+  window.history.replaceState( null, null, window.location.href );
+}
+</script>
+
+
+
