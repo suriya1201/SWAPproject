@@ -3,7 +3,8 @@ include "session_regen.php";
 require 'vendor/autoload.php';
 include "db_connection.php";
 
-$userid = $_SESSION['ID'];
+$userid = 24;
+$email = "LANZEXI26@GMAIL.COM" ;
 $g =new \Sonata\GoogleAuthenticator\GoogleAuthenticator();
 include "navbar2.php";
 
@@ -11,7 +12,7 @@ include "navbar2.php";
 //sql prepared statement 
 
 $query = $con->prepare("SELECT google_auth FROM user WHERE ID = ?");
-$query->bind_param('i', $_SESSION['ID']);
+$query->bind_param('i', $userid);
 $query->execute();
 $result = $query->get_result();
 if ($result->num_rows > 0) {
@@ -24,11 +25,27 @@ if(!isset($googleAuth) || $googleAuth == ""){
     
      
      $secret = $g->generateSecret();
-  
-    
+
+     $query = $con->prepare("UPDATE tp_amc.user SET google_auth = ? WHERE ID = ?");
+     $query->bind_param('si', $secret , $userid);
+     $query->execute();
+
+     $query = $con->prepare("SELECT google_auth FROM user WHERE ID = ?");
+     $query->bind_param('i', $userid);
+     $query->execute();
+     $result = $query->get_result();
+    if ($result->num_rows > 0) {
+
+    while($row = $result->fetch_assoc()) {
+         $googleAuth1 = $row["google_auth"];
+     }}
+     
+     $secret1 =$googleAuth1;
+     echo $secret1;
+
      echo "<br>";
      echo "Scan QR code using google authenticator <br>";
-       echo '<img src="'.Sonata\GoogleAuthenticator\GoogleQrUrl::generate( $userid , $secret,'TP AMC SHOP').'"><br>';
+       echo '<img src="'.Sonata\GoogleAuthenticator\GoogleQrUrl::generate( $email , $secret1,'TP AMC SHOP').'"><br>';
        echo '
        <form  class="loginform" method="post"> 
        <label >Code:</label><input type="text" id="code" name="code1"><br>
@@ -46,6 +63,7 @@ if(!isset($googleAuth) || $googleAuth == ""){
         echo '<script>alert("You have typed in the wrong OTP")</script>';
       }
       
+      
   }
 
   }
@@ -53,7 +71,7 @@ if(!isset($googleAuth) || $googleAuth == ""){
 
     $secret2= $googleAuth;
     echo "<br>";  
-    echo '<img src="'.Sonata\GoogleAuthenticator\GoogleQrUrl::generate( $userid , $secret2,'TP AMC SHOP').'"><br>';
+   
       echo '
       <form  class="loginform" method="post"> 
       <label>Code:</label><input type="text" name="code2"><br>
