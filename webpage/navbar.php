@@ -13,7 +13,7 @@
             <a class="logo" href="https://www.tp.edu.sg/home.html"><img src="images/tplogo.png" alt="logo" width="60px" height="60px"></a>
             <nav>
                 <ul class="nav__links">
-                    <li><a href="#">Home</a></li>
+                    <li><a href="Homepage.php">Home</a></li>
                     <li><a href="#">About</a></li>
                     <?php
                     if (isset($_SESSION["Username"]) && isset($_SESSION["Role"]) && $_SESSION["Role"] == "p_admin") {
