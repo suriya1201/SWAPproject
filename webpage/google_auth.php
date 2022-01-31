@@ -3,14 +3,21 @@ include "session_regen.php";
 require 'vendor/autoload.php';
 include "db_connection.php";
 
-$userid = 24;
-$email = 'LANZEXI26@GMAIL.COM';
+  
+
+
+
+//if statement to check for user type 
+if (isset($_SESSION["Username"]) && ($_SESSION["User_role"]=="user" || $_SESSION["User_role"]=="member" ||$_SESSION["User_role"]=="VIP")){
+
+$userid = $_SESSION['ID'];
+$email = $_SESSION['Email'];
 $g =new \Sonata\GoogleAuthenticator\GoogleAuthenticator();
 $secret = $g->generateSecret();
 include "navbar2.php";
 
 
-//sql prepared statement 
+//sql prepared statement  to check if user has google_auth code alr 
 
 $query = $con->prepare("SELECT google_auth FROM user WHERE ID = ?");
 $query->bind_param('i', $userid);
@@ -58,9 +65,11 @@ if( !isset($googleAuth) || $googleAuth == ""){
      //check if code is true 
        if (isset($_POST['submit2'])){
        $code1= $_POST['code1'];
+           
+    }
        if ($g->checkCode($secret1, $code1)) {
             header("Location:http://localhost/SWAPproject/webpage/logged_in.php");
-            exit;
+            die("");
          } 
        else {
             echo '<script>alert("You have typed in the wrong OTP")</script>';
@@ -69,7 +78,6 @@ if( !isset($googleAuth) || $googleAuth == ""){
       
   }
   
-  }
   else{
 
     $secret2= $googleAuth;
@@ -96,7 +104,13 @@ if( !isset($googleAuth) || $googleAuth == ""){
         } 
   }
 }
+
  include "footer.php";
+}
+else{
+  echo '<script>alert("You are not a user/member/VIP")</script>';
+  die("");
+}
 ?>
 
 
@@ -105,4 +119,5 @@ if( !isset($googleAuth) || $googleAuth == ""){
 if ( window.history.replaceState ) {
   window.history.replaceState( null, null, window.location.href );
 }
+
 </script>
