@@ -68,7 +68,7 @@ if( !isset($googleAuth) || $googleAuth == ""){
     }
        if ($g->checkCode($secret1, $code1)) {
             header("Location:http://localhost/SWAPproject/webpage/logged_in.php");
-            die("");
+            exit();
          } 
        else {
             echo '<script>alert("You have typed in the wrong OTP")</script>';

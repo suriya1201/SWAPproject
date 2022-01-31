@@ -35,7 +35,7 @@ if(mysqli_num_rows($result) === 1) {
             }else if ($row['User_type'] == 'r_admin'){
                 header("Location: rewardspage.php");
             }else {
-                header("Location: logged_in.php");
+                header("Location: Homepage.php");
                 
             }
         }
