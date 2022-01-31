@@ -37,5 +37,6 @@
         }
      ?>
 </body>
-<?php include 'footer.php' ?>
+
 </html>
+<?php include 'footer.php' ?>
