@@ -1,8 +1,9 @@
 <?php
-session_start();
+include "session_regen.php";
 include "db_connection.php";
 
 require "rewardspage.php";
+
 $reward = $reward_item;
 $reward_points = "SELECT reward_points FROM tp_amc.reward_types WHERE reward_item = $reward ";
 

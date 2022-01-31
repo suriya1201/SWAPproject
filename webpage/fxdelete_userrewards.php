@@ -1,5 +1,6 @@
 <?php 
-session_start();
+
+include "session_regen.php";
 include "db_connection.php"; 
 
 
