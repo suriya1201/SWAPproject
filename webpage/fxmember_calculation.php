@@ -24,17 +24,17 @@ else {
 
 
     $query=$con->prepare("UPDATE tp_amc.rewards SET Points = $Points + Points WHERE User_id=$User_id ");
-    
-  
-
-};
-if ($query->execute()){
+    if ($query->execute()){
         echo "Query executed, Database updated";
     }
     else{
         echo $query->error;
         echo "Error executiny query";
     }
+  
+
+}
+
 require_once "fxdelete_userrewards.php";
 
 
