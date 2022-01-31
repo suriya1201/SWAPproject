@@ -6,6 +6,20 @@ if (isset($_POST["reset-password-submit"])){
     $validator = $_POST["validator"];
     $password = htmlspecialchars($_POST["pwd"]);
     $passwordRepeat = htmlspecialchars($_POST["pwd-repeat"]);
+    
+    $regex_check = 1;
+
+    $patterncheck = "/^[A-Za-z0-9 ]+$/";
+
+    if(!preg_match($patterncheck, $password)){
+        echo "<script>alert('Please ensure that the password contains only numbers and alphabets')</script>";
+        $regex_check = 0;
+    }
+    
+    if(!preg_match($patterncheck, $passwordRepeat)){
+        echo "<script>alert('Please ensure that the repeated password contains only numbers and alphabets')</script>";
+        $regex_check = 0;
+    }
 
     if(empty($password) || empty($passwordRepeat)){
 
@@ -13,6 +27,9 @@ if (isset($_POST["reset-password-submit"])){
         exit();
     } else if ($password != $passwordRepeat){
         header("Location: create-new-password.php?newpwd=pwdnotsame");
+        exit();
+    } else if ($regex_check == 0){
+        header("Location: create-new-password.php?newpwd=invalidchars");
         exit();
     }
 
