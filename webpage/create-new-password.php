@@ -1,13 +1,13 @@
 <?php include "navbar.php" ?>
 
 <?php
-  $selector = $_GET["selector"];
-  $validator = $_GET["validator"];
+  $selector = $_GET["selector"]; //get the selector variable
+  $validator = $_GET["validator"]; //get the validator variable 
 
-  if(empty($selector) || empty($validator)) {
+  if(empty($selector) || empty($validator)) { //if empty
       echo"We could not validate your request";
   } else {
-      if(ctype_xdigit($selector) !== false && ctype_xdigit($validator) !== false) {
+      if(ctype_xdigit($selector) !== false && ctype_xdigit($validator) !== false) { //checks whether the selector and validator are hexadecimals
         ?>
 
         <form action="reset-password.inc.php" method="POST">
