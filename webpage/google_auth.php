@@ -7,8 +7,7 @@ include "db_connection.php";
 
 
 
-//if statement to check for user type 
-if (isset($_SESSION["Username"]) && ($_SESSION["User_role"]=="user" || $_SESSION["User_role"]=="member" ||$_SESSION["User_role"]=="VIP")){
+
 
 $userid = $_SESSION['ID'];
 $email = $_SESSION['Email'];
@@ -106,11 +105,8 @@ if( !isset($googleAuth) || $googleAuth == ""){
 }
 
  include "footer.php";
-}
-else{
-  echo '<script>alert("You are not a user/member/VIP")</script>';
-  die("");
-}
+
+
 ?>
 
 
