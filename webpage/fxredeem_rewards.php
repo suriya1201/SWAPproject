@@ -31,7 +31,7 @@ $query->execute();
 }
 
 
-
-
+$query= $con->prepare("DELETE FROM rewards WHERE Points= 0 ");
+$query->execute();
 
 ?>
