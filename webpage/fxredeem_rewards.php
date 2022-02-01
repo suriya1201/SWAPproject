@@ -13,7 +13,7 @@ if (isset($_POST['submit'])){
 
 
 $User_id =$_SESSION['ID'];
-$reward = $_POST['reward_item'];
+$reward = $_POST['id'];
 
 $query = $con->prepare("SELECT reward_points FROM tp_amc.reward_types WHERE reward_item = ? ");
 $query->bind_param('s', $reward);
