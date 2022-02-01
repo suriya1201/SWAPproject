@@ -31,11 +31,12 @@ include "session_regen.php";
             echo "<tr><td>".$id."</td>";
             echo "<td>".$reward_item."</td>";
             echo "<td>".$reward_points."</td>";
-            echo'<form method="post"> 
-                <td><input type="submit" name="submit"></input></td><br>
-            </form>';
         }
         echo "</table>";
+        echo'<form method="post"> 
+                <label >Enter id:</label><input type="text" name="id"><br>
+                <input type="submit" name="submit"></input><br>
+            </form>';
         ?>
     </body>
 
