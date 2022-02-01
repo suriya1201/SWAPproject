@@ -3,14 +3,20 @@ include "session_regen.php";
 require 'vendor/autoload.php';
 include "db_connection.php";
 
-$userid = 24;
-$email = 'LANZEXI26@GMAIL.COM';
+  
+
+
+
+
+
+$userid = $_SESSION['ID'];
+$email = $_SESSION['Email'];
 $g =new \Sonata\GoogleAuthenticator\GoogleAuthenticator();
 $secret = $g->generateSecret();
 include "navbar2.php";
 
 
-//sql prepared statement 
+//sql prepared statement  to check if user has google_auth code alr 
 
 $query = $con->prepare("SELECT google_auth FROM user WHERE ID = ?");
 $query->bind_param('i', $userid);
@@ -60,17 +66,16 @@ if( !isset($googleAuth) || $googleAuth == ""){
        $code1= $_POST['code1'];
        if ($g->checkCode($secret1, $code1)) {
             header("Location:http://localhost/SWAPproject/webpage/logged_in.php");
-            exit;
+            exit();
          } 
        else {
             echo '<script>alert("You have typed in the wrong OTP")</script>';
         }
-      
+       }
       
   }
   
-  }
-  else{
+  elseif(isset($googleAuth) || $googleAuth != ""){
 
     $secret2= $googleAuth;
     echo "<br>";  
@@ -96,7 +101,10 @@ if( !isset($googleAuth) || $googleAuth == ""){
         } 
   }
 }
+
  include "footer.php";
+
+
 ?>
 
 
@@ -105,4 +113,5 @@ if( !isset($googleAuth) || $googleAuth == ""){
 if ( window.history.replaceState ) {
   window.history.replaceState( null, null, window.location.href );
 }
+
 </script>

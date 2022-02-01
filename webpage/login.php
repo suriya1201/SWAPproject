@@ -29,14 +29,15 @@ if(mysqli_num_rows($result) === 1) {
             $_SESSION['Username'] = $row['Username'];
             $_SESSION['Role'] = $row['User_type'];
             $_SESSION['ID'] = $row['ID'];
+            $_SESSION['Email']=$row['Email'];
             $_SESSION['timeout'] = time();
             if($row['User_type'] == 'p_admin'){
                 header("Location: create_product_form.php");
             }else if ($row['User_type'] == 'r_admin'){
                 header("Location: rewardspage.php");
             }else {
-                header("Location: Homepage.php");
-                exit();
+                header("Location: google_auth.php");
+                
             }
         }
     }

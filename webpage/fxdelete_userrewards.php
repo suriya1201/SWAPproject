@@ -1,12 +1,11 @@
 <?php 
-session_start();
+
+include "session_regen.php";
 include "db_connection.php"; 
 
 
 $query= $con->prepare("DELETE FROM rewards WHERE Points= 0 ");
-if ($query->execute()) {
-    echo "Query executed.";
-}
+$query->execute();
 
 
 
