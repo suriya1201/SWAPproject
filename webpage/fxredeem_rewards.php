@@ -2,6 +2,7 @@
 include "session_regen.php";
 include "db_connection.php";
 
+
 require "rewards_user.php";
 
 
@@ -12,10 +13,10 @@ if (isset($_POST['submit'])){
 
 
 $User_id =$_SESSION['ID'];
-$reward = $_POST['reward_item'];
+$reward = $_POST['id'];
 
-$query = $con->prepare("SELECT reward_points FROM tp_amc.reward_types WHERE reward_item = ? ");
-$query->bind_param('s', $reward);
+$query = $con->prepare("SELECT reward_points FROM tp_amc.reward_types WHERE ID = ? ");
+$query->bind_param('i', $reward);
 $query->execute();
 $result = $query->get_result();
 if ($result->num_rows > 0) {
