@@ -28,12 +28,9 @@
             echo "<tr><td>".$id."</td>";
             echo "<td>".$reward_item."</td>";
             echo "<td>".$reward_points."</td>";
-            echo "<td><a href='editrewards.php?id=".$id."'>edit</a></td>";
-            echo "<td><a href='deleterewards.php?id=".$id."'>delete</a></td></tr>";
         }
         echo "</table>";
         ?>
-        <div class="column"><div padding=10px><a class="r1" href="http://localhost/SWAPproject/webpage/createrewards_form.php">Create Rewards</a></div>
     </body>
 
     <?php include 'footer.php' ?>
