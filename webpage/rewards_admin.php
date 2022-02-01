@@ -1,5 +1,6 @@
 <?php
 include "session_regen.php";
+include "db_connection.php";
 ?>
 <!DOCTYPE html>
     <head>
@@ -20,8 +21,7 @@ include "session_regen.php";
         <div class="row">
 
         <?php
-        $connect = mysqli_connect("localhost","root","","tp_amc");
-        $query=$connect->prepare("SELECT ID, reward_item, reward_points FROM `reward_types`");
+        $query=$con->prepare("SELECT ID, reward_item, reward_points FROM `reward_types`");
         $query->execute();
         $query->bind_result($id, $reward_item, $reward_points);
         echo "<table align='center' border='1'><tr>";

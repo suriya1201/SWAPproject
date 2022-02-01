@@ -1,7 +1,6 @@
 <?php
-include "session_regen.php";
 include "db_connection.php";
-
+include "session_regen.php";
 
 require "rewards_user.php";
 
@@ -22,14 +21,12 @@ $result = $query->get_result();
 if ($result->num_rows > 0) {
 
 while($row = $result->fetch_assoc()) {
-    $reward_points = $row["reward_points"];
+    $reward_point = $row["reward_points"];
 }}
 
 
-
-
-$query=$con->prepare("UPDATE tp_amc.rewards SET Points = Points - ? WHERE User_id= ? ");
-$query->bind_param('ii', $reward_points , $User_id);
+$query=$con->prepare("UPDATE tp_amc.rewards SET Points = (Points - ?) WHERE User_id= ? ");
+$query->bind_param('ii', $reward_point, $_SESSION['ID']);
 $query->execute();
 echo '<script>alert("You have successfully redeemed the reward")</script>';
 }

@@ -1,5 +1,5 @@
 <?php
-
+include "db_connection.php";
 $reward_item = htmlspecialchars($_POST["reward_item"]);
 $reward_points = htmlspecialchars($_POST["reward_points"]);
 
@@ -17,8 +17,7 @@ if (!preg_match($point_regex, $reward_points)){
 }
 
 if ($regex_check == 1) {
-    $connect = mysqli_connect("localhost","root","","tp_amc");
-    $query = $connect->prepare("INSERT INTO `reward_types` (`reward_item`,`reward_points`) VALUES (?,?)");
+    $query = $con->prepare("INSERT INTO `reward_types` (`reward_item`,`reward_points`) VALUES (?,?)");
     $query->bind_param('ss', $reward_item, $reward_points);
     if ($query->execute()){
         echo "Query executed.";
