@@ -2,7 +2,8 @@
 include "session_regen.php";
 include "db_connection.php";
 
-require "rewardspage.php";
+require "rewards_admin.php";
+require "rewards_user.php";
 
 
 
