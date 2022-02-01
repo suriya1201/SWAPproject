@@ -33,7 +33,7 @@ include "db_connection.php";
             echo "<td>".$reward_points."</td>";
         }
         echo "</table>";
-        echo'<form method="post"> 
+        echo'<form method="post" action="fxredeem_rewards.php"> 
                 <label >Enter id:</label><input type="text" name="id"><br>
                 <input type="submit" name="submit5"></input><br>
             </form>';

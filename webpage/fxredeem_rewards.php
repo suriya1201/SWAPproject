@@ -1,6 +1,5 @@
 <?php
 include "db_connection.php";
-include "session_regen.php";
 
 require "rewards_user.php";
 
@@ -8,13 +7,13 @@ require "rewards_user.php";
 
 
 
-if (isset($_POST['submit5'])){
 
+if (isset($_POST['submit5'])){
 
 $User_id =$_SESSION['ID'];
 $reward = $_POST['id'];
 
-$query = $con->prepare("SELECT reward_points FROM reward_types WHERE ID = ? ");
+$query = $con->prepare("SELECT  reward_points FROM reward_types WHERE ID = ? ");
 $query->bind_param('i', $reward);
 $query->execute();
 $result = $query->get_result();
@@ -25,14 +24,14 @@ while($row = $result->fetch_assoc()) {
 }}
 
 
-$query=$con->prepare("UPDATE tp_amc.rewards SET Points = (Points - ?) WHERE User_id= ? ");
-$query->bind_param('ii', $reward_point, $_SESSION['ID']);
+$query=$con->prepare("UPDATE rewards SET Points = (Points - ?) WHERE User_id = ? ");
+$query->bind_param('ii', $reward_point, $User_id);
 $query->execute();
 
 }
 
 
-require_once "fxdelete_userrewards.php";
+
 
 
 ?>
