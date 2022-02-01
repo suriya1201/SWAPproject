@@ -1,3 +1,6 @@
+<?php
+include "session_regen.php";
+?>
 <!DOCTYPE html>
     <head>
         <meta charset="utf-8">
@@ -28,6 +31,7 @@
             echo "<tr><td>".$id."</td>";
             echo "<td>".$reward_item."</td>";
             echo "<td>".$reward_points."</td>";
+            echo "<td><a href='redeemrewards.php?id=".$id."'>redeem</a></td>";
         }
         echo "</table>";
         ?>
