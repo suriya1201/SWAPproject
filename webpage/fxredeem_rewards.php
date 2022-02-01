@@ -9,13 +9,13 @@ require "rewards_user.php";
 
 
 
-if (isset($_POST['submit'])){
+if (isset($_POST['submit5'])){
 
 
 $User_id =$_SESSION['ID'];
 $reward = $_POST['id'];
 
-$query = $con->prepare("SELECT ID FROM tp_amc.reward_types WHERE ID = ? ");
+$query = $con->prepare("SELECT reward_points FROM reward_types WHERE ID = ? ");
 $query->bind_param('i', $reward);
 $query->execute();
 $result = $query->get_result();
@@ -30,6 +30,7 @@ while($row = $result->fetch_assoc()) {
 
 $query=$con->prepare("UPDATE tp_amc.rewards SET Points = Points - ? WHERE User_id= ? ");
 $query->bind_param('ii', $reward_points , $User_id);
+$query->execute();
 echo '<script>alert("You have successfully redeemed the reward")</script>';
 }
 

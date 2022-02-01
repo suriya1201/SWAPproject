@@ -35,7 +35,7 @@ include "session_regen.php";
         echo "</table>";
         echo'<form method="post"> 
                 <label >Enter id:</label><input type="text" name="id"><br>
-                <input type="submit" name="submit"></input><br>
+                <input type="submit" name="submit5"></input><br>
             </form>';
         ?>
     </body>
