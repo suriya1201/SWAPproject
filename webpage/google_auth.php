@@ -50,7 +50,7 @@ if( !isset($googleAuth) || $googleAuth == ""){
      $secret1 =$googleAuth1;
 
      echo '<br><body class="loginbdy">';
-     echo "Scan QR code using google authenticator <br></br><br></br>";
+     echo "Scan QR code using google authenticator (download from APP STORE or Playstore)<br></br><br></br>";
        echo '<img src="'.Sonata\GoogleAuthenticator\GoogleQrUrl::generate( $email , $secret1,'TP AMC SHOP').'"><br></br>';
        echo '
       
