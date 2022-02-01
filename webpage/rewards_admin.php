@@ -1,3 +1,6 @@
+<?php
+include "session_regen.php";
+?>
 <!DOCTYPE html>
     <head>
         <meta charset="utf-8">
