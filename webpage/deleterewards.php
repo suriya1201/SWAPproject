@@ -3,7 +3,7 @@
 <?php 
 include "db_connection.php";
 $id = $_GET['id'];
-$id = mysqli_real_escape_string($connect, $id);
+$id = mysqli_real_escape_string($con, $id);
 $query= $con->prepare("DELETE FROM reward_types WHERE ID='$id'");
 if ($query->execute()) {
     echo "Query executed.";
