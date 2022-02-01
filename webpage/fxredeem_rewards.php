@@ -30,7 +30,7 @@ while($row = $result->fetch_assoc()) {
 
 $query=$con->prepare("UPDATE tp_amc.rewards SET Points = Points - ? WHERE User_id= ? ");
 $query->bind_param('ii', $reward_points , $User_id);
-
+echo '<script>alert("You have successfully redeemed the reward")</script>';
 }
 
 

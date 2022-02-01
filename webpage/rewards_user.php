@@ -31,7 +31,9 @@ include "session_regen.php";
             echo "<tr><td>".$id."</td>";
             echo "<td>".$reward_item."</td>";
             echo "<td>".$reward_points."</td>";
-            echo "<td><a href='redeemrewards.php?id=".$id."'>redeem</a></td>";
+            echo'<form method="post"> 
+                <td><input type="submit" name="submit"></input></td><br>
+            </form>';
         }
         echo "</table>";
         ?>
