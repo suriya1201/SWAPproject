@@ -32,6 +32,7 @@ include "session_regen.php";
             echo "<td>".$reward_item."</td>";
             echo "<td>".$reward_points."</td>";
             echo'<form method="post"> 
+        
                 <td><input type="submit" name="submit"></input></td><br>
             </form>';
         }
