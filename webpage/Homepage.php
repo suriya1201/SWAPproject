@@ -27,7 +27,7 @@
                     </div>
                     <div class="row">
                         <h4><?php echo $fetch['Product_Name'] ?></h4>
-                        <button onclick="window.location.href='create_purchase.php'">Checkout here</button>
+                        <button onclick="window.location.href='create_purchase.php'">Add to cart</button>
                         
                     </div>
         </div>
