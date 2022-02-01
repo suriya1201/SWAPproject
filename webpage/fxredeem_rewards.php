@@ -22,6 +22,9 @@ if ($result->num_rows > 0) {
 while($row = $result->fetch_assoc()) {
     $reward_point = $row["reward_points"];
 }}
+else{
+    $reward_point= 0;
+}
 
 
 $query=$con->prepare("UPDATE rewards SET Points = (Points - ?) WHERE User_id = ? ");
@@ -30,8 +33,9 @@ $query->execute();
 
 }
 
-
-$query= $con->prepare("DELETE FROM rewards WHERE Points= 0 ");
+$points = 0;
+$query= $con->prepare("DELETE FROM rewards WHERE Points  = ?");
+$query->bind_param('i', $points);
 $query->execute();
 
 ?>
