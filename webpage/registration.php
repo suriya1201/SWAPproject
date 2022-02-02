@@ -1,5 +1,6 @@
 <?php
 include "db_connection.php";
+include "regex.php";
 
 use PHPMailer\PHPMailer\PHPMailer;
 use PHPMailer\PHPMailer\SMTP;
@@ -7,7 +8,6 @@ use PHPMailer\PHPMailer\Exception;
 
 
 require 'vendor/autoload.php';
-
 
 $mail = new PHPMailer(true);
 
@@ -17,12 +17,7 @@ function validate($data){
     $data = htmlspecialchars($data); 
     return $data;
 }
-$regex_check = 1;
 
-$username_regex = "/^[A-Za-z0-9 ]+$/"; #For password also
-$email_regex = "/^[a-zA-Z0-9_.+-]+@[a-zA-Z0-9-]+\.[a-zA-Z0-9-.]+/";
-$contact_regex = "/\b\d{8}\b/";
-$address_regex = "/^[A-Za-z0-9 .,#-]+$/";
 
 $password_conf = $_POST['psw-confirm'];
 $password = $_POST['psw'];
