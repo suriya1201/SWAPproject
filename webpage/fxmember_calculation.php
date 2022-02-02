@@ -1,7 +1,7 @@
 
 <?php 
 
-include "session_regen.php";
+
 include "db_connection.php";
 require "create_product.php";
 

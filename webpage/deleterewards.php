@@ -1,10 +1,10 @@
 <html>
 <body>
 <?php 
-$connect = mysqli_connect("localhost","root","","tp_amc");
+include "db_connection.php";
 $id = $_GET['id'];
-$id = mysqli_real_escape_string($connect, $id);
-$query= $connect->prepare("DELETE FROM reward_types WHERE ID='$id'");
+$id = mysqli_real_escape_string($con, $id);
+$query= $con->prepare("DELETE FROM reward_types WHERE ID='$id'");
 if ($query->execute()) {
     echo "Query executed.";
 }
