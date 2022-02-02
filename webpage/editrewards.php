@@ -9,11 +9,11 @@
 </head>
 <body>
 <?php
-$connect = mysqli_connect("localhost","root","","tp_amc");
+include "db_connection.php";
 $id = $_GET['id'];
-$id = mysqli_real_escape_string($connect, $id);
+$id = mysqli_real_escape_string($con, $id);
 $query="SELECT reward_item, reward_points FROM `reward_types` WHERE ID='$id'";
-$result=mysqli_query($connect, $query);
+$result=mysqli_query($con, $query);
 while($row=mysqli_fetch_array($result)){
 ?>
 <form action="updaterewards.php" class="center" method="post">

@@ -14,7 +14,7 @@
             <nav>
                 <ul class="nav__links">
                     <li><a href="Homepage.php">Home</a></li>
-                    <li><a href="#">About</a></li>
+                    <li><a href="about.php">About</a></li>
                     <?php
                     if (isset($_SESSION["Username"]) && isset($_SESSION["Role"]) && $_SESSION["Role"] == "p_admin") {
                         echo("<li><a href=create_product_form.php>Go back to adding page</a></li>");
@@ -22,6 +22,7 @@
                     else if (isset($_SESSION["Username"]) && isset($_SESSION["Role"])){
                         echo("<li><a href=rewardspage.php>Rewards</a></li>");
                         echo("<li><a href=Profile_page.php>Profile</a></li>");
+                        echo("<li><a href=cartpage.php>Shopping Cart</a></li>");
                         echo("<li><a class=cta href=logout.php>Logout</a><li>");
                     } else {
                         echo("<li><a class=cta href=Loginpage.php>Login</a></li>");

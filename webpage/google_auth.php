@@ -49,9 +49,9 @@ if( !isset($googleAuth) || $googleAuth == ""){
      
      $secret1 =$googleAuth1;
 
-     echo "<br>";
-     echo "Scan QR code using google authenticator <br>";
-       echo '<img src="'.Sonata\GoogleAuthenticator\GoogleQrUrl::generate( $email , $secret1,'TP AMC SHOP').'"><br>';
+     echo '<br><body class="loginbdy">';
+     echo "Scan QR code using google authenticator (download from APP STORE or Playstore)<br></br><br></br>";
+       echo '<img src="'.Sonata\GoogleAuthenticator\GoogleQrUrl::generate( $email , $secret1,'TP AMC SHOP').'"><br></br>';
        echo '
       
        <form  class="loginform" method="post"> 
@@ -60,6 +60,7 @@ if( !isset($googleAuth) || $googleAuth == ""){
        <input type="submit" class="loginbtn" name="submit2"><br>
        </form>
        </div>
+       </body>
        ';
      //check if code is true 
        if (isset($_POST['submit2'])){
@@ -78,15 +79,16 @@ if( !isset($googleAuth) || $googleAuth == ""){
   elseif(isset($googleAuth) || $googleAuth != ""){
 
     $secret2= $googleAuth;
-    echo "<br>";  
+    echo '<br><body class="loginbdy">';  
    
       echo '
       <form  class="loginform" method="post"> 
       <div class="containerLogin">
-      <label>Code:</label><input type="text" name="code2"><br>
+      <label>Input code from google authenticator app:</label><input type="text" name="code2"><br>
       <input type="submit" class="loginbtn" name="submit3"><br>
       </form>
       </div>
+      </body>
       ';
       //check if code is true
       if (isset($_POST['submit3'])){

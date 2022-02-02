@@ -34,7 +34,7 @@
     }
   }
   ?>
-  <a href="reset_password.php">Forgot password?</a><a>or</a>
+  <a href="reset_password.php">Forgot password?</a><a> or</a>
    <a href="http://localhost/SWAPproject/webpage/Registerpage.php">Register</a>
   </div>
 </form>
