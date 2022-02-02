@@ -3,12 +3,6 @@ include "session_regen.php";
 require 'vendor/autoload.php';
 include "db_connection.php";
 
-  
-
-
-
-
-
 $userid = $_SESSION['ID'];
 $email = $_SESSION['Email'];
 $g =new \Sonata\GoogleAuthenticator\GoogleAuthenticator();
@@ -66,7 +60,7 @@ if( !isset($googleAuth) || $googleAuth == ""){
        if (isset($_POST['submit2'])){
        $code1= $_POST['code1'];
        if ($g->checkCode($secret1, $code1)) {
-            header("Location:http://localhost/SWAPproject/webpage/Homepage.php");
+            header("Location:https://localhost/SWAPproject/webpage/logged_in.php");
             exit();
          } 
        else {
@@ -95,7 +89,7 @@ if( !isset($googleAuth) || $googleAuth == ""){
         $code2= $_POST['code2'];
 
         if ($g->checkCode($secret2, $code2)) {
-            header("Location:http://localhost/SWAPproject/webpage/Homepage.php");
+            header("Location:https://localhost/SWAPproject/webpage/logged_in.php");
             exit;
         } 
         else {
