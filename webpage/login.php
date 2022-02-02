@@ -31,6 +31,17 @@ if(mysqli_num_rows($result) === 1) {
             $_SESSION['ID'] = $row['ID'];
             $_SESSION['Email']=$row['Email'];
             $_SESSION['timeout'] = time();
+
+
+            $action = "login";
+            $username =$_SESSION['Username'];
+            
+            $query = $con->prepare("INSERT INTO tp_amc.login_log (User_name,Action) VALUES (?,?)");
+            $query->bind_param('ss', $username , $action );
+            $query->execute();
+
+            
+
             if($row['User_type'] == 'p_admin'){
                 header("Location: create_product_form.php");
             }else if ($row['User_type'] == 'r_admin'){
