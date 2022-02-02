@@ -65,7 +65,7 @@ if( !isset($googleAuth) || $googleAuth == ""){
        if (isset($_POST['submit2'])){
        $code1= $_POST['code1'];
        if ($g->checkCode($secret1, $code1)) {
-            header("Location:http://localhost/SWAPproject/webpage/logged_in.php");
+            header("Location:http://localhost/SWAPproject/webpage/Homepage.php");
             exit();
          } 
        else {
@@ -93,7 +93,7 @@ if( !isset($googleAuth) || $googleAuth == ""){
         $code2= $_POST['code2'];
 
         if ($g->checkCode($secret2, $code2)) {
-            header("Location:http://localhost/SWAPproject/webpage/logged_in.php");
+            header("Location:http://localhost/SWAPproject/webpage/Homepage.php");
             exit;
         } 
         else {
