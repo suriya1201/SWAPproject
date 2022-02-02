@@ -18,7 +18,7 @@
 <body>
   <nav class="navbar navbar-expand-md bg-dark navbar-dark">
     <!-- Brand -->
-    <a class="navbar-brand" href="index.php"><i class="fas fa-mobile-alt"></i>&nbsp;&nbsp;Mobile Store</a>
+    <a class="navbar-brand" href="homepage.php"><i class="fas fa-mobile-alt"></i>&nbsp;&nbsp;Mobile Store</a>
     <!-- Toggler/collapsibe Button -->
     <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#collapsibleNavbar">
       <span class="navbar-toggler-icon"></span>
@@ -27,7 +27,7 @@
     <div class="collapse navbar-collapse" id="collapsibleNavbar">
       <ul class="navbar-nav ml-auto">
         <li class="nav-item">
-          <a class="nav-link active" href="index.php"><i class="fas fa-mobile-alt mr-2"></i>Products</a>
+          <a class="nav-link active" href="homepage.php"><i class="fas fa-mobile-alt mr-2"></i>Products</a>
         </li>
         <li class="nav-item">
           <a class="nav-link" href="#"><i class="fas fa-th-list mr-2"></i>Categories</a>
@@ -36,7 +36,7 @@
           <a class="nav-link" href="checkout.php"><i class="fas fa-money-check-alt mr-2"></i>Checkout</a>
         </li>
         <li class="nav-item">
-          <a class="nav-link" href="cart.php"><i class="fas fa-shopping-cart"></i> <span id="cart-item" class="badge badge-danger"></span></a>
+          <a class="nav-link" href="cartpage.php"><i class="fas fa-shopping-cart"></i> <span id="cart-item" class="badge badge-danger"></span></a>
         </li>
       </ul>
     </div>
@@ -71,14 +71,14 @@
                 <th>Quantity</th>
                 <th>Total Price</th>
                 <th>
-                  <a href="cart.php?clear=all" class="badge-danger badge p-1" onclick="return confirm('Are you sure want to clear your cart?');"><i class="fas fa-trash"></i>&nbsp;&nbsp;Clear Cart</a>
+                  <a href="cartpage.php?clear=all" class="badge-danger badge p-1" onclick="return confirm('Are you sure want to clear your cart?');"><i class="fas fa-trash"></i>&nbsp;&nbsp;Clear Cart</a>
                 </th>
               </tr>
             </thead>
             <tbody>
               <?php
-                require 'config.php';
-                $stmt = $conn->prepare('SELECT * FROM cart');
+                require 'db_connection.php';
+                $stmt = $con->prepare('SELECT * FROM cart');
                 $stmt->execute();
                 $result = $stmt->get_result();
                 $Grand_Total = 0;
@@ -98,14 +98,14 @@
                 </td>
                 <td><i class="fas fa-dollar-sign"></i>&nbsp;&nbsp;<?= number_format($row['total_price'],2); ?></td>
                 <td>
-                  <a href="cart.php?remove=<?= $row['id'] ?>" class="text-danger lead" onclick="return confirm('Are you sure want to remove this item?');"><i class="fas fa-trash-alt"></i></a>
+                  <a href="cartpage.php?remove=<?= $row['id'] ?>" class="text-danger lead" onclick="return confirm('Are you sure want to remove this item?');"><i class="fas fa-trash-alt"></i></a>
                 </td>
               </tr>
               <?php $Grand_Total += $row['total_price']; ?>
               <?php endwhile; ?>
               <tr>
                 <td colspan="3">
-                  <a href="index.php" class="btn btn-success"><i class="fas fa-cart-plus"></i>&nbsp;&nbsp;Continue
+                  <a href="homepage.php" class="btn btn-success"><i class="fas fa-cart-plus"></i>&nbsp;&nbsp;Continue
                     Shopping</a>
                 </td>
                 <td colspan="2"><b>Grand Total</b></td>
@@ -136,7 +136,7 @@
       var qty = $el.find(".itemQty").val();
       location.reload(true);
       $.ajax({
-        url: 'cart.php',
+        url: 'cartpage.php',
         method: 'post',
         cache: false,
         data: {
@@ -155,7 +155,7 @@
 
     function load_cart_item_number() {
       $.ajax({
-        url: 'cart.php',
+        url: 'cartpage.php',
         method: 'get',
         data: {
           cartItem: "cart_item"

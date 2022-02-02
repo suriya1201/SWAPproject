@@ -1,5 +1,5 @@
 <?php
-	require 'config.php';
+	require 'db_connection.php';
 
 	$Grand_Total = 0;
 	$allItems = '';

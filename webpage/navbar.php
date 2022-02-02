@@ -22,6 +22,7 @@
                     else if (isset($_SESSION["Username"]) && isset($_SESSION["Role"])){
                         echo("<li><a href=rewardspage.php>Rewards</a></li>");
                         echo("<li><a href=Profile_page.php>Profile</a></li>");
+                        echo("<li><a href=cartpage.php>Shopping Cart</a></li>");
                         echo("<li><a class=cta href=logout.php>Logout</a><li>");
                     } else {
                         echo("<li><a class=cta href=Loginpage.php>Login</a></li>");
