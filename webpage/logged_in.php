@@ -21,18 +21,31 @@ if (!isset($_SESSION["Username"])){
     </head>
     <body>
         <?php include "navbar.php" ?>
-   <div class="column"><div padding=10px>item 1</div>
-       
-       <img src="images/tplogo.jpg" alt="Snow" style="width:60%">
-    </div>
-    <div class="column"> <div padding=10px>item 2</div>
-        <img src="images/tplogo.jpg" alt="Forest" style="width:60%">
-   </div>
-       <div class="column"><div padding=10px>item 3</div>
-      <img src="images/tplogo.jpg" alt="Mountains" style="width:60%">
-     </div>
-     </div>
+        <?php
+        $con = mysqli_connect("localhost","root","","tp_amc");
+
+        $sql = "SELECT * from products";
+        $result = mysqli_query($con, $sql);
+        if(mysqli_num_rows($result)>0){
+            while($fetch = mysqli_fetch_assoc($result))
+            {
+                ?>
+
+        <div class="column">
+                    <div class="row">
+                        <img src ="images/<?php echo $fetch['Image']; ?>" width=350 height=350>
+                    </div>
+                    <div class="row">
+                        <h4><?php echo $fetch['Product_Name'] ?></h4>
+                        <button onclick="window.location.href='create_purchase.php'">Add to cart</button>
+                        
+                    </div>
+        </div>
+                
+                <?php
+            }
+        }
+     ?>
     </body>
-    <?php include 'footer.php' ?>
 
 </html>
