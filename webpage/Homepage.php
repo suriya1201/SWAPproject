@@ -9,13 +9,9 @@
         <link rel="stylesheet" href="/w3css/3/w3.css">
     </head>
 <body>
-<<<<<<< Updated upstream
-    <?php include 'navbar.php' ?>
-=======
     <?php 
     
     include 'navbar.php' ?>
->>>>>>> Stashed changes
     <?php include 'db_connection.php' ?>
     <?php
         $con = mysqli_connect("localhost","root","","tp_amc");
