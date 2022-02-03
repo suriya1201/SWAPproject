@@ -1,12 +1,10 @@
 <?php
 
-include "session_regen.php";
+include "Homepage.php";
 
 if (!isset($_SESSION["Username"])){
     header("Location: Homepage.php");
     exit();
 }
-
-include "Homepage.php"
 ?>
 

@@ -1,5 +1,4 @@
 <?php
-include "session_regen.php";
 require 'vendor/autoload.php';
 include "db_connection.php";
 

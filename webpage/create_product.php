@@ -1,5 +1,4 @@
 <?php include 'navbar.php' ?>
-<?php include 'session_regen.php' ?>
 <?php 
 
 if ($_SESSION['Role'] != 'p_admin') { //ensure only p_admin can access this page
