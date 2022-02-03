@@ -31,7 +31,7 @@ function sendEmail($recipient, $subject, $message){
     //set email subject
     $mail->Subject = $subject;
     //set sender email
-    $mail->SetFrom('dariustan1502@gmail.com');
+    $mail->SetFrom('dariustan0433@gmail.com');
     //enable html
     $mail->isHTML();
     // email body
