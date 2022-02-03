@@ -58,6 +58,6 @@ $result = $query->get_result();
      $query= $con->prepare("DELETE FROM rewards WHERE Points  = ?");
      $query->bind_param('i', $points);
      $query->execute();
-     }
+     
 
 ?>
