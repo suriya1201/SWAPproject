@@ -7,7 +7,6 @@
         <link rel="stylesheet" href="styles.css">
         <link href="https://fonts.googleapis.com/css?family=Montserrat:500&display=swap" rel="stylesheet">
         <link rel="stylesheet" href="/w3css/3/w3.css">
-        <script src="https://www.google.com/recaptcha/api.js" async defer></script>
 </head>
 
     <body>
@@ -49,8 +48,6 @@
                 <input type="text" placeholder="Enter Phone Number" name="phone-num" id="phone-num" required>
                 </div>
 
-                <div class="g-recaptcha" data-sitekey="6LfM2lQeAAAAABCk0mO_oRw7Pdh_nDdPS7rEPamn"></div>
-                <br>
                 <hr>
                 <p>By creating an account you agree to our <a href="#">Terms & Policy</a>.</p>
 
