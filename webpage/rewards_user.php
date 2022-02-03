@@ -18,6 +18,7 @@ include "db_connection.php";
     </head>
     <body>
         <?php include "navbar3.php" ?>
+        
         <div class="row">
 
         <?php
