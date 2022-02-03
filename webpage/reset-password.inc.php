@@ -12,12 +12,10 @@ if (isset($_POST["reset-password-submit"])){ //when button is pressed
     $patterncheck = "/^[A-Za-z0-9 ]+$/";
 
     if(!preg_match($patterncheck, $password)){
-        echo "<script>alert('Please ensure that the password contains only numbers and alphabets')</script>";
         $regex_check = 0;
     }
     
     if(!preg_match($patterncheck, $passwordRepeat)){
-        echo "<script>alert('Please ensure that the repeated password contains only numbers and alphabets')</script>";
         $regex_check = 0;
     }
 
@@ -31,6 +29,9 @@ if (isset($_POST["reset-password-submit"])){ //when button is pressed
     } else if ($regex_check == 0){
         header("Location: create-new-password.php?newpwd=invalidchars"); //error will occur saying selector & validator is empty, supposed to happen because of newpwd=invalidchars in url
         exit();
+    } else if (strlen($password || $passwordRepeat)>6){
+        header("Location: create-new-password.php?newpwd=6charactersatleast"); //error will occur saying selector & validator is empty, supposed to happen because of newpwd=invalidlength in url
+        exit();
     }
 
     $currentDate = date("U");
@@ -39,8 +40,8 @@ if (isset($_POST["reset-password-submit"])){ //when button is pressed
 
     $sql = "SELECT * FROM pwdReset WHERE pwdResetSelector=? AND pwdResetExpire >= ?"; //select the data from the table when we sent a request to reset password
     $stmt = mysqli_stmt_init($con);
-    if(!mysqli_stmt_prepare($stmt, $sql)){
-        echo "There was an error";
+    if(!mysqli_stmt_prepare($stmt, $sql)){ //either fields are missing for some reason or cannot connect
+        echo "<script>alert('Connection error or missing fields')</script>";
         exit();
     } else{
         mysqli_stmt_bind_param($stmt, "ss", $selector, $currentDate);
@@ -48,15 +49,15 @@ if (isset($_POST["reset-password-submit"])){ //when button is pressed
 
         $result = mysqli_stmt_get_result($stmt);
         if (!$row = mysqli_fetch_assoc($result)){
-            echo "You need to resubmit your request1"; //means either token expire or selector token (first token) is wrong
+            echo "<script>alert('Token expired or token is wrong')</script>"; //means either token expire or selector token (first token) is wrong
             exit();
         } else{
             
             $tokenBin = hex2bin($validator); //convert back to binary to check
-            $tokenCheck = password_verify($tokenBin, $row["pwdResetToken"]);
+            $tokenCheck = password_verify($tokenBin, $row["pwdResetToken"]); //check whether both the binary for the token matches
 
             if ($tokenCheck === false){
-                echo "You need to resubmit your request2"; //if second token is wrong
+                echo "<script>alert('Your validator token is not the same')</script>"; //if second token is wrong
                 exit();
             } elseif ($tokenCheck === true) {
 
@@ -65,7 +66,7 @@ if (isset($_POST["reset-password-submit"])){ //when button is pressed
                 $sql = "SELECT * FROM user WHERE Email=?;";
                 $stmt = mysqli_stmt_init($con);
                 if(!mysqli_stmt_prepare($stmt, $sql)){
-                echo "There was an error1"; //if cannot connect
+                    echo "<script>alert('Cannot connect to database')</script>"; //if cannot connect
                 exit();
                 } else{
 
@@ -73,14 +74,14 @@ if (isset($_POST["reset-password-submit"])){ //when button is pressed
                     mysqli_stmt_execute($stmt);
                     $result = mysqli_stmt_get_result($stmt);
                     if (!$row = mysqli_fetch_assoc($result)){
-                     echo "There was an error2"; //if email field is empty somehow
+                        echo "<script>alert('Email field is empty')</script>"; //if email field is empty somehow
                     exit();
                     } else{
 
                       $sql = "UPDATE user SET Password=? WHERE Email=?";
                       $stmt = mysqli_stmt_init($con);
                       if(!mysqli_stmt_prepare($stmt, $sql)){
-                      echo "There was an error3"; //cannot update
+                        echo "<script>alert('Cannot update')</script>"; //cannot update
                       exit();
                       } else {
 
@@ -91,7 +92,7 @@ if (isset($_POST["reset-password-submit"])){ //when button is pressed
                         $sql ="DELETE FROM pwdReset WHERE pwdResetEmail=?"; //delete the entire row of data so attackers cannot see the history of emails being used
                         $stmt = mysqli_stmt_init($con);
                         if (!mysqli_stmt_prepare($stmt, $sql)){
-                            echo "There was an error4";
+                            echo "<script>alert('Connection error, cannot delete')</script>";
                             exit();
                         } else{
                             mysqli_stmt_bind_param($stmt, "s", $tokenEmail);

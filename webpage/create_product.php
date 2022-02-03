@@ -2,7 +2,7 @@
 <?php include 'session_regen.php' ?>
 <?php 
 
-if ($_SESSION['Role'] != 'p_admin') {
+if ($_SESSION['Role'] != 'p_admin') { //ensure only p_admin can access this page
     echo "<script>alert('UNAUTHORIZED ACCESS IS NOT ALLOWED')</script>";
     die();
 }
@@ -23,9 +23,9 @@ $productdescription = htmlspecialchars($_POST['description']);
 $productprice = htmlspecialchars($_POST['price']);
 $productquantity = htmlspecialchars($_POST['quantity']);
 $productpoints = htmlspecialchars($_POST['points']);
-$productimage = htmlspecialchars($_POST['image']);
+$productimage = htmlspecialchars($_POST['image']); //binding the inputs to variables
 
-$regex_check = 1;
+$regex_check = 1; //checking for the user input
 
 $patterncheck = "/^[A-Za-z0-9 ]+$/";
 $numbercheck = "/^[0-9]+$/";
@@ -56,7 +56,7 @@ if(!preg_match($numbercheck, $productpoints)){
 }
 
 
-if ($regex_check == 1){
+if ($regex_check == 1){ //if the input is correct, insert into database
 
 $query= $con->prepare("INSERT INTO products (Product_Name, Product_Description, Price, Quantity, Item_points, Image) VALUES (?,?,?,?,?,?)");
 $query->bind_param('ssisss', $productname, $productdescription, $productprice, $productquantity, $productpoints, $productimage);
