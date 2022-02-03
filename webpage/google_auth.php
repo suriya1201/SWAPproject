@@ -1,7 +1,8 @@
 <?php
+include "session_regen.php";
 require 'vendor/autoload.php';
 include "db_connection.php";
-include "session_regen.php";
+
 include "navbar2.php";
 
 
