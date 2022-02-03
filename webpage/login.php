@@ -19,9 +19,12 @@ $stmt->bind_param('ss', $username, $password);
 $result = $stmt->execute();
 $result = $stmt->get_result();
 
-if(mysqli_num_rows($result) === 1) {
+if(mysqli_num_rows($result) === 1 && $_POST['g-recaptcha-response'] != "") {
+    $secret = '6LfM2lQeAAAAAPXIK0jKiTUAFbLrudkr5McE02Tv';
+    $verifyResponse = file_get_contents('https://www.google.com/recaptcha/api/siteverify?secret=' . $secret . '&response=' . $_POST['g-recaptcha-response']);
+    $responseData = json_decode($verifyResponse);
     $row = mysqli_fetch_assoc($result);
-    if($row['Username'] === $username && $row['Password'] === $password) {
+    if(($row['Username'] === $username && $row['Password'] === $password) && $responseData->success) {
         if ( empty($row['Verified_date']) ) {
             $email = $row['Email'];
             header("Location: email_verify.php?email=" . $email);

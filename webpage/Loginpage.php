@@ -7,9 +7,12 @@
         <link rel="stylesheet" href="styles.css">
         <link href="https://fonts.googleapis.com/css?family=Montserrat:500&display=swap" rel="stylesheet">
         <link rel="stylesheet" href="/w3css/3/w3.css">
+        <script src="https://www.google.com/recaptcha/api.js" async defer></script>
 </head>
 <body class="loginbdy">
-<?php include "navbar.php" ?>
+<?php 
+  include "navbar.php";
+?>
 <form class="loginform" action="login.php" method="post">
 
   <div class="containerLogin">
@@ -18,6 +21,9 @@
 
     <label for="password"><b>Password</b></label>
     <input class="logininput" type="password" placeholder="Enter Password" name="password" required>
+
+    <div class="g-recaptcha" data-sitekey="6LfM2lQeAAAAABCk0mO_oRw7Pdh_nDdPS7rEPamn"></div>
+    <br>
 
     <button class="loginbtn" type="submit" >Login</button>
     <label>
@@ -38,5 +44,6 @@
    <a href="http://localhost/SWAPproject/webpage/Registerpage.php">Register</a>
   </div>
 </form>
+
 </body>
 </html>

@@ -3,16 +3,16 @@ include "db_connection.php";
 
 require "rewards_user.php";
 
-
-
-
-
-
 if (isset($_POST['submit5'])){
 
 $User_id =$_SESSION['ID'];
-$reward = $_POST['id'];
+$reward = htmlspecialchars($_POST['id']);
 
+$reward_regex = "/^[0-9]+$/";
+if (!preg_match($reward_regex){
+	echo "<script>alert('Please ensure that the item contains only numbers')</script>";
+}
+else {
 $query = $con->prepare("SELECT  reward_points FROM reward_types WHERE ID = ? ");
 $query->bind_param('i', $reward);
 $query->execute();
@@ -37,5 +37,5 @@ $points = 0;
 $query= $con->prepare("DELETE FROM rewards WHERE Points  = ?");
 $query->bind_param('i', $points);
 $query->execute();
-
+}
 ?>

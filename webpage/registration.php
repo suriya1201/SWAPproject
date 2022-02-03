@@ -18,18 +18,21 @@ function validate($data){
     return $data;
 }
 
-
 $password_conf = $_POST['psw-confirm'];
 $password = $_POST['psw'];
 
-if($password == $password_conf){ 
+if($password == $password_conf && isset($_POST['submit']) && $_POST['g-recaptcha-response'] != ""){
+    $secret = '6LfM2lQeAAAAAPXIK0jKiTUAFbLrudkr5McE02Tv';
+    $verifyResponse = file_get_contents('https://www.google.com/recaptcha/api/siteverify?secret=' . $secret . '&response=' . $_POST['g-recaptcha-response']);
+    $responseData = json_decode($verifyResponse);
+    if ($responseData->success) {
     $username = validate($_POST['username']);
     $password = validate(base64_encode(hash("sha256", $_POST['psw'])));
     $email = validate($_POST['email']);
     $address = validate($_POST['address']);
     $contact = validate($_POST['phone-num']);
     $role = 'user';
-
+    }
     $stmt = $con->prepare("SELECT * FROM user WHERE Email=?");
     $stmt->bind_param('s', $email);
     $stmt->execute();
@@ -101,6 +104,7 @@ if($password == $password_conf){
                             $stmt->bind_param('sssssss', $username, $password, $email, $address, $contact, $role, $otp);
                             $stmt->execute();
                             header("Location: email_verify.php?email=" . $email);
+                            
                         }
                         else {
                             echo 'Error1 Occurred';
@@ -120,4 +124,5 @@ if($password == $password_conf){
 else {
     echo "<script>alert('The two passwords do not match')</script>";
 }
+
 ?>
