@@ -20,22 +20,4 @@
             while($fetch = mysqli_fetch_assoc($result))
             {
                 ?>
-
-        <div class="column">
-                    <div class="row">
-                        <img src ="images/<?php echo $fetch['Image']; ?>" width=350 height=350>
-                    </div>
-                    <div class="row">
-                        <h4><?php echo $fetch['Product_Name'] ?></h4>
-                        <button onclick="window.location.href='checkoutpage.php'">Add to cart</button>
-                        
-                    </div>
-        </div>
                 
-                <?php
-            }
-        }
-     ?>
-</body>
-
-</html>
