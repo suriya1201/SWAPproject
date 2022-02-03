@@ -1,6 +1,4 @@
-
 <?php 
-
 
 include "db_connection.php";
 require "create_product.php";
