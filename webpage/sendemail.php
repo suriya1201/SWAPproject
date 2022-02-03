@@ -25,13 +25,13 @@ function sendEmail($recipient, $subject, $message){
     //set port to conenct SMTP
     $mail->Port = '465';
     //set gmail username
-    $mail->Username = 'dariustan0433@gmail.com';
+    $mail->Username = 'dariustan1502@gmail.com';
     //set gmail password
     $mail->Password = 'dtan1502';
     //set email subject
     $mail->Subject = $subject;
     //set sender email
-    $mail->SetFrom('dariustan0433@gmail.com');
+    $mail->SetFrom('dariustan1502@gmail.com');
     //enable html
     $mail->isHTML();
     // email body
