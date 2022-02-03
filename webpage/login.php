@@ -40,7 +40,6 @@ if ($regex_check == 1) {
                 $_SESSION['Email']=$row['Email'];
                 $_SESSION['timeout'] = time();
 
-
                 $action = "login";
                 $username =$_SESSION['Username'];
                 
@@ -48,16 +47,12 @@ if ($regex_check == 1) {
                 $query->bind_param('ss', $username , $action );
                 $query->execute();
                     
-
-                
-
                 if($row['User_type'] == 'p_admin'){
                     header("Location: create_product_form.php");
                 }else if ($row['User_type'] == 'r_admin'){
                     header("Location: rewardspage.php");
                 }else {
                     header("Location: google_auth.php");
-                    
                 }
             }
         }

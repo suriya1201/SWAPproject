@@ -6,11 +6,9 @@ use PHPMailer\PHPMailer\PHPMailer;
 use PHPMailer\PHPMailer\SMTP;
 use PHPMailer\PHPMailer\Exception;
 
-
 require 'vendor/autoload.php';
 
 $mail = new PHPMailer(true);
-
 
 $password_conf = $_POST['psw-confirm'];
 $password = $_POST['psw'];
@@ -34,7 +32,6 @@ if($password == $password_conf) {
         $contact = validate($_POST['phone-num']);
         $role = 'user';
         
-
         if (!preg_match($username_regex, $username)){
             echo "Please ensure that your username contains only numbers and alphabets";
             $regex_check = 0;

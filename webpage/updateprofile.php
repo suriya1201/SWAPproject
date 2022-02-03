@@ -6,10 +6,6 @@ if (!preg_match($username_regex, $username)){
     echo "Please ensure that your username contains only numbers and alphabets";
     $regex_check = 0;
 }
-if (!preg_match($username_regex, $password_conf)){
-    echo "Please ensure that your password contains only numbers and alphabets";
-    $regex_check = 0;
-}
 if (!preg_match($email_regex, $email)){
     echo "Please ensure that your email is correct";
     $regex_check = 0;
