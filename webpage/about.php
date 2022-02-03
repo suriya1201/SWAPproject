@@ -1,4 +1,7 @@
-
+<?php include "session_regen.php";
+include "navbar.php";
+     
+?>
 <html>
 <h1>ABOUT US</h1>
 

@@ -42,7 +42,7 @@ if(mysqli_num_rows($result) === 1 && $_POST['g-recaptcha-response'] != "") {
             $query = $con->prepare("INSERT INTO tp_amc.login_log (User_name,Action) VALUES (?,?)");
             $query->bind_param('ss', $username , $action );
             $query->execute();
-            $username =$_SESSION['Username'];        
+                 
 
             
 
