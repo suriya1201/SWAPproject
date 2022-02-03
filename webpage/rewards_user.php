@@ -36,7 +36,7 @@ include "db_connection.php";
         echo "</table>";
         echo'<form method="post" action="fxredeem_rewards.php"> 
                 <label >Enter id:</label><input type="text" name="id"><br>
-                <input type="submit" name="submit5"></input><br>
+                <input type="submit" name="submit5" href="https://localhost/SWAPproject/webpage/rewards_user.php"></input><br>
             </form>';
         ?>
     </body>
