@@ -57,7 +57,7 @@ if( !isset($googleAuth) || $googleAuth == ""){
        </body>
        ';
      //check if code is true 
-       if (isset($_POST['submit2'])){
+    if (isset($_POST['submit2'])){
        $code1= $_POST['code1'];
        if ($g->checkCode($secret1, $code1)) {
             header("Location:https://localhost/SWAPproject/webpage/logged_in.php");
