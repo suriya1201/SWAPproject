@@ -53,7 +53,11 @@ $result = $query->get_result();
      }
 
 
-    require_once "fxdelete_userrewards.php";
+     $points = 0;
+     $query= $con->prepare("DELETE FROM rewards WHERE Points  = ?");
+     $query->bind_param('i', $points);
+     $query->execute();
+     }
 
 
 ?>
