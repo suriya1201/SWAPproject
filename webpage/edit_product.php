@@ -2,7 +2,7 @@
 <?php 
 session_start();
 
-if ($_SESSION['Role'] != 'p_admin') {
+if ($_SESSION['Role'] != 'p_admin') { //ensure only p_admin can access this page
     echo "<script>alert('UNAUTHORIZED ACCESS IS NOT ALLOWED')</script>";
     die();
 }
@@ -21,8 +21,8 @@ if ($_SESSION['Role'] != 'p_admin') {
 <?php
 $connect = mysqli_connect("localhost","root","","tp_amc");
 $id = $_GET['id'];
-$id = mysqli_real_escape_string($connect, $id);
-$query="SELECT Product_Name, Product_Description, Price, Quantity, Item_points, Image FROM `products` WHERE ID='$id'";
+$id = mysqli_real_escape_string($connect, $id); //remove special characters
+$query="SELECT Product_Name, Product_Description, Price, Quantity, Item_points, Image FROM `products` WHERE ID='$id'"; //displaying information from database into the form
 $result=mysqli_query($connect, $query);
 while($row=mysqli_fetch_array($result)){
 ?>

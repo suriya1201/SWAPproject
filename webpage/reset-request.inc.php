@@ -17,7 +17,7 @@ if(isset($_POST["reset-request-submit"])){ //when the button is pressed
     $sql = "DELETE FROM pwdReset WHERE pwdResetEmail=?;"; //delete all existing token/tokens
     $stmt = mysqli_stmt_init($con);
     if(!mysqli_stmt_prepare($stmt, $sql)){
-        echo "There was an error";
+        echo "<script>alert('Connection error')</script>";
         exit();
     } else{
         mysqli_stmt_bind_param($stmt, "s", $userEmail);
@@ -27,7 +27,7 @@ if(isset($_POST["reset-request-submit"])){ //when the button is pressed
     $sql = "INSERT INTO pwdReset (pwdResetEmail, pwdResetSelector, pwdResetToken, pwdResetExpire) VALUES (?, ?, ?, ?);"; //insert into the password reset database
     $stmt = mysqli_stmt_init($con);
     if(!mysqli_stmt_prepare($stmt, $sql)){
-        echo "There was an error";
+        echo "<script>alert('Error inserting into database')</script>";
         exit();
     } else{
         
@@ -41,7 +41,7 @@ if(isset($_POST["reset-request-submit"])){ //when the button is pressed
 
     $to = $userEmail;
 
-    $subject = 'Reset your password';
+    $subject = 'Reset your password'; //contents of mail
 
     $message = '<p>We received a password reset request. The link to reset your password is below. If you did not make this request, you can ignore this email</p>';
     $message .= '<p>Here is your password reset link: </br>';
