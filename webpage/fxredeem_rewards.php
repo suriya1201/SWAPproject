@@ -1,18 +1,18 @@
 <?php
 include "db_connection.php";
-
 require "rewards_user.php";
 
 if (isset($_POST['submit5'])){
-
 $User_id =$_SESSION['ID'];
 $reward = htmlspecialchars($_POST['id']);
 
 $reward_regex = "/^[0-9]+$/";
-if (!preg_match($reward_regex){
+$regex_check = 1;
+if (!preg_match($reward_regex, $reward)){
 	echo "<script>alert('Please ensure that the item contains only numbers')</script>";
+    $regex_check = 0;
 }
-else {
+elseif($regex_check == 1) {
 $query = $con->prepare("SELECT  reward_points FROM reward_types WHERE ID = ? ");
 $query->bind_param('i', $reward);
 $query->execute();
@@ -25,6 +25,7 @@ while($row = $result->fetch_assoc()) {
 else{
     $reward_point= 0;
 }
+
 
 
 $query=$con->prepare("UPDATE rewards SET Points = (Points - ?) WHERE User_id = ? ");
