@@ -13,7 +13,12 @@
             <a class="logo" href="https://www.tp.edu.sg/home.html"><img src="images/tplogo.png" alt="logo" width="60px" height="60px"></a>
             <nav>
                 <ul class="nav__links">
-                    <li><a href="Homepage.php">Home</a></li>
+                    <?php if (isset($_SESSION['Username'])) {
+                        echo("<li><a href=logged_in.php>Home</a></li>");
+                    }
+                    else {
+                        echo("<li><a href=Homepage.php>Home</a></li>");
+                    }?>
                     <li><a href="about.php">About</a></li>
                     <?php
 

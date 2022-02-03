@@ -11,12 +11,6 @@ require 'vendor/autoload.php';
 
 $mail = new PHPMailer(true);
 
-function validate($data){
-    $data = trim($data);
-    $data = stripslashes($data);
-    $data = htmlspecialchars($data); 
-    return $data;
-}
 
 $password_conf = $_POST['psw-confirm'];
 $password = $_POST['psw'];

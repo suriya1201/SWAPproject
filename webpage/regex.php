@@ -1,5 +1,12 @@
 <?php
 
+function validate($data){
+    $data = trim($data);
+    $data = stripslashes($data);
+    $data = htmlspecialchars($data);
+    return $data;
+}
+
 $regex_check = 1;
 
 $username_regex = "/^[A-Za-z0-9 ]+$/"; #For password also
