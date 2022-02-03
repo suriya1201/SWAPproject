@@ -1,4 +1,4 @@
-<?php include "session_regen.php";
+<?php 
 include "navbar.php";
      
 ?>
