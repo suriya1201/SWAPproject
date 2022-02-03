@@ -1,8 +1,8 @@
 <?php include "navbar.php" ?>
 
 <?php
-  $selector = $_GET["selector"]; //get the selector variable
-  $validator = $_GET["validator"]; //get the validator variable 
+  $selector = $_GET["selector"]; //get the selector variable, need to use hidden variable later on when submitting the form because the reset password php requires the selector
+  $validator = $_GET["validator"]; //get the validator variable, need to use hidden variable later on when submitting the form because the reset password php requires the validator
 
   if(empty($selector) || empty($validator)) { //if empty
       echo"We could not validate your request";
