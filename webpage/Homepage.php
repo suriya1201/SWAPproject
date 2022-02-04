@@ -29,7 +29,7 @@
                     </div>
                     <div class="row">
                         <h4><?php echo $fetch['Product_Name'] ?></h4>
-                        <button onclick="window.location.href='checkoutpage.php'">Add to cart</button>
+                        <button onclick="window.location.href='purchase_page.php'">Add to cart</button>
                         
                     </div>
         </div>
