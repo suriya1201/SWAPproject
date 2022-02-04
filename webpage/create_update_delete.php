@@ -17,11 +17,11 @@ $Custom_word = $_POST["Custom_word"];
     
     
     if ($query->execute()){
-        echo "Query executed, Database updated";
+        echo "Purchase Successful!";
     }
     else{
         echo $query->error;
-        echo "Error executing query";
+        echo "Error Purchasing.";
     }
     
 
