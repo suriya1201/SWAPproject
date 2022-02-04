@@ -1,12 +1,17 @@
 <?php
+include "session_regen.php";
 require 'vendor/autoload.php';
 include "db_connection.php";
+
+include "navbar2.php";
+
+
 
 $userid = $_SESSION['ID'];
 $email = $_SESSION['Email'];
 $g =new \Sonata\GoogleAuthenticator\GoogleAuthenticator();
 $secret = $g->generateSecret();
-include "navbar2.php";
+
 
 
 //sql prepared statement  to check if user has google_auth code alr 
