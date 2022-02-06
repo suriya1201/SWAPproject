@@ -5,7 +5,7 @@ if(isset($_POST["reset-request-submit"])){ //when the button is pressed
     $selector = bin2hex(random_bytes(8)); //generate a first token with random bytes and convert to hexadecimal so we can use later
     $token = random_bytes(32); //generate a second token with random bytes
 
-    $url = "http://localhost/swapproject/webpage/create-new-password.php?selector=" . $selector ."&validator=" . bin2hex($token); //convert the second token to hexadecimal 
+    $url = "http://localhost/swapproject/webpage/create-new-password.php?selector=" . $selector ."&validator=" . bin2hex($token); //convert the second token to hexadecimal from binary
 
     $expires = date("U") + 1800; //+ 1800 is one hour from now. so token will expire 1hr from the time created
 
