@@ -20,7 +20,7 @@ if ($_SESSION['Role'] != 'p_admin') { //ensure only p_admin can access this page
 <?php
 $connect = mysqli_connect("localhost","root","","tp_amc");
 $id = $_GET['id'];
-$id = mysqli_real_escape_string($connect, $id); //remove special characters
+$id = mysqli_real_escape_string($connect, $id); //remove special characters before inserting into the database
 $query="SELECT Product_Name, Product_Description, Price, Quantity, Item_points, Image FROM `products` WHERE ID='$id'"; //displaying information from database into the form
 $result=mysqli_query($connect, $query);
 while($row=mysqli_fetch_array($result)){
