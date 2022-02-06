@@ -30,7 +30,7 @@ if (isset($_POST["reset-password-submit"])){ //when button is pressed
         header("Location: create-new-password.php?newpwd=invalidchars"); //error will occur saying selector & validator is empty, supposed to happen because of newpwd=invalidchars in url
         exit();
     } else if (strlen($password || $passwordRepeat)>6){
-        header("Location: create-new-password.php?newpwd=6charactersatleast"); //error will occur saying selector & validator is empty, supposed to happen because of newpwd=invalidlength in url
+        header("Location: create-new-password.php?newpwd=6charactersatleast"); //error will occur saying selector & validator is empty, supposed to happen because of newpwd=6charactersatleast in url
         exit();
     }
 
