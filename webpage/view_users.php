@@ -37,6 +37,7 @@ if($nrows>0){
     echo "<th>Phone_Number</th>";
     echo "<th>User_type</th>";
     echo "<th> </th>";
+    echo "<th> </th>";
     echo "</tr>";
     
     While($row=$result->fetch_assoc()){ //fetch assoc allows you to read in a record and allows you to traverse your results row by row
@@ -58,6 +59,9 @@ if($nrows>0){
         echo "</td>";
         echo "<td>";
         echo $row['User_type'];//coresponding record, column's value and prints it out
+        echo "</td>";
+        echo "<td>";
+        echo "<a href='edit.php'>Edit</a>";
         echo "</td>";
         echo "<td>";
         echo "<a href='deleteuser.php'>Delete</a>";
