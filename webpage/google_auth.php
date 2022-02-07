@@ -1,5 +1,5 @@
 <?php
-include "session_regen.php";
+session_start();
 require 'vendor/autoload.php';
 include "db_connection.php";
 
