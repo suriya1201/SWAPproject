@@ -1,3 +1,12 @@
+<?php 
+    include 'navbar.php';
+	include 'db_connection.php';
+	if (!isset($_SESSION["Username"])){
+		header("Location: Homepage.php");
+		exit();
+	}
+?>
+
 <html>
 	<head>
         <meta charset="utf-8">

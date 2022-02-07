@@ -37,7 +37,7 @@ if ($regex_check == 1) {
                 $_SESSION['Username'] = $row['Username'];
                 $_SESSION['Role'] = $row['User_type'];
                 $_SESSION['ID'] = $row['ID'];
-                $_SESSION['Email']=$row['Email'];
+                $_SESSION['Email'] = $row['Email'];
                 $_SESSION['timeout'] = time();
 
                 $action = "login";

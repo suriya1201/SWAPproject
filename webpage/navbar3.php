@@ -12,6 +12,7 @@
         <?php
         include "db_connection.php";
         include "session_regen.php";
+        $points = 0;
         $query=$con->prepare("SELECT Points FROM rewards WHERE User_id = ? ");
         $query->bind_param('i', $_SESSION['ID']);
         $query->execute();

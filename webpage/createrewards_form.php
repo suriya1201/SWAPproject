@@ -1,4 +1,9 @@
-<?php include "navbar.php" ?>
+<?php include "navbar.php";
+if ($_SESSION['Role'] != 'r_admin') { //ensure only r_admin can access this page
+    echo "<script>alert('UNAUTHORIZED ACCESS IS NOT ALLOWED')</script>";
+    die();
+}
+?>
 <html>
 <head>
 	<style>

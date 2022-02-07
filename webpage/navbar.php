@@ -25,7 +25,8 @@
                     if (isset($_SESSION["Username"]) && isset($_SESSION["Role"]) && $_SESSION["Role"] == "p_admin") {
                         echo("<li><a href=create_product_form.php>Go back to adding page</a></li>");
                     }
-                    else if (isset($_SESSION["Username"]) && isset($_SESSION['Role'])){
+                    
+                    if (isset($_SESSION["Username"]) && isset($_SESSION['Role'])){
                         echo("<li><a href=rewardspage.php>Rewards</a></li>");
                         echo("<li><a href=Profile_page.php>Profile</a></li>");
                         echo("<li><a href=cartpage.php>Shopping Cart</a></li>");

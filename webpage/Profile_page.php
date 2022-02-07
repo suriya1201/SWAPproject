@@ -1,5 +1,5 @@
 <?php
-
+include "navbar.php";
 
 if (!isset($_SESSION["Username"])){
     header("Location: Homepage.php");
@@ -17,7 +17,6 @@ if (!isset($_SESSION["Username"])){
         <link rel="stylesheet" href="/w3css/3/w3.css">
     </head>
     <body>
-        <?php include "navbar.php" ?>
         <?php include "retrieveprofile.php" ?>
 
         <form action="updateprofile.php" method="post">
