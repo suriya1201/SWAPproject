@@ -74,7 +74,7 @@ if (isset($_POST["reset-password-submit"])){ //when button is pressed
                     mysqli_stmt_execute($stmt);
                     $result = mysqli_stmt_get_result($stmt);
                     if (!$row = mysqli_fetch_assoc($result)){
-                        echo "<script>alert('Email field is empty')</script>"; //if email field is empty somehow
+                        echo "<script>alert('Email field is empty')</script>"; //if email field is empty 
                     exit();
                     } else{
 
