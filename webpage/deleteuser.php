@@ -1,10 +1,11 @@
 <?php 
 include "db_connection.php";
-
-$user = $_SESSION("username");
-$stmt = $con->prepare("DELETE FROM user WHERE Username=?");
-$stmt->bind_param('s', $user);
+echo $_GET['id'];
+$id = $_GET['id'];
+$stmt = $con->prepare("DELETE FROM user WHERE ID=?");
+$stmt->bind_param('s', $id);
 if ($stmt->execute()) {
-    echo "Query executed.";
+    echo "<script>alert('user deleted')</script>";
+    header("view_users.php");
 }
 ?>

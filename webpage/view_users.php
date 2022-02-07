@@ -1,6 +1,11 @@
 <?php 
 include "db_connection.php";
 include "navbar.php";
+
+if ($_SESSION['Role'] != 'u_admin') { //ensure only p_admin can access this page
+    echo "<script>alert('UNAUTHORIZED ACCESS IS NOT ALLOWED')</script>";
+    echo "<script>window.location.replace('Homepage.php')</script>";
+}
 ?>
 
 <html>
@@ -40,35 +45,18 @@ if($nrows>0){
     echo "<th> </th>";
     echo "</tr>";
     
-    While($row=$result->fetch_assoc()){
-        echo "<tr>";
-        echo "<td>";
-        echo $row['ID']; 
-        echo "</td>";
-        echo "<td>";
-        echo $row['Username'];
-        echo "</td>";
-        echo "<td>";
-        echo $row['Email'];
-        echo "</td>";
-        echo "<td>";
-        echo $row['Address'];
-        echo "</td>";
-        echo "<td>";
-        echo $row['Phone_Number'];
-        echo "</td>";
-        echo "<td>";
-        echo $row['User_type'];
-        echo "</td>";
-        echo "<td>";
-        echo "<a href='edit.php'>Edit</a>";
-        echo "</td>";
-        echo "<td>";
-        echo "<a href='deleteuser.php'>Delete</a>";
-        echo "</td>";
-
-        echo "</tr>";
-        
+    While($row=$result->fetch_assoc()){ ?>
+    <tr>
+        <td><?php echo $row['ID']; ?></td>
+        <td><?php echo $row['Username']; ?></td>
+        <td><?php echo $row['Email']; ?></td>
+        <td><?php echo $row['Address']; ?></td>
+        <td><?php echo $row['Phone_Number']; ?></td>
+        <td><?php echo $row['User_type']; ?></td>
+        <td><a href='edit.php'>Edit</a></td>
+        <td><a href='deleteuser.php?id=<?php echo $row["ID"]; ?>'>Delete</a></td>
+    </tr>
+       <?php 
     }
     echo "</table>";
     

@@ -75,14 +75,9 @@ if( !isset($googleAuth) || $googleAuth == ""){
         $query->bind_param('ss', $username , $action );
         $query->execute();
             
-        if($row['User_type'] == 'p_admin'){
-            header("Location: create_product_form.php");
-        }else if ($row['User_type'] == 'r_admin'){
-            header("Location: rewardspage.php");
-        }else{
-          header("Location:https://localhost/SWAPproject/webpage/logged_in.php");
-          exit;
-        }
+        header("Location:https://localhost/SWAPproject/webpage/logged_in.php");
+        exit;
+
       }
        else {
             echo '<script>alert("You have typed in the wrong OTP")</script>';
@@ -131,14 +126,8 @@ if( !isset($googleAuth) || $googleAuth == ""){
           $query->bind_param('ss', $username , $action );
           $query->execute();
               
-          if($row['User_type'] == 'p_admin'){
-              header("Location: create_product_form.php");
-          }else if ($row['User_type'] == 'r_admin'){
-              header("Location: rewardspage.php");
-          }else{
-            header("Location:https://localhost/SWAPproject/webpage/logged_in.php");
-            exit;
-          }
+          header("Location:https://localhost/SWAPproject/webpage/logged_in.php");
+          
         }
         } 
         else {
