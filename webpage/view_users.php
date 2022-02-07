@@ -2,7 +2,7 @@
 include "db_connection.php";
 include "navbar.php";
 
-if ($_SESSION['Role'] != 'u_admin') { //ensure only p_admin can access this page
+if ($_SESSION['Role'] != 'u_admin') {
     echo "<script>alert('UNAUTHORIZED ACCESS IS NOT ALLOWED')</script>";
     echo "<script>window.location.replace('Homepage.php')</script>";
 }

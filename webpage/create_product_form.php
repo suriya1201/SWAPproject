@@ -3,6 +3,7 @@ include 'navbar.php' ;
 
 if ($_SESSION['Role'] != 'p_admin') { //ensure only p_admin can access this page
     echo "<script>alert('UNAUTHORIZED ACCESS IS NOT ALLOWED')</script>";
+    echo "<script>window.location.replace('Homepage.php')</script>";
 } 
 
 ?>

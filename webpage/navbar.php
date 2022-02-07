@@ -23,7 +23,9 @@
                     <?php
                     include "session_regen.php";
                     if (isset($_SESSION["Username"]) && isset($_SESSION["Role"]) && $_SESSION["Role"] == "p_admin") {
-                        echo("<li><a href=create_product_form.php>Go back to adding page</a></li>");
+                        echo("<li><a href=create_product_form.php>Adding page</a></li>");
+                    } else if (isset($_SESSION["Username"]) && isset($_SESSION["Role"]) && $_SESSION["Role"] == "u_admin") {
+                        echo("<li><a href=view_users.php>View Users</a></li>");
                     }
                     
                     if (isset($_SESSION["Username"]) && isset($_SESSION['Role'])){
