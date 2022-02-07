@@ -3,19 +3,19 @@ include "db_connection.php";
 include "regex.php";
 
 if (!preg_match($username_regex, $username)){
-    echo "Please ensure that your username contains only numbers and alphabets";
+    echo "<script>alert('Please ensure that your username contains only numbers and alphabets')</script>";
     $regex_check = 0;
 }
 if (!preg_match($email_regex, $email)){
-    echo "Please ensure that your email is correct";
+    echo "<script>alert('Please ensure that your email is correct')</script>";
     $regex_check = 0;
 }
 if (!preg_match($address_regex, $address)){
-    echo "Please ensure that your address is correct";
+    echo "<script>alert('Please ensure that your address is correct')</script>";
     $regex_check = 0;
 }
 if (!preg_match($contact_regex, $contact)){
-    echo "Only numbers within 8 digits is allowed";
+    echo "<script>alert('Only numbers within 8 digits is allowed')</script>";
     $regex_check = 0;
 }
 if ($regex_check == 1) {
