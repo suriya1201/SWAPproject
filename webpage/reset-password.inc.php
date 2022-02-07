@@ -40,7 +40,7 @@ if (isset($_POST["reset-password-submit"])){ //when button is pressed
 
     $sql = "SELECT * FROM pwdReset WHERE pwdResetSelector=? AND pwdResetExpire >= ?"; //select the data from the table when we sent a request to reset password
     $stmt = mysqli_stmt_init($con);
-    if(!mysqli_stmt_prepare($stmt, $sql)){ //either fields are missing for some reason or cannot connect
+    if(!mysqli_stmt_prepare($stmt, $sql)){ //either fields are missing or cannot connect
         echo "<script>alert('Connection error or missing fields')</script>";
         exit();
     } else{
