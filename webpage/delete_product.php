@@ -12,7 +12,7 @@ if ($_SESSION['Role'] != 'p_admin') { //ensure only p_admin can access this page
 <?php 
 $connect = mysqli_connect("localhost","root","","tp_amc");
 $id = $_GET['id'];
-$id = mysqli_real_escape_string($connect, $id);
+$id = mysqli_real_escape_string($connect, $id); //remove special characters before inserting into the database
 $query= $connect->prepare("DELETE FROM products WHERE ID='$id'"); //delete based on the id
 
 if ($query->execute()) {
