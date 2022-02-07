@@ -57,8 +57,10 @@ if ($regex_check == 1) {
                     header("Location: create_product_form.php");
                 }else if ($row['User_type'] == 'r_admin'){
                     header("Location: rewardspage.php");
-                }else {
-                    header("Location: logged_in.php");
+                }else if($row['User_type'] == 'u_admin'){
+                    header("Location: biew_users.php");
+                }else{
+                    header("logged_in.php");
                 }
             }
         }
