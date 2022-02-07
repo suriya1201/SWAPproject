@@ -14,12 +14,13 @@ $Custom_word = validate($_POST["Custom_word"]);
 $query = $con->prepare("INSERT INTO `purchase` (`Product_Name`,`Quantity`,`Custom_word`) VALUES (?,?,?)");
 $query->bind_param('sis',$Product_Name,$Quantity,$Custom_word);
 
+
 if (!preg_match($productname_regex, $Product_Name)){
     echo "Please ensure that the product name field contains only alphabets";
     $regex_check = 0;
 }
 if (!preg_match($quantity_regex, $Quantity)){
-    echo "Please ensure that your password contains only numbers";
+    echo "Please ensure that the quantity contains only numbers";
     $regex_check = 0;
 }
 if (!preg_match($username_regex, $Custom_word)){
@@ -27,13 +28,16 @@ if (!preg_match($username_regex, $Custom_word)){
     $regex_check = 0;
 
 }
-if ($query->execute()){
-    echo "Purchase Successful!";
-}
-else{
-    echo $query->error;
-    echo "Error Purchasing.";
+
+if ($regex_check == 1) {
+    if ($query->execute()){
+        echo "Purchase Successful!";
     }
+    else{
+        echo $query->error;
+        echo "Error Purchasing.";
+        }
+}
     
 
 
