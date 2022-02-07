@@ -61,16 +61,15 @@ $Points = ($Quantity * $item_points ) ;
 
 
 
-$query=$con->prepare("SELECT EXISTS(SELECT User_id FROM tp_amc.rewards WHERE User_id = ?)");
+$query=$con->prepare("SELECT User_id FROM tp_amc.rewards WHERE User_id = ?");
 $query->bind_param('i',$user_id );
 $query->execute();
 $result = $query->get_result();
     if ($result->num_rows > 0) {
 
-    while($row = $result->fetch_assoc()) {
-         $User_id = $row["User_id"];
-     }}
-     
+    $row = $result->fetch_assoc();
+    $User_id = $row["User_id"];
+    }
      if( !isset($User_id) || $User_id == ""){
 
     $query=$con->prepare("INSERT INTO tp_amc.rewards (Points,User_id) VALUES (?,?)");
@@ -82,7 +81,7 @@ $result = $query->get_result();
 
      }
      else{
-        $query=$con->prepare("UPDATE rewards SET Points = ? + Points WHERE User_id=? ");
+        $query=$con->prepare("UPDATE rewards SET Points = (? + Points) WHERE User_id=? ");
         $query->bind_param('ii',$Points,$user_id );
         $query->execute();
 
