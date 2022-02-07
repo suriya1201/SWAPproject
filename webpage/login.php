@@ -58,7 +58,7 @@ if ($regex_check == 1) {
                 }else if ($row['User_type'] == 'r_admin'){
                     header("Location: rewardspage.php");
                 }else if($row['User_type'] == 'u_admin'){
-                    header("Location: biew_users.php");
+                    header("Location: view_users.php");
                 }else{
                     header("logged_in.php");
                 }
