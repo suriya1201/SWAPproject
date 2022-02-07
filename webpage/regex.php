@@ -15,5 +15,5 @@ $email_regex = "/^[a-zA-Z0-9_.+-]+@[a-zA-Z0-9-]+\.[a-zA-Z0-9-.]+/";
 $contact_regex = "/\b\d{8}\b/";
 $address_regex = "/^[A-Za-z0-9 .,#-]+$/";
 $productname_regex = "/^[A-Za-z]+$/";
-$quantity_regex = "/\b\d{3}\b/";
+$quantity_regex = "/\b[0-9]{1,3}\b/"
 ?>
