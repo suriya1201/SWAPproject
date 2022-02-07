@@ -18,7 +18,6 @@
         <link rel="stylesheet" href="/w3css/3/w3.css">
     </head>
 	<body>
-    <?php include 'navbar.php' ?>
     <?php include 'db_connection.php' ?>
 	
 	
