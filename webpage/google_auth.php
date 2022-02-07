@@ -33,7 +33,7 @@ if( !isset($googleAuth) || $googleAuth == ""){
      $query->bind_param('si', $secret , $userid);
      $query->execute();
 
-     $Query= $con->prepare("SELECT Username,Email,Address,Phone_Number,User_type,google_auth FROM user WHERE ID = ?");
+     $Query= $con->prepare("SELECT ID,Username,Email,Address,Phone_Number,User_type,google_auth FROM user WHERE ID = ?");
      $Query->bind_param('i', $userid);
      $Query->execute();
      $result = $Query->get_result();
@@ -62,6 +62,16 @@ if( !isset($googleAuth) || $googleAuth == ""){
     if (isset($_POST['submit2'])){
        $code1= $_POST['code1'];
        if ($g->checkCode($secret1, $code1)) {
+       session_start();
+        $Query= $con->prepare("SELECT ID,Username,Email,Address,Phone_Number,User_type,google_auth FROM user WHERE ID = ?");
+        $Query->bind_param('i', $userid);
+        $Query->execute();
+        $result = $Query->get_result();
+        if ($result->num_rows > 0) {
+        $row = $result->fetch_assoc();
+
+      
+        
         $_SESSION['Username'] = $row['Username'];
         $_SESSION['Role'] = $row['User_type'];
         $_SESSION['ID'] = $row['ID'];
@@ -79,6 +89,7 @@ if( !isset($googleAuth) || $googleAuth == ""){
         exit;
 
       }
+    }
        else {
             echo '<script>alert("You have typed in the wrong OTP")</script>';
         }
@@ -105,14 +116,14 @@ if( !isset($googleAuth) || $googleAuth == ""){
         $code2= $_POST['code2'];
 
         if ($g->checkCode($secret2, $code2)) {
-
-          $Query= $con->prepare("SELECT Username,Email,Address,Phone_Number,User_type,google_auth FROM user WHERE ID = ?");
+          session_start();
+          $Query= $con->prepare("SELECT ID,Username,Email,Address,Phone_Number,User_type,google_auth FROM user WHERE ID = ?");
           $Query->bind_param('i', $userid);
           $Query->execute();
           $result = $Query->get_result();
           if ($result->num_rows > 0) {
           $row = $result->fetch_assoc();
-
+          
           $_SESSION['Username'] = $row['Username'];
           $_SESSION['Role'] = $row['User_type'];
           $_SESSION['ID'] = $row['ID'];
