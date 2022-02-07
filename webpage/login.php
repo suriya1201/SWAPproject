@@ -33,7 +33,13 @@ if ($regex_check == 1) {
             if ( empty($row['Verified_date']) ) {
                 $email = $row['Email'];
                 header("Location: email_verify.php?email=" . $email);
-            }else{
+            }else if ($row['User_type'] == "user"){
+                $email = $row['Email'];
+                $ID = $row["ID"];
+                $googleAuth1 = $row["google_auth"];
+                header("Location: google_auth.php?email=" . $email . "&ID=" . $ID);
+            }
+            else{
                 $_SESSION['Username'] = $row['Username'];
                 $_SESSION['Role'] = $row['User_type'];
                 $_SESSION['ID'] = $row['ID'];
@@ -52,7 +58,7 @@ if ($regex_check == 1) {
                 }else if ($row['User_type'] == 'r_admin'){
                     header("Location: rewardspage.php");
                 }else {
-                    header("Location: google_auth.php");
+                    header("Location: logged_in.php");
                 }
             }
         }

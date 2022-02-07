@@ -5,10 +5,8 @@ include "db_connection.php";
 
 include "navbar2.php";
 
-
-
-$userid = $_SESSION['ID'];
-$email = $_SESSION['Email'];
+$userid = $_GET['ID'];
+$email = $_GET['email'];
 $g =new \Sonata\GoogleAuthenticator\GoogleAuthenticator();
 $secret = $g->generateSecret();
 
@@ -35,14 +33,14 @@ if( !isset($googleAuth) || $googleAuth == ""){
      $query->bind_param('si', $secret , $userid);
      $query->execute();
 
-     $Query= $con->prepare("SELECT google_auth FROM user WHERE ID = ?");
+     $Query= $con->prepare("SELECT Username,Email,Address,Phone_Number,User_type,google_auth FROM user WHERE ID = ?");
      $Query->bind_param('i', $userid);
      $Query->execute();
      $result = $Query->get_result();
     if ($result->num_rows > 0) {
 
     while($row = $result->fetch_assoc()) {
-         $googleAuth1 = $row["google_auth"];
+        $googleAuth1 = $row["google_auth"];
      }}
      
      $secret1 =$googleAuth1;
@@ -64,9 +62,28 @@ if( !isset($googleAuth) || $googleAuth == ""){
     if (isset($_POST['submit2'])){
        $code1= $_POST['code1'];
        if ($g->checkCode($secret1, $code1)) {
-            header("Location:https://localhost/SWAPproject/webpage/logged_in.php");
-            exit();
-         } 
+        $_SESSION['Username'] = $row['Username'];
+        $_SESSION['Role'] = $row['User_type'];
+        $_SESSION['ID'] = $row['ID'];
+        $_SESSION['Email'] = $row['Email'];
+        $_SESSION['timeout'] = time();
+
+        $action = "login";
+        $username =$_SESSION['Username'];
+        
+        $query = $con->prepare("INSERT INTO tp_amc.login_log (User_name,Action) VALUES (?,?)");
+        $query->bind_param('ss', $username , $action );
+        $query->execute();
+            
+        if($row['User_type'] == 'p_admin'){
+            header("Location: create_product_form.php");
+        }else if ($row['User_type'] == 'r_admin'){
+            header("Location: rewardspage.php");
+        }else{
+          header("Location:https://localhost/SWAPproject/webpage/logged_in.php");
+          exit;
+        }
+      }
        else {
             echo '<script>alert("You have typed in the wrong OTP")</script>';
         }
@@ -93,12 +110,41 @@ if( !isset($googleAuth) || $googleAuth == ""){
         $code2= $_POST['code2'];
 
         if ($g->checkCode($secret2, $code2)) {
+
+          $Query= $con->prepare("SELECT Username,Email,Address,Phone_Number,User_type,google_auth FROM user WHERE ID = ?");
+          $Query->bind_param('i', $userid);
+          $Query->execute();
+          $result = $Query->get_result();
+          if ($result->num_rows > 0) {
+          $row = $result->fetch_assoc();
+
+          $_SESSION['Username'] = $row['Username'];
+          $_SESSION['Role'] = $row['User_type'];
+          $_SESSION['ID'] = $row['ID'];
+          $_SESSION['Email'] = $row['Email'];
+          $_SESSION['timeout'] = time();
+
+          $action = "login";
+          $username =$_SESSION['Username'];
+          
+          $query = $con->prepare("INSERT INTO tp_amc.login_log (User_name,Action) VALUES (?,?)");
+          $query->bind_param('ss', $username , $action );
+          $query->execute();
+              
+          if($row['User_type'] == 'p_admin'){
+              header("Location: create_product_form.php");
+          }else if ($row['User_type'] == 'r_admin'){
+              header("Location: rewardspage.php");
+          }else{
             header("Location:https://localhost/SWAPproject/webpage/logged_in.php");
             exit;
+          }
+        }
         } 
         else {
           echo '<script>alert("You have typed in the wrong OTP")</script>';
         } 
+      
   }
 }
 
