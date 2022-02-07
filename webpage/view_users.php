@@ -37,27 +37,31 @@ if($nrows>0){
     echo "<th>Phone_Number</th>";
     echo "<th>User_type</th>";
     echo "<th> </th>";
+    echo "<th> </th>";
     echo "</tr>";
     
-    While($row=$result->fetch_assoc()){ //fetch assoc allows you to read in a record and allows you to traverse your results row by row
+    While($row=$result->fetch_assoc()){
         echo "<tr>";
         echo "<td>";
-        echo $row['ID']; //coresponding record, column's value and prints it out
+        echo $row['ID']; 
         echo "</td>";
         echo "<td>";
-        echo $row['Username'];//coresponding record, column's value and prints it out
+        echo $row['Username'];
         echo "</td>";
         echo "<td>";
-        echo $row['Email'];//coresponding record, column's value and prints it out
+        echo $row['Email'];
         echo "</td>";
         echo "<td>";
-        echo $row['Address'];//coresponding record, column's value and prints it out
+        echo $row['Address'];
         echo "</td>";
         echo "<td>";
-        echo $row['Phone_Number'];//coresponding record, column's value and prints it out
+        echo $row['Phone_Number'];
         echo "</td>";
         echo "<td>";
-        echo $row['User_type'];//coresponding record, column's value and prints it out
+        echo $row['User_type'];
+        echo "</td>";
+        echo "<td>";
+        echo "<a href='edit.php'>Edit</a>";
         echo "</td>";
         echo "<td>";
         echo "<a href='deleteuser.php'>Delete</a>";
