@@ -10,6 +10,14 @@ if (isset($_POST["reset-password-submit"])){ //when button is pressed
     $regex_check = 1; //regex to prevent input of special characters like ! 
 
     $patterncheck = "/^[A-Za-z0-9 ]+$/";
+    $uppercase1 = preg_match('[A-Z]', $password);
+    $lowercase1 = preg_match('[a-z]', $password);
+    $number1    = preg_match('[0-9]', $password);
+    $specialcharacters1 = preg_match('[_!#$%&*^\w]', $password);
+    $uppercase2 = preg_match('[A-Z]', $passwordRepeat);
+    $lowercase2 = preg_match('[a-z]', $passwordRepeat);
+    $number2    = preg_match('[0-9]', $passwordRepeat);
+    $specialcharacters2 = preg_match('[_!#$%&*^\w]', $passwordRepeat);
 
     if(!preg_match($patterncheck, $password)){
         $regex_check = 0;
@@ -31,6 +39,12 @@ if (isset($_POST["reset-password-submit"])){ //when button is pressed
         exit();
     } else if (strlen($password)<6 || strlen($passwordRepeat)<6){
         header("Location: create-new-password.php?newpwd=6charactersatleast"); //error will occur saying selector & validator is empty, supposed to happen because of newpwd=6charactersatleast in url
+        exit();
+    } else if (!$uppercase1 || !$lowercase1 || !$number1 || !$specialcharacters1){
+        header("Location: create-new-password.php?newpwd=passwordshouldinclude1uppercase1number1specialcharacter"); 
+        exit();
+    } else if (!$uppercase2 || !$lowercase2 || !$number2 || !$specialcharacters2){
+        header("Location: create-new-password.php?newrepeatedpwd=passwordshouldinclude1uppercase1number1specialcharacter"); 
         exit();
     }
 
