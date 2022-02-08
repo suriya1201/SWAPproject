@@ -26,6 +26,8 @@
                         echo("<li><a href=create_product_form.php>Adding page</a></li>");
                     } else if (isset($_SESSION["Username"]) && isset($_SESSION["Role"]) && $_SESSION["Role"] == "u_admin") {
                         echo("<li><a href=view_users.php>View Users</a></li>");
+                    } else if (isset($_SESSION["Username"]) && isset($_SESSION["Role"]) && $_SESSION["Role"] == "pcr_admin"){
+                        echo("<li><a href=admin_purchase.php>Admin Purchase</a></li>");
                     }
                     
                     if (isset($_SESSION["Username"]) && isset($_SESSION['Role'])){
