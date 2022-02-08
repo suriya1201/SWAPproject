@@ -59,7 +59,7 @@ if ($regex_check == 1) {
                     header("Location: rewardspage.php");
                 }else if($row['User_type'] == 'u_admin'){
                     header("Location: view_users.php");
-                }else if($row['User_type'] == 'pcr_admin'){
+                }else if($row['User_type'] == 'prc_admin'){
                     header("Location: admin_purchase.php");
                 }else{
                     header("logged_in.php");
