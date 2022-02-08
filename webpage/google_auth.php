@@ -71,7 +71,7 @@ if( !isset($googleAuth) || $googleAuth == ""){
         $row = $result->fetch_assoc();
 
       
-        
+        $username =$row['Username'];
         $_SESSION['Username'] = $row['Username'];
         $_SESSION['Role'] = $row['User_type'];
         $_SESSION['ID'] = $row['ID'];
@@ -79,7 +79,7 @@ if( !isset($googleAuth) || $googleAuth == ""){
         $_SESSION['timeout'] = time();
 
         $action = "login";
-        $username =$_SESSION['Username'];
+        
         
         $query = $con->prepare("INSERT INTO tp_amc.login_log (User_name,Action) VALUES (?,?)");
         $query->bind_param('ss', $username , $action );
