@@ -1,6 +1,7 @@
 <?php
 include "db_connection.php";
 include "regex.php";
+session_start();
 
 if (isset($_SESSION["Username"])) {
     $user = $_SESSION["Username"];
@@ -39,5 +40,6 @@ if (isset($_SESSION["Username"])) {
         echo "Error";
     }
 }
+echo "Error"
 
 ?>
