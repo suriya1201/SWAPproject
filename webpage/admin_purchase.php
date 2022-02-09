@@ -49,7 +49,7 @@ if($nrows>0){
         <td><?php echo $row['Product_Name']; ?></td>
         <td><?php echo $row['Quantity']; ?></td>
         <td><?php echo $row['Custom_word']; ?></td>
-        <td><a href='updatepurchase.php'>Edit</a></td>
+        <td><a href='showingupdate.php'>Edit</a></td>
         <td><a href='deletepurchase.php?id=<?php echo $row["ID"]; ?>'>Delete</a></td>
     </tr>
        <?php 

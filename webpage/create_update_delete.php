@@ -29,7 +29,8 @@ if (!preg_match($username_regex, $Custom_word)){
 
 if ($regex_check == 1) {
     if ($query->execute()){
-        echo "Purchase Successful!";
+        echo "<script>alert('Purchase Successful!')</script>";
+        echo "<script>window.location.replace('homepage.php')</script>";
     }
     else{
         echo $query->error;

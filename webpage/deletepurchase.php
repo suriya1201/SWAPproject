@@ -6,6 +6,6 @@ $stmt = $con->prepare("DELETE FROM purchase WHERE ID=?");
 $stmt->bind_param('s', $id);
 if ($stmt->execute()) {
     echo "<script>alert('Purchase deleted.')</script>";
-    header("admin_purchase.php");
+    echo "<script>window.location.replace('admin_purchase.php')</script>";
 }
 ?>

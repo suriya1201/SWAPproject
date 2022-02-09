@@ -23,14 +23,6 @@
 	
 	<form action="create_update_delete.php" method="POST">
 	
-	<table border="1">
-		<td>
-		Action Type:
-		<br>
-		<input type="radio" value="Add">Add
-		<br>
-
-	</table>
 	<p>
 	
 	<table border="1">
